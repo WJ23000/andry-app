@@ -122,6 +122,7 @@ export default class Home extends Vue {
   }
   // 下拉刷新
   onPullDownRefresh() {
+		console.log("下拉刷新")
     // 正常情况下接口返回应该很会很快。故意延迟调用，让用户有在刷新的体验感
     setTimeout(() => {
       this.ajax.page = 1;
