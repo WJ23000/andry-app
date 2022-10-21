@@ -89,8 +89,8 @@ export default class Classify extends Vue {
   flex-direction: column;
 
   .u-menu-wrap {
-    flex: 1;
     display: flex;
+    flex: 1;
     overflow: hidden;
   }
 

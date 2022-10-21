@@ -1,6 +1,6 @@
 <template lang="pug">
 	view.andry-home
-		view.search-sticky(v-if="top > 280")
+		view.search-sticky(v-if="top > 44")
 			u-search(
 				placeholder="护肤品", 
 				v-model="keyword", 
@@ -42,7 +42,7 @@
 				:rightList="rightList",
 				:loadTxt="ajax.loadTxt",
 				@onHeight="onHeight",
-				@onClick="onClick")
+				@onClick="onGoodsClick")
 		back-top(:top="top")
 </template>
 
@@ -102,6 +102,12 @@ export default class Home extends Vue {
   onLoad() {
     this.getList();
   }
+	
+  // tab切换
+  onTabItem(index) {
+    console.log("点击", index);
+    this.tabCurrent = index;
+  }
 
   // 监听页面滚动(一键置顶，tabs吸顶)
   onPageScroll(e) {
@@ -109,11 +115,6 @@ export default class Home extends Vue {
     this.stickyBgColor = e.scrollTop > 300 ? "#ffffff" : "";
   }
 
-  // tab切换
-  onTabItem(index) {
-    console.log("点击", index);
-    this.tabCurrent = index;
-  }
 
   // 商品推荐列表
   // 触底触发
@@ -141,7 +142,7 @@ export default class Home extends Vue {
     }
   }
   // 组件点击事件
-  onClick(index, tag) {
+  onGoodsClick(index, tag) {
     console.log(index, tag);
     // 对应的数据
     if (tag == "left") {
@@ -304,7 +305,7 @@ page {
     box-sizing: border-box;
   }
   .wrap {
-    padding: 0rpx 6px;
+    padding: 10px 6px;
     background: #ededed;
     .waterfall-box {
       padding: 10px 0px;

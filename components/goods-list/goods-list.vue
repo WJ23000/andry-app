@@ -59,7 +59,7 @@ export default class GoodsList extends Vue {
 .goods-list {
 	background: #ededed;
 	.waterfall-box {
-		padding: 20rpx 0rpx;
+		padding: 0rpx 0rpx 20rpx 0rpx;
 		box-sizing: border-box;
 	
 		> view {
