@@ -20,11 +20,15 @@
 									img.cart-image(:src="item.icon")
 								view.left_box
 									text.cart-title {{item.title}}
-									text.cart-price ￥{{item.price}}
 									text.cart-specif {{item.specif}}
-									text(@click='reduce'  class="input cart-reduce"  :data-index="index") -
-									text(class="input cart-text") {{item.value}}
-									text(@click='add' class="input cart-add"  :data-index="index") +
+									view.cart-count
+										view.cart-money
+											text.cart-unit ￥
+											text.cart-price {{item.price}}
+										view
+											text(@click='reduce'  class="input cart-reduce"  :data-index="index") -
+											text(class="input cart-text") {{item.value}}
+											text(@click='add' class="input cart-add"  :data-index="index") +
 						<!-- 底部 -->
 						view(v-if="showVal")
 							view.del-bottom
@@ -397,11 +401,6 @@ export default class Cart extends Vue {
 
 <style lang="scss" scoped>
 .andry-cart {
-	height: calc(100vh);
-	/* #ifdef H5 */
-	height: calc(100vh - 50px);
-	/* #endif */
-	
 	.cart-header {
 		height: 44px;
 		line-height: 44px;
@@ -409,6 +408,7 @@ export default class Cart extends Vue {
 	.page-content {
 		display: flex;
 		flex: 1;
+		justify-content: center;
 		.cart-main {
 			float: left;
 			width: 88%;
@@ -452,20 +452,35 @@ export default class Cart extends Vue {
 			overflow: hidden;
 			-webkit-line-clamp: 2;
 		}
+		.cart-count {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.cart-unit {
+			font-size: 12px;
+			color: #fa3534;
+		}
+		.cart-money {
+			display: flex;
+			align-items: center;
+		}
 		.cart-price {
 			display: flex;
-			color: #3982f6;
+			color: #fa3534;
 			font-size: 15px;
 			height: 18px;
 			line-height: 18px;
 		}
 		.cart-specif {
-			display: flex;
-			color: #999999;
-			font-size: 15px;
+			padding: 2px 6px;
+			background: #999999;
+			color: #ffffff;
+			font-size: 12px;
 			height: 18px;
 			line-height: 18px;
 			margin-bottom: 5px;
+			border-radius: 25px;
 		}
 		.left {
 			float: left;
@@ -570,7 +585,7 @@ export default class Cart extends Vue {
 			color: white;
 		}
 		.sum_color {
-			color: #3982f6;
+			color: #fa3534;
 			font-size: 12.5px;
 		}
 		.sum_text {
@@ -585,7 +600,7 @@ export default class Cart extends Vue {
 			float: left;
 			width: 100%;
 			background: #ffffff;
-			border-bottom: 1px solid #ccc;
+			border-top: 1px solid #ccc;
 			padding: 10px 0px;
 			box-sizing: border-box;
 		}
@@ -605,7 +620,7 @@ export default class Cart extends Vue {
 		.icon {
 			float: left;
 			width: 5%;
-			margin: 34px 10px;
+			margin: 47px 10px;
 			background: #ffffff;
 		}
 		.icon-bj {
@@ -619,6 +634,7 @@ export default class Cart extends Vue {
 			bottom: 50px;
 			background: #ffffff;
 			border-top: 1px solid #f2f2f2;
+			z-index: 999;
 		}
 		.cart-bottom-edit {
 			float: left;
@@ -627,7 +643,7 @@ export default class Cart extends Vue {
 			line-height: 44px;
 			text-align: center;
 			font-size: 14px;
-			color: #3982f6;
+			color: #fa3534;
 		}
 		.cart-bottom-cell {
 			float: left;
@@ -640,7 +656,7 @@ export default class Cart extends Vue {
 			border-right: 1px solid #f2f2f2;
 		}
 		.del-color {
-			color: #3982f6;
+			color: #fa3534;
 		}
 	}
 }

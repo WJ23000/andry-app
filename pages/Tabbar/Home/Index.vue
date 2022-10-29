@@ -281,7 +281,7 @@ page {
 .andry-home {
   .header {
     background: linear-gradient(to top, #ededed, #ff6666, #ff0000);
-    padding: 0rpx 12px;
+    padding: 0px 12px;
     .search {
       height: 44px;
       line-height: 44px;
