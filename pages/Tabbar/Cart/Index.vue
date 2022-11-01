@@ -51,15 +51,17 @@
 				mode="car"
 				icon="http://cdn.uviewui.com/uview/empty/car.png")
 		<!-- 为您推荐 -->
-		u-divider(text="为您推荐")
-		goods-list(
-			:leftHeight="leftHeight",
-			:rightHeight="rightHeight",
-			:leftList="leftList",
-			:rightList="rightList",
-			:loadTxt="ajax.loadTxt",
-			@onHeight="onHeight",
-			@onClick="onClick")
+		view.wrap
+			u-divider(text="为您推荐")
+			goods-list(
+				:leftHeight="leftHeight",
+				:rightHeight="rightHeight",
+				:leftList="leftList",
+				:rightList="rightList",
+				:loadTxt="ajax.loadTxt",
+				@onHeight="onHeight",
+				@onClick="onClick")
+			back-top(:top="top")
 </template>
 
 <script lang="ts">
@@ -69,6 +71,7 @@ import { GOODS_DATA } from "@/model";
 	components: {}
 })
 export default class Cart extends Vue {
+	top = 0;
 	// 购物车
 	cartItems = [
 		{
@@ -119,6 +122,11 @@ export default class Cart extends Vue {
 
 	onLoad() {
 		this.getList();
+	}
+	
+	// 监听页面滚动(一键置顶，tabs吸顶)
+	onPageScroll(e) {
+		this.top = e.scrollTop;
 	}
 
 	// 购物车
@@ -400,6 +408,9 @@ export default class Cart extends Vue {
 </script>
 
 <style lang="scss" scoped>
+page {
+	background-color: #ededed;
+}
 .andry-cart {
 	.cart-header {
 		height: 44px;
@@ -611,7 +622,7 @@ export default class Cart extends Vue {
 			text-align: center;
 		}
 		.nodata_text {
-			img {	
+			img {
 				margin-top: 50px;
 				width: 44%;
 				height: 150px;
@@ -658,6 +669,9 @@ export default class Cart extends Vue {
 		.del-color {
 			color: #fa3534;
 		}
+	}
+	.wrap {
+		padding: 0px 6px;
 	}
 }
 .cart-right {
