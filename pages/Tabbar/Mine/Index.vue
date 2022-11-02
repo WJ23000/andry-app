@@ -19,7 +19,7 @@
 				u-cell.order-grid-other(title="订单", value="查看更多", :isLink="true", :clickable="true")
 				u-grid(:col="4", :border="false")
 					u-grid-item(v-for="(item, index) in orderGridList", :index="index", :key="index", @click="toOrder(item.id)")
-						u-icon(:name="item.icon", :size="46")
+						image.grid-image(:src="item.image")
 						text.grid-text {{ item.name }}
 			view.other-grid
 				u-scroll-list
@@ -63,21 +63,23 @@ export default class Mine extends Vue {
 		phone: "180XXXX9388"
 	};
 	orderGridList = [
-		{ id: 0, name: "待支付", icon: "integral" },
-		{ id: 1, name: "待收货", icon: "kefu-ermai" },
-		{ id: 2, name: "待评价", icon: "coupon" },
-		{ id: 3, name: "售后/退款", icon: "gift" }
+		{ id: 0, name: "待支付", image: require("@/static/mine/pay.png") },
+		{ id: 1, name: "待收货", image: require("@/static/mine/the-goods.png") },
+		{ id: 2, name: "待评价", image: require("@/static/mine/evaluate.png") },
+		{ id: 3, name: "售后/退款", image: require("@/static/mine/after-sale.png") }
 	];
 	otherGridList = [
 		{ name: "我的钱包", image: require("@/static/mine/wallet.png") },
 		{ name: "我的收藏", image: require("@/static/mine/collection.png") },
 		{ name: "寄件服务", image: require("@/static/mine/post.png") },
+		{ name: "金融中心", image: require("@/static/mine/finance.png") },
 		{ name: "优惠券", image: require("@/static/mine/coupons.png") },
-		{ name: "更过功能", image: require("@/static/mine/other.png") },
+		{ name: "更多功能", image: require("@/static/mine/other.png") },
 	];
 	otherGridListTwo = [
-		{ name: "联系客服", image: require("@/static/mine/after-sale.png") },
+		{ name: "联系客服", image: require("@/static/mine/customer-service.png") },
 		{ name: "车辆服务", image: require("@/static/mine/vehicle-service.png") },
+		{ name: "健康服务", image: require("@/static/mine/health.png") },
 		{ name: "积分中心", image: require("@/static/mine/integral.png") },
 		{ name: "帮助中心", image: require("@/static/mine/help.png") },
 		{ name: "关于", image: require("@/static/mine/about.png") },
@@ -302,7 +304,7 @@ page {
 .andry-mine {
 	.header {
 		background: linear-gradient(to top, #ededed, #ff6666, #fa3534);
-		padding: 0px 12px;
+		padding: 0px 10px;
 		.user-info {
 			display: flex;
 			align-items: center;
@@ -333,19 +335,26 @@ page {
 		box-sizing: border-box;
 	}
 	.wrap {
-		margin-top: -20px;
-		padding: 10px 6px;
+		margin-top: -42px;
+		padding: 10px 4px;
 		.order-grid {
 			background: #ffffff;
-			margin: 12px 6px;
+			margin: 8px 4px;
 			border-radius: 8rpx;
+		}
+		.grid-image {
+			width: 50px;
+			height: 50px;
+		}
+		.grid-text {
+			font-size: 12px;
 		}
 		.u-grid {
 			padding: 14px;
 		}
 		.other-grid, .other-grid-two {
 			background: #ffffff;
-			margin: 10px 6px;
+			margin: 8px 4px;
 			padding: 12px 10px;
 			border-radius: 8rpx;
 		}
@@ -365,6 +374,9 @@ page {
 					margin-top: 5px;
 				}
 			}
+		}
+		.u-scroll-list {
+			padding-bottom: 0px;
 		}
 	}
 }

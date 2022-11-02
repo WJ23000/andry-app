@@ -671,7 +671,7 @@ page {
 		}
 	}
 	.wrap {
-		padding: 0px 6px;
+		padding: 0px 4px 50px 4px;
 	}
 }
 .cart-right {

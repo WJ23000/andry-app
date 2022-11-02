@@ -278,7 +278,7 @@ page {
 .andry-home {
 	.header {
 		background: linear-gradient(to top, #ededed, #ff6666, #fa3534);
-		padding: 0px 12px;
+		padding: 0px 10px;
 		.search {
 			height: 44px;
 			line-height: 44px;
@@ -302,7 +302,7 @@ page {
 		box-sizing: border-box;
 	}
 	.wrap {
-		padding: 10px 6px;
+		padding: 10px 4px;
 		background: #ededed;
 		.waterfall-box {
 			padding: 10px 0px;
