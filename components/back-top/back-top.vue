@@ -1,5 +1,5 @@
 <template lang="pug">
-	u-back-top(:scroll-top="top", z-index="1000")
+	u-back-top(:scroll-top="top", right="12", z-index="1000")
 </template>
 
 <script lang="ts">

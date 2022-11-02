@@ -22,7 +22,7 @@
 						image.grid-image(:src="item.image")
 						text.grid-text {{ item.name }}
 			view.other-grid
-				u-scroll-list
+				u-scroll-list(indicatorColor="#fff0f0", indicatorActiveColor="#f56c6c")
 					view.scroll-list__goods-item(
 						v-for="(item, index) in otherGridList", 
 						:key="index",
@@ -30,7 +30,7 @@
 						image.scroll-list__goods-item__image(:src="item.image")
 						text.scroll-list__goods-item__text {{ item.name }}
 			view.other-grid-two
-				u-scroll-list
+				u-scroll-list(indicatorColor="#fff0f0", indicatorActiveColor="#f56c6c")
 					view.scroll-list__goods-item(
 						v-for="(item, index) in otherGridListTwo", 
 						:key="index",
