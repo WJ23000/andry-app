@@ -1,7 +1,7 @@
 {
 	"pages": [
 		{
-			"path": "pages/Tabbar/Home/Index",
+			"path": "pages/home/home",
 			"style": {
 				"navigationBarTitleText": "首页",
 				"titleNView": "false", // 禁用原生导航栏
@@ -9,75 +9,88 @@
 			}
 		},
 		{
-			"path": "pages/Tabbar/Classify/Index",
+			"path": "pages/classify/classify",
 			"style": {
 				"navigationBarTitleText": "分类",
 				"navigationStyle": "custom" // 自定义导航栏
 			}
 		},
 		{
-			"path": "pages/Tabbar/Cart/Index",
+			"path": "pages/cart/cart",
 			"style": {
 				"navigationBarTitleText": "购物车",
 				"navigationStyle": "custom" // 自定义导航栏
 			}
 		},
 		{
-			"path": "pages/Tabbar/Mine/Index",
+			"path": "pages/mine/mine",
 			"style": {
 				"navigationBarTitleText": "我的",
 				"navigationStyle": "custom" // 自定义导航栏
 			}
+		}
+	],
+	"subPackages": [
+		{
+			"root": "subPackagesA",
+			"name": "A",
+			"pages": [
+				{
+					"path": "order/list",
+					"style": {
+						"navigationBarTitleText": "我的订单"
+					}
+				},
+				{
+					"path": "order/detail",
+					"style": {
+						"navigationBarTitleText": "订单详情"
+					}
+				},
+				{
+					"path": "address/list",
+					"style": {
+						"navigationBarTitleText": "收货地址"
+					}
+				},
+				{
+					"path": "address/add",
+					"style": {
+						"navigationBarTitleText": "添加地址"
+					}
+				},
+				{
+					"path": "collection/collection",
+					"style": {
+						"navigationBarTitleText": "我的收藏"
+					}
+				},
+				{
+					"path": "search/search",
+					"style": {
+						"navigationBarTitleText": "搜索",
+						"navigationStyle": "custom" // 自定义导航栏
+					}
+				}
+			]
 		},
 		{
-			"path": "pages/Order/Index",
-			"style": {
-				"navigationBarTitleText": "我的订单"
-			}
-		},
-		{
-			"path": "pages/Order/Detail",
-			"style": {
-				"navigationBarTitleText": "订单详情"
-			}
-		},
-		{
-			"path": "pages/Address/Index",
-			"style": {
-				"navigationBarTitleText": "收货地址"
-			}
-		},
-		{
-			"path": "pages/Address/Add",
-			"style": {
-				"navigationBarTitleText": "添加地址"
-			}
-		},
-		{
-			"path": "pages/Collection/Index",
-			"style": {
-				"navigationBarTitleText": "我的收藏"
-			}
-		},
-		{
-			"path": "pages/TalentRecruit/Index",
-			"style": {
-				"navigationBarTitleText": "人才招募"
-			}
-		},
-		{
-			"path": "pages/FeedBack/Index",
-			"style": {
-				"navigationBarTitleText": "意见反馈"
-			}
-		},
-		{
-			"path": "pages/Search/Index",
-			"style": {
-				"navigationBarTitleText": "搜索",
-				"navigationStyle": "custom" // 自定义导航栏
-			}
-
+			"root": "subPackagesB",
+			"name": "B",
+			"pages": [
+				{
+					"path": "talentRecruit/talentRecruit",
+					"style": {
+						"navigationBarTitleText": "人才招募"
+					}
+				},
+				{
+					"path": "feedBack/feedBack",
+					"style": {
+						"navigationBarTitleText": "意见反馈"
+					}
+				}
+			]
 		}
 	],
 	"globalStyle": {
