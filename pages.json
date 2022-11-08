@@ -18,7 +18,7 @@
 		{
 			"path": "pages/cart/cart",
 			"style": {
-				"navigationBarTitleText": "购物车",
+				"navigationBarTitleText": "分类",
 				"navigationStyle": "custom" // 自定义导航栏
 			}
 		},
@@ -33,7 +33,7 @@
 	"subPackages": [
 		{
 			"root": "subPackagesA",
-			"name": "A",
+			"name": "subPackagesA",
 			"pages": [
 				{
 					"path": "order/list",
@@ -76,7 +76,7 @@
 		},
 		{
 			"root": "subPackagesB",
-			"name": "B",
+			"name": "subPackagesB",
 			"pages": [
 				{
 					"path": "talentRecruit/talentRecruit",
@@ -105,25 +105,25 @@
 		"backgroundColor": "#ffffff",
 		"borderStyle": "black",
 		"list": [{
-				"pagePath": "pages/Tabbar/Home/Index",
+				"pagePath": "pages/home/home",
 				"text": "首页",
 				"iconPath": "./static/tabbar/index.png",
 				"selectedIconPath": "static/tabbar/index-active.png"
 			},
 			{
-				"pagePath": "pages/Tabbar/Classify/Index",
+				"pagePath": "pages/classify/classify",
 				"text": "分类",
 				"iconPath": "static/tabbar/classify.png",
 				"selectedIconPath": "static/tabbar/classify-active.png"
 			},
 			{
-				"pagePath": "pages/Tabbar/Cart/Index",
+				"pagePath": "pages/cart/cart",
 				"text": "购物车",
 				"iconPath": "./static/tabbar/cart.png",
 				"selectedIconPath": "./static/tabbar/cart-active.png"
 			},
 			{
-				"pagePath": "pages/Tabbar/Mine/Index",
+				"pagePath": "pages/mine/mine",
 				"text": "我的",
 				"iconPath": "./static/tabbar/mine.png",
 				"selectedIconPath": "./static/tabbar/mine-active.png"
