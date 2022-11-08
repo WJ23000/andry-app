@@ -80,8 +80,9 @@ export default class Mine extends Vue {
 		{ name: "联系客服", image: require("@/static/mine/customer-service.png") },
 		{ name: "车辆服务", image: require("@/static/mine/vehicle-service.png") },
 		{ name: "健康服务", image: require("@/static/mine/health.png") },
-		{ name: "积分中心", image: require("@/static/mine/integral.png") },
+		{ name: "积分服务", image: require("@/static/mine/integral.png") },
 		{ name: "帮助中心", image: require("@/static/mine/help.png") },
+		{ name: "意见反馈", image: require("@/static/mine/feedback.png") },
 		{ name: "关于", image: require("@/static/mine/about.png") },
 	];
 	// 商品推荐

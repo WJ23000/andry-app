@@ -445,14 +445,9 @@ page {
 			display: flex;
 			flex-direction: column;
 		}
-		.left_image {
-			float: left;
-			width: 36%;
-		}
 		.left_box {
-			float: right;
+			margin-left: 4px;
 			margin-top: 6px;
-			width: 64%;
 			line-height: 30px;
 		}
 		.cart-title {
@@ -494,8 +489,7 @@ page {
 			border-radius: 25px;
 		}
 		.left {
-			float: left;
-			width: 100%;
+			display: flex;
 		}
 		.right {
 			float: right;
