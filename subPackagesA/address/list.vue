@@ -21,7 +21,7 @@
 					name="plus",
 					color="#ffffff",
 					class="icon",
-					:size="30")
+					:size="16")
 				text 添加新地址
 </template>
 
@@ -93,7 +93,7 @@ export default class AddressList extends Vue {
 	onEditAddress(item) {
 		const addressId = item.id ? item.id : "";
 		uni.navigateTo({
-			url: `/pages/Address/Add?id=${addressId}`
+			url: `/subPackagesA/address/add?id=${addressId}`
 		});
 	}
 }

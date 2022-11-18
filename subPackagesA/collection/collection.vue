@@ -26,16 +26,28 @@ export default class CollectionList extends Vue {
 	onLoad(option) {
 		console.log("url参数", option);
 	}
-	
+
+	// 下拉刷新
+	onPullDownRefresh() {
+		uni.showToast({
+			title: "下拉刷新",
+			icon: "none",
+			duration: 1000
+		});
+		setTimeout(() => {
+			uni.stopPullDownRefresh();
+		}, 2000);
+	}
+
 	// 触底触发
 	onReachBottom() {
 		uni.showToast({
-			title: '触底加载……',
+			title: "触底加载……",
 			icon: "none",
 			duration: 1000
 		});
 	}
-	
+
 	decimal(value, type) {
 		return value.split(".")[type];
 	}

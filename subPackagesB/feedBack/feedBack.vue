@@ -52,7 +52,6 @@ export default class FeedBack extends Vue {
 	background-color: #f2f2f2;
 	.top {
 		background-color: #ffffff;
-		border-top: solid 2rpx $u-border-color;
 		padding: 24rpx;
 		.item {
 			display: flex;

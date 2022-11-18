@@ -111,7 +111,6 @@ export default class AddressAdd extends Vue {
 	background-color: #f2f2f2;
 	.top {
 		background-color: #ffffff;
-		border-top: solid 2rpx $u-border-color;
 		padding: 24rpx;
 		.item {
 			display: flex;
@@ -173,6 +172,7 @@ export default class AddressAdd extends Vue {
 		font-size: 28rpx;
 		.tag {
 			display: flex;
+			line-height: 64rpx;
 			.left {
 				width: 180rpx;
 				font-size: 34rpx;
@@ -181,12 +181,12 @@ export default class AddressAdd extends Vue {
 				display: flex;
 				flex-wrap: wrap;
 				.tags {
-					width: 140rpx;
+					width: 132rpx;
 					padding: 16rpx 8rpx;
 					border: solid 2rpx $u-border-color;
 					text-align: center;
 					border-radius: 50rpx;
-					margin: 0 10rpx 20rpx;
+					margin: 0rpx 10rpx 0rpx 0rpx;
 					display: flex;
 					font-size: 28rpx;
 					align-items: center;
@@ -194,7 +194,7 @@ export default class AddressAdd extends Vue {
 					color: $u-content-color;
 					line-height: 1;
 					&:first-child {
-						margin: 0 10rpx 20rpx 0rpx;
+						margin: 0rpx 10rpx 0rpx 0rpx;
 					}
 				}
 				.red {

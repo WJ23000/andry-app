@@ -157,6 +157,9 @@ export default class Home extends Vue {
 			title: `${direction[tag]}侧列表第${index + 1}个被点击`,
 			icon: "none"
 		});
+		uni.navigateTo({
+			url: "/subPackagesA/goodsDetail/goodsDetail?id=" + this.leftList[index].id
+		});
 	}
 	// 获取数据
 	getList() {
@@ -265,7 +268,7 @@ export default class Home extends Vue {
 	// 搜索
 	onSearch() {
 		uni.navigateTo({
-			url: "/pages/Search/Index"
+			url: "/subPackagesA/search/search"
 		});
 	}
 }

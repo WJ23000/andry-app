@@ -7,7 +7,7 @@
 				view.cart-right(slot="left")
 					u-avatar(:src="userInfo.userImage", size="24")
 				view.cart-right(slot="right")
-					u-icon(name="setting", size="20")
+					u-icon(name="setting", size="20", @click="onSettingClick")
 		view.header
 			view.user-info
 				u-avatar(:src="userInfo.userImage", size="50")
@@ -71,15 +71,16 @@ export default class Mine extends Vue {
 	otherGridList = [
 		{ name: "我的钱包", image: require("@/static/mine/wallet.png") },
 		{ name: "我的收藏", image: require("@/static/mine/collection.png") },
-		{ name: "寄件服务", image: require("@/static/mine/post.png") },
-		{ name: "金融中心", image: require("@/static/mine/finance.png") },
+		{ name: "收货地址", image: require("@/static/mine/delivery-address.png") },
+		{ name: "生活服务", image: require("@/static/mine/life-service.png") },
+		{ name: "理财服务", image: require("@/static/mine/finance.png") },
 		{ name: "优惠券", image: require("@/static/mine/coupons.png") },
 		{ name: "更多功能", image: require("@/static/mine/other.png") },
 	];
 	otherGridListTwo = [
 		{ name: "联系客服", image: require("@/static/mine/customer-service.png") },
 		{ name: "车辆服务", image: require("@/static/mine/vehicle-service.png") },
-		{ name: "健康服务", image: require("@/static/mine/health.png") },
+		{ name: "美食服务", image: require("@/static/mine/food-service.png") },
 		{ name: "积分服务", image: require("@/static/mine/integral.png") },
 		{ name: "帮助中心", image: require("@/static/mine/help.png") },
 		{ name: "意见反馈", image: require("@/static/mine/feedback.png") },
@@ -114,7 +115,7 @@ export default class Mine extends Vue {
 	toOrder(id) {
 		const current = id ? id : 0;
 		uni.navigateTo({
-			url: `/pages/Order/Index?current=${current}`
+			url: `/subPackagesA/order/list?current=${current}`
 		});
 	}
 
@@ -123,22 +124,17 @@ export default class Mine extends Vue {
 		switch (name) {
 			case "我的收藏":
 				uni.navigateTo({
-					url: "/pages/Collection/Index"
+					url: "/subPackagesA/collection/collection"
 				});
 				break;
 			case "收货地址":
 				uni.navigateTo({
-					url: "/pages/Address/Index"
-				});
-				break;
-			case "人才招募":
-				uni.navigateTo({
-					url: "/pages/TalentRecruit/Index"
+					url: "/subPackagesA/address/list"
 				});
 				break;
 			case "意见反馈":
 				uni.navigateTo({
-					url: "/pages/FeedBack/Index"
+					url: "/subPackagesB/feedBack/feedBack"
 				});
 				break;
 			case "关注公众号":
@@ -147,6 +143,13 @@ export default class Mine extends Vue {
 			default:
 				break;
 		}
+	}
+	
+	// 账户设置
+	onSettingClick() {
+		uni.navigateTo({
+			url: "/subPackagesB/setting/setting"
+		});
 	}
 	
 	// 商品推荐列表

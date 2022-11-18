@@ -16,13 +16,13 @@ import { Component, Vue, Prop } from "vue-property-decorator";
   components: {}
 })
 export default class GlobalSearch extends Vue {
-  placeholder = "全球好物";
+  placeholder = "护肤品";
   keyword = "";
 
   // 搜索
   onSearch() {
     uni.navigateTo({
-      url: "/pages/Search/Index"
+    	url: "/subPackagesA/search/search"
     });
   }
 }

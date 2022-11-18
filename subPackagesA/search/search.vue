@@ -5,7 +5,8 @@
 			u-search(
 				placeholder="护肤品", 
 				v-model="keyword",
-				@click="onSearch")
+				@custom="onSearch",
+				@clear="onSearch")
 </template>
 
 <script lang="ts">
