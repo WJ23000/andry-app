@@ -83,7 +83,6 @@ export default class Mine extends Vue {
 		{ name: "美食服务", image: require("@/static/mine/food-service.png") },
 		{ name: "积分服务", image: require("@/static/mine/integral.png") },
 		{ name: "帮助中心", image: require("@/static/mine/help.png") },
-		{ name: "意见反馈", image: require("@/static/mine/feedback.png") },
 		{ name: "关于", image: require("@/static/mine/about.png") },
 	];
 	// 商品推荐
@@ -130,11 +129,6 @@ export default class Mine extends Vue {
 			case "收货地址":
 				uni.navigateTo({
 					url: "/subPackagesA/address/list"
-				});
-				break;
-			case "意见反馈":
-				uni.navigateTo({
-					url: "/subPackagesB/feedBack/feedBack"
 				});
 				break;
 			case "关注公众号":
