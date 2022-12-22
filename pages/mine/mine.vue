@@ -337,7 +337,7 @@ page {
 		padding: 10px 4px;
 		.order-grid {
 			background: #ffffff;
-			margin: 8px 4px;
+			margin: 8px 5px;
 			border-radius: 8rpx;
 		}
 		.grid-image {
@@ -352,7 +352,7 @@ page {
 		}
 		.other-grid, .other-grid-two {
 			background: #ffffff;
-			margin: 8px 4px;
+			margin: 8px 5px;
 			padding: 12px 10px;
 			border-radius: 8rpx;
 		}

@@ -46,7 +46,7 @@
 								view.cart-pay
 									text.cart_pay(@click="payOrder" :data-id="item.id") 去结算({{goodsCount}})
 			<!--如果无数据，则显示数据-->
-			u-empty(
+			u-empty.empty(
 				v-else
 				mode="car"
 				icon="http://cdn.uviewui.com/uview/empty/car.png")
@@ -420,6 +420,7 @@ page {
 		display: flex;
 		flex: 1;
 		justify-content: center;
+		background: #ffffff;
 		.cart-main {
 			float: left;
 			width: 88%;
@@ -666,6 +667,9 @@ page {
 	}
 	.wrap {
 		padding: 0px 4px 50px 4px;
+	}
+	.empty {
+		margin-bottom: 20px;
 	}
 }
 .cart-right {

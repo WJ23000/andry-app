@@ -7,7 +7,7 @@
 			@error="emitHeight")
 		view.content
 			view.title
-				text.tag {{ params.label }}
+				text.tag(v-if="params.label") {{ params.label }}
 				text.name {{ params.title }}
 			view.money 
 				text.unit ￥
