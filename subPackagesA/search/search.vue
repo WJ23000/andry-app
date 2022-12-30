@@ -87,25 +87,28 @@ export default class Search extends Vue {
 
 <style lang="stylus" scoped>
 .andry-search
-	.header
-		display flex
-		justify-content space-between
-		padding 0rpx 24rpx
-		height 44px
-		line-height 44px
-		.arrow-left
-			margin-right 20rpx
-	.history
-		.content
-			padding 0rpx 10rpx 0rpx 30rpx
-		.item
-			display inline-block
-			margin 0px 20rpx 20rpx 0px
-			padding 6rpx 24rpx
-			background #ffffff
-			font-size 26rpx
-			border 2rpx solid #ededed
-			border-radius 50rpx
-		.item:active
-			background #ededed
+  .header
+    position relative
+    display flex
+    justify-content space-between
+    padding 0rpx 24rpx
+    height 44px
+    line-height 44px
+    background #ffffff
+    z-index 10080
+    .arrow-left
+      margin-right 20rpx
+  .history
+    .content
+      padding 0rpx 10rpx 0rpx 30rpx
+    .item
+      display inline-block
+      margin 0px 20rpx 20rpx 0px
+      padding 6rpx 24rpx
+      background #ffffff
+      font-size 26rpx
+      border 2rpx solid #ededed
+      border-radius 50rpx
+    .item:active
+      background #ededed
 </style>

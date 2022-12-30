@@ -20,9 +20,7 @@
 				slide(:bannerList="bannerList")
 			view.grid
 				slide-grid(:gridList="gridList")
-		u-sticky(
-			:offset-top="0", 
-			:bgColor="stickyBgColor")
+		u-sticky(:bgColor="stickyBgColor")
 			view.tabs.flex.justify-center
 				u-tabs(
 					:list="tabList",

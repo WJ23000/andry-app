@@ -1,6 +1,9 @@
 <template lang="pug">
   view.andry-search-result
-    SearchTab
+    u-sticky(
+      :offsetTop="-44",
+      :bgColor="stickyBgColor")
+      SearchTab
     view.card(
       v-for="(item,index) in searchList", 
       :key="index")
@@ -24,6 +27,7 @@ import SearchTab from "./tab.vue";
 })
 export default class SearchResult extends Vue {
   searchList: any = GOODS_DATA;
+  stickyBgColor = "#ffffff";
 
   // 触底触发
   onReachBottom() {
