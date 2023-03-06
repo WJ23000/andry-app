@@ -1,12 +1,12 @@
 <template lang="pug">
 	view.andry-order-list
-		view 订单主页
+		view 订单页
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 @Component({
-	components: {}
+  components: {}
 })
 export default class OrderList extends Vue {}
 </script>

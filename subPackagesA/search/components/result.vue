@@ -3,7 +3,7 @@
     u-sticky(
       :offsetTop="-44",
       :bgColor="stickyBgColor")
-      SearchTab
+      SearchTab(@searchResultChange="searchResultChange")
     view.card(
       v-for="(item,index) in searchList", 
       :key="index")
@@ -40,6 +40,10 @@ export default class SearchResult extends Vue {
 
   decimal(value, type) {
     return value.split(".")[type];
+  }
+
+  searchResultChange(value) {
+    this.$emit("searchResultChange", value);
   }
 }
 </script>

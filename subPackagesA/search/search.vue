@@ -1,22 +1,24 @@
 <template lang="pug">
-	view.andry-search
-		view.header
-			u-icon.arrow-left(name="arrow-left", @click="onGoBack")
-			u-search(
-				placeholder="护肤品", 
-				v-model="keyword",
-				@custom="onSearch",
-				@clear="onClearSearch")
-		view.search-result(v-if="isSearchResult")
-			SearchResult
-		view.history(v-else)
-			u-cell(title="搜索历史", :border="false")
-				u-icon(slot="right-icon", name="trash", @click="clearHistory")
-			view.content
-				view.item(
-					v-for="(item,index) in historyList",
-					:key="index",
-					@click="onSearch(item, 'btn')") {{  formatItem(item) }}
+  view.andry-search
+    view.header
+      u-icon.arrow-left(name="arrow-left", @click="onGoBack")
+      u-search(
+        placeholder="护肤品", 
+        v-model="keyword",
+        @custom="onSearch",
+        @clear="onClearSearch")
+    view.search-result(
+      v-if="isSearchResult",
+      :style="{zIndex: searchResultIndex ? 10080 : 100100}")
+      SearchResult(@searchResultChange="searchResultChange")
+    view.history(v-else)
+      u-cell(title="搜索历史", :border="false")
+        u-icon(slot="right-icon", name="trash", @click="clearHistory")
+      view.content
+        view.item(
+          v-for="(item,index) in historyList",
+          :key="index",
+          @click="onSearch(item, 'btn')") {{  formatItem(item) }}
 </template>
 
 <script lang="ts">
@@ -29,6 +31,7 @@ export default class Search extends Vue {
   keyword = "";
   historyList: any = [];
   isSearchResult = false;
+  searchResultIndex = true;
 
   onLoad() {
     uni.getStorage({
@@ -44,6 +47,10 @@ export default class Search extends Vue {
     uni.navigateBack({
       delta: 1
     });
+  }
+
+  searchResultChange(value) {
+    this.searchResultIndex = value;
   }
 
   // 搜索
@@ -95,9 +102,11 @@ export default class Search extends Vue {
     height 44px
     line-height 44px
     background #ffffff
-    z-index 10080
+    z-index 10090
     .arrow-left
       margin-right 20rpx
+  .search-result
+    position relative
   .history
     .content
       padding 0rpx 10rpx 0rpx 30rpx
