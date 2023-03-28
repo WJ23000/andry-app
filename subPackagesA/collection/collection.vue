@@ -89,7 +89,7 @@ export default class CollectionList extends Vue {
 				display: inline-block;
 				margin-top: 20rpx;
 				font-size: 24rpx;
-				border: 1px solid #999999;
+				border: 2rpx solid #999999;
 				padding: 4rpx 10rpx;
 				border-radius: 50rpx;
 				text-align: right;

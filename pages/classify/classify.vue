@@ -96,31 +96,31 @@ export default class Classify extends Vue {
 
 	.u-search-inner {
 		background-color: rgb(234, 234, 234);
-		border-radius: 50px;
+		border-radius: 100rpx;
 		display: flex;
 		align-items: center;
-		padding: 5px 8px;
+		padding: 10rpx 16rpx;
 	}
 
 	.u-search-text {
-		font-size: 13px;
+		font-size: 26rpx;
 		color: $u-tips-color;
-		margin-left: 5px;
+		margin-left: 10rpx;
 	}
 
 	.u-tab-view {
-		width: 100px;
+		width: 200rpx;
 		height: 100%;
 	}
 
 	.u-tab-item {
-		height: 55px;
+		height: 110rpx;
 		background: #f6f6f6;
 		box-sizing: border-box;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 13px;
+		font-size: 26rpx;
 		color: #444444;
 		font-weight: 400;
 		line-height: 1;
@@ -129,7 +129,7 @@ export default class Classify extends Vue {
 	.u-tab-item-active {
 		position: relative;
 		color: #000000;
-		font-size: 15px;
+		font-size: 30rpx;
 		font-weight: 600;
 		background: #ffffff;
 	}
@@ -137,10 +137,10 @@ export default class Classify extends Vue {
 	.u-tab-item-active::before {
 		content: "";
 		position: absolute;
-		border-left: 4px solid $color-primary;
-		height: 16px;
+		border-left: 8rpx solid $color-primary;
+		height: 32rpx;
 		left: 0;
-		top: 19.5px;
+		top: 39rpx;
 	}
 
 	.u-tab-view {
@@ -152,24 +152,24 @@ export default class Classify extends Vue {
 	}
 
 	.page-view {
-		padding: 8px;
+		padding: 16rpx;
 	}
 
 	.class-item {
 		background-color: #fff;
-		padding: 8px;
-		border-radius: 4px;
+		padding: 16rpx;
+		border-radius: 8rpx;
 	}
 
 	.item-title {
-		font-size: 13px;
+		font-size: 26rpx;
 		color: $u-main-color;
 		font-weight: bold;
 	}
 
 	.item-menu-name {
 		font-weight: normal;
-		font-size: 12px;
+		font-size: 24rpx;
 		color: $u-main-color;
 	}
 
@@ -184,12 +184,12 @@ export default class Classify extends Vue {
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		margin-top: 10px;
+		margin-top: 20rpx;
 	}
 
 	.item-menu-image {
-		width: 60px;
-		height: 60px;
+		width: 120rpx;
+		height: 120rpx;
 	}
 }
 </style>

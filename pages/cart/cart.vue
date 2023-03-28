@@ -413,8 +413,8 @@ page {
 }
 .andry-cart {
 	.cart-header {
-		height: 44px;
-		line-height: 44px;
+		height: 88rpx;
+		line-height: 88rpx;
 	}
 	.page-content {
 		display: flex;
@@ -423,19 +423,19 @@ page {
 		background: #ffffff;
 		.cart-main {
 			float: left;
-			width: 88%;
+			width: 86%;
 		}
 		.cart-active {
 			float: left;
 			width: 100%;
 			background: #ffffff;
-			border-bottom: 1px solid #f2f2f2;
+			border-bottom: 2rpx solid #f2f2f2;
 		}
 		.cart-image {
-			width: 100px;
-			height: 100px;
+			width: 200rpx;
+			height: 200rpx;
 			float: left;
-			padding: 7.5px 5px;
+			padding: 15rpx 10rpx;
 		}
 		.cart-box {
 			width: 100%;
@@ -447,13 +447,13 @@ page {
 			flex-direction: column;
 		}
 		.left_box {
-			margin-left: 4px;
-			margin-top: 6px;
-			line-height: 30px;
+			margin-left: 8rpx;
+			margin-top: 12rpx;
+			line-height: 60rpx;
 		}
 		.cart-title {
-			font-size: 14px;
-			line-height: 17px;
+			font-size: 28rpx;
+			line-height: 34rpx;
 			display: -webkit-box;
 			-webkit-box-orient: vertical;
 			overflow: hidden;
@@ -465,7 +465,7 @@ page {
 			align-items: center;
 		}
 		.cart-unit {
-			font-size: 12px;
+			font-size: 24rpx;
 			color: #fa3534;
 		}
 		.cart-money {
@@ -475,19 +475,19 @@ page {
 		.cart-price {
 			display: flex;
 			color: #fa3534;
-			font-size: 15px;
-			height: 18px;
-			line-height: 18px;
+			font-size: 30rpx;
+			height: 36rpx;
+			line-height: 36rpx;
 		}
 		.cart-specif {
-			padding: 2px 6px;
+			padding: 4rpx 12rpx;
 			background: #999999;
 			color: #ffffff;
-			font-size: 12px;
-			height: 18px;
-			line-height: 18px;
-			margin-bottom: 5px;
-			border-radius: 25px;
+			font-size: 24rpx;
+			height: 36rpx;
+			line-height: 36rpx;
+			margin-bottom: 10rpx;
+			border-radius: 50rpx;
 		}
 		.left {
 			display: flex;
@@ -497,182 +497,180 @@ page {
 			width: 5%;
 		}
 		.right img {
-			width: 25px;
-			height: 25px;
+			width: 50rpx;
+			height: 50rpx;
 			float: right;
-			margin-right: 15px;
+			margin-right: 30rpx;
 		}
 		.input {
 			display: block;
-			width: 32.5px;
-			height: 32.5px;
-			line-height: 32.5px;
+			width: 65rpx;
+			height: 65rpx;
+			line-height: 65rpx;
 			text-align: center;
 			float: left;
 		}
 		.cart-add {
 			border-left: none;
-			border: 1px solid #ededed;
-			border-radius: 0px 20px 20px 0px;
-			font-size: 18px;
+			border: 2rpx solid #ededed;
+			border-radius: 0rpx 40rpx 40rpx 0rpx;
+			font-size: 36rpx;
 		}
 		.cart-reduce {
 			border-right: none;
-			border: 1px solid #ededed;
-			border-radius: 20px 0px 0px 20px;
-			font-size: 18px;
+			border: 2rpx solid #ededed;
+			border-radius: 40rpx 0rpx 0rpx 40rpx;
+			font-size: 36rpx;
 		}
 		.cart-text {
-			width: 45px;
-			border-top: 1px solid #ededed;
-			border-bottom: 1px solid #ededed;
-			font-size: 15px;
+			width: 90rpx;
+			border-top: 2rpx solid #ededed;
+			border-bottom: 2rpx solid #ededed;
+			font-size: 30rpx;
 		}
 		.cart-bottom {
 			display: flex;
 			position: fixed;
 			width: 100%;
-			height: 44px;
-			bottom: 50px;
+			height: 88rpx;
+			bottom: 100rpx;
 			background: #ffffff;
-			padding: 0px 10px;
+			padding: 0rpx 20rpx;
 			box-sizing: border-box;
-			border-top: 1px solid #f2f2f2;
+			border-top: 2rpx solid #f2f2f2;
 			z-index: 999;
 		}
 		.cart-bottom-icon {
-			margin-top: 11px;
+			margin-top: 22rpx;
 		}
 		.yuan {
 			display: block;
-			width: 25px;
-			height: 25px;
+			width: 50rpx;
+			height: 50rpx;
 			border-radius: 50%;
-			border: 1px solid red;
-		}
-		.icon {
-			float: left;
-			width: 6%;
-			margin: 38px 10px 32px 10px;
+			border: 2rpx solid red;
 		}
 		.SpCart {
 			display: block;
-			width: 150px;
-			height: 150px;
+			width: 300rpx;
+			height: 300rpx;
 		}
 		.Sptext {
-			font-size: 15px;
+			font-size: 30rpx;
 		}
 		.cart-icon {
-			margin: 13px 10px;
+			margin: 26rpx 20rpx;
 			float: left;
 		}
 		.cart-sum {
-			width: 150px;
+			width: 300rpx;
 			height: 100%;
-			line-height: 43.5px;
+			line-height: 87rpx;
 			float: left;
 			text-align: center;
-			margin-left: 10px;
-			font-size: 14px;
+			margin-left: 20rpx;
+			font-size: 28rpx;
 		}
 		.cart-pay {
 			position: absolute;
-			width: 115px;
+			width: 230rpx;
 			height: 100%;
 			background: #fa3534;
 			right: 0;
 		}
 		.cart_pay {
 			display: block;
-			line-height: 43.5px;
+			line-height: 87rpx;
 			text-align: center;
-			font-size: 15px;
+			font-size: 30rpx;
 			color: white;
 		}
 		.sum_color {
 			color: #fa3534;
-			font-size: 12.5px;
+			font-size: 25rpx;
 		}
 		.sum_text {
-			font-size: 15px;
+			font-size: 30rpx;
 		}
 		.checkAll {
-			margin-left: 10px;
-			line-height: 43.5px;
-			font-size: 14px;
+			margin-left: 20rpx;
+			line-height: 87rpx;
+			font-size: 28rpx;
 		}
 		.cart-cell {
 			float: left;
 			width: 100%;
 			background: #ffffff;
-			border-top: 1px solid #ccc;
-			padding: 10px 0px;
+			border-top: 2rpx solid #ccc;
+			padding: 20rpx 0rpx;
 			box-sizing: border-box;
 		}
 		.nodata_text {
 			background: #ffffff;
 			color: black;
-			font-size: 14px;
+			font-size: 28rpx;
 			text-align: center;
 		}
 		.nodata_text {
 			img {
-				margin-top: 50px;
+				margin-top: 100rpx;
 				width: 44%;
-				height: 150px;
+				height: 300rpx;
 			}
 		}
 		.icon {
 			float: left;
-			width: 5%;
-			margin: 47px 10px;
+			width: 6%;
+			margin: 94rpx 20rpx;
 			background: #ffffff;
 		}
 		.icon-bj {
-			margin-top: 4px;
+			margin-top: 8rpx;
 		}
 		/* 底部 */
 		.del-bottom {
 			position: fixed;
 			width: 100%;
-			height: 44px;
-			bottom: 50px;
+			height: 88rpx;
+			bottom: 100rpx;
 			background: #ffffff;
-			border-top: 1px solid #f2f2f2;
+			border-top: 2rpx solid #f2f2f2;
 			z-index: 999;
 		}
 		.cart-bottom-edit {
 			float: left;
 			width: 100%;
-			height: 44px;
-			line-height: 44px;
+			height: 88rpx;
+			line-height: 88rpx;
 			text-align: center;
-			font-size: 14px;
+			font-size: 28rpx;
 			color: #fa3534;
 		}
 		.cart-bottom-cell {
 			float: left;
 			width: 49.725%;
-			height: 44px;
-			line-height: 44px;
+			height: 88rpx;
+			line-height: 88rpx;
 			text-align: center;
-			font-size: 14px;
+			font-size: 28rpx;
 			color: #999999;
-			border-right: 1px solid #f2f2f2;
+			border-right: 2rpx solid #f2f2f2;
+		}
+		.cart-bottom-cell:last-child {
+			border-right: 0rpx;
 		}
 		.del-color {
 			color: #fa3534;
 		}
 	}
 	.wrap {
-		padding: 0px 4px 50px 4px;
+		padding: 0rpx 8rpx 100rpx 8rpx;
 	}
 	.empty {
-		margin-bottom: 20px;
+		margin-bottom: 40rpx;
 	}
 }
 .cart-right {
-	font-size: 12px;
+	font-size: 24rpx;
 }
 </style>

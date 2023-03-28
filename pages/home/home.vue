@@ -277,37 +277,34 @@ page {
 .andry-home {
   .header {
     background: linear-gradient(to top, #ededed, #ff6666, #fa3534);
-    padding: 0px 10px;
+    padding: 0rpx 20rpx;
     .search {
-      height: 44px;
-      line-height: 44px;
+			padding: 12rpx 0rpx;
     }
     .grid {
-      margin-top: 6px;
-      padding: 6px 0px;
+      margin-top: 12rpx;
+      padding: 12rpx 0rpx;
       background: #ffffff;
-      border-radius: 4px;
+      border-radius: 8rpx;
     }
   }
   .search-sticky {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 44px;
-    line-height: 44px;
     background: #ffffff;
-    padding: 0rpx 12px;
+    padding: 12rpx 24rpx;
     z-index: 1000;
     box-sizing: border-box;
   }
   .wrap {
-    padding: 10px 4px;
+    padding: 20rpx 8rpx;
     background: #ededed;
     .waterfall-box {
-      padding: 10px 0px;
+      padding: 20rpx 0rpx;
       box-sizing: border-box;
       > view {
-        padding: 0 5px;
+        padding: 0 10rpx;
       }
     }
     .h-flex-x {
@@ -324,11 +321,11 @@ page {
       }
     }
     .load-txt {
-      padding: 0 0 10px 0;
+      padding: 0 0 20rpx 0;
       height: 100%;
       text-align: center;
       color: #999999;
-      font-size: 12px;
+      font-size: 24rpx;
     }
   }
 }

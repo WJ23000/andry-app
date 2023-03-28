@@ -33,8 +33,7 @@ export default class GlobalSearch extends Vue {
   display: flex;
   justify-content: space-between;
   .u-search-box {
-    height: 44px;
-    line-height: 44px;
+		padding: 12rpx 0rpx;
     flex: 1;
     .icon-width-left {
       position: relative;

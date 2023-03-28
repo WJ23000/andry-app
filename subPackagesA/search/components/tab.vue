@@ -243,94 +243,116 @@ export default class SearchTab extends Vue {
 }
 </script>
 
-<style lang="stylus" scoped>
-.andry-search-tab
-  .tab
-    position relative
-    display flex
-    height 44px
-    line-height 44px
-    background #ffffff
-    z-index 10080
-    .item
-      width 25%
-      text-align center
-      font-size 26rpx
-  .active
-    font-weight bold
-  .recommend-content
-    position absolute
-    width 100%
-    padding 0rpx 40rpx 20rpx 40rpx
-    background #ffffff
-    z-index 10080
-    box-sizing border-box
-  .recommend
-    margin-bottom 20rpx
-    font-size 26rpx
-  .recommend-active
-    color #fa3534
-  .recommend-check
-    margin-right 20rpx
-  .arrow-down
-    position relative
-    top 22rpx
-    left 16rpx
-    width 0px
-    height 0px
-    border 8rpx solid transparent
-    border-top-color #000000
-  .arrow-up
-    position relative
-    top -20rpx
-    left 16rpx
-    width 0px
-    height 0px
-    border 8rpx solid transparent
-    border-bottom-color #000000
-  .retrieval-content
-    position relative
-    width 80%
-    padding 0rpx 40rpx 20rpx 40rpx
-    background #ffffff
-    z-index 10090
-    box-sizing border-box
-  .retrieval-list
-    display flex
-    flex-wrap wrap
-    justify-content space-between
-    .item
-      margin-bottom 20rpx
-      width 24%
-      padding 12rpx 20rpx
-      background #ededed
-      border 2rpx solid #ededed
-      font-size 24rpx
-      border-radius 50rpx
-      text-align center
-  .retrieval-price-range
-    .content
-      display flex
-      justify-content space-between
-    .input
-      width 30%
-      padding: 4rpx 18rpx !important
-    .interval
-      margin 4rpx 8rpx 0rpx 8rpx
-      color #dadbde
-  .retrieval-crowd
-    margin-top 20rpx
-  .retrieval-gap
-    margin 20rpx 0rpx !important
-  .retrieval-title
-    margin-bottom 20rpx
-    font-weight bold
-    font-size 26rpx
-  .retrieval-active
-    background rgba(250, 53, 52, 0.2) !important
-    color #fa3534
-    border 2rpx solid #fa3534 !important
-  .u-popup
-    position relative
-    z-index 10090
+<style lang="scss" scoped>
+.andry-search-tab {
+  .tab {
+    position: relative;
+    display: flex;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #ffffff;
+    z-index: 10080;
+    .item {
+      width: 25%;
+      text-align: center;
+      font-size: 26rpx;
+		}
+	}
+  .active {
+    font-weight: bold;
+	}
+  .recommend-content {
+    position: absolute;
+    width: 100%;
+    padding: 0rpx 40rpx 20rpx 40rpx;
+    background: #ffffff;
+    z-index: 10080;
+    box-sizing: border-box;
+	}
+  .recommend {
+    margin-bottom: 20rpx;
+    font-size: 26rpx;
+	}
+  .recommend-active {
+    color: #fa3534;
+	}
+  .recommend-check {
+    margin-right: 20rpx;
+	}
+  .arrow-down {
+    position: relative;
+    top: 22rpx;
+    left: 16rpx;
+    width: 0rpx;
+    height: 0rpx;
+    border: 8rpx solid transparent;
+    border-top-color: #000000;
+	}
+  .arrow-up {
+    position: relative;
+    top: -20rpx;
+    left: 16rpx;
+    width: 0rpx;
+    height: 0rpx;
+    border: 8rpx solid transparent;
+    border-bottom-color: #000000;
+	}
+  .retrieval-content {
+    position: relative;
+    width: 80%;
+    padding: 0rpx 40rpx 20rpx 40rpx;
+    background: #ffffff;
+    z-index: 10090;
+    box-sizing: border-box;
+	}
+  .retrieval-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .item {
+      margin-bottom: 20rpx;
+      width: 24%;
+      padding: 12rpx 20rpx;
+      background: #ededed;
+      border: 2rpx solid #ededed;
+      font-size: 24rpx;
+      border-radius: 50rpx;
+      text-align: center;
+		}
+	}
+  .retrieval-price-range {
+    .content {
+      display: flex;
+      justify-content: space-between;
+		}
+    .input {
+      width: 30%;
+      padding: 4rpx 18rpx !important;
+		}
+    .interval {
+      margin: 4rpx 8rpx 0rpx 8rpx;
+      color: #dadbde;
+		}
+	}
+  .retrieval-crowd {
+    margin-top: 20rpx;
+	}
+  .retrieval-gap {
+    margin: 20rpx 0rpx !important;
+	}
+  .retrieval-title {
+    margin-bottom: 20rpx;
+    font-weight: bold;
+    font-size: 26rpx;
+	}
+  .retrieval-active {
+    background: rgba(250, 53, 52, 0.2) !important;
+    color: #fa3534;
+    border: 2rpx solid #fa3534 !important;
+	}
+  .u-popup {
+    position: relative;
+    z-index: 10090;
+	}
+}
 </style>

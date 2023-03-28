@@ -302,79 +302,81 @@ page {
 .andry-mine {
 	.header {
 		background: linear-gradient(to top, #ededed, #ff6666, #fa3534);
-		padding: 0px 10px;
+		padding: 0rpx 20rpx;
 		.user-info {
 			display: flex;
 			align-items: center;
-			height: 140px;
+			height: 280rpx;
 		}
 		.account {
 			display: flex;
 			flex-direction: column;
-			margin-left: 12px;
+			margin-left: 24rpx;
 		}
 		.account > .username {
-			font-size: 18px;
+			font-size: 36rpx;
 		}
 		.account > .phone {
-			margin-top: 4px;
-			font-size: 14px;
+			margin-top: 8rpx;
+			font-size: 28rpx;
 		}
 	}
 	.search-sticky {
 		position: fixed;
 		top: 0;
 		width: 100%;
-		height: 44px;
-		line-height: 44px;
 		background: #ffffff;
-		padding: 0rpx 12px;
+		padding: 12rpx 24rpx;
 		z-index: 1000;
 		box-sizing: border-box;
 	}
 	.wrap {
-		margin-top: -42px;
-		padding: 10px 4px;
+		margin-top: -84rpx;
+		padding: 20rpx 8rpx;
 		.order-grid {
-			background: #ffffff;
-			margin: 8px 5px;
+			margin: 16rpx 10rpx;
 			border-radius: 8rpx;
+			background: #ffffff;
+			color: #5d656b;
 		}
 		.grid-image {
-			width: 50px;
-			height: 50px;
+			width: 100rpx;
+			height: 100rpx;
 		}
 		.grid-text {
-			font-size: 12px;
+			font-size: 24rpx;
 		}
 		.u-grid {
-			padding: 14px;
+			padding: 28rpx;
 		}
 		.other-grid, .other-grid-two {
-			background: #ffffff;
-			margin: 8px 5px;
-			padding: 12px 10px;
+			margin: 16rpx 10rpx;
+			padding: 24rpx 28rpx;
 			border-radius: 8rpx;
+			background: #ffffff;
+			color: #5d656b;
 		}
 		.scroll-list {
 			@include flex(column);
 			&__goods-item {
-				margin-right: 20px;
+				margin-right: 20rpx;
 				text-align: center;
 				&__image {
-					width: 50px;
-					height: 50px;
-					border-radius: 4px;
+					width: 100rpx;
+					height: 100rpx;
+					border-radius: 8rpx;
 				}
 				&__text {
+					display: inline-block;
 					text-align: center;
-					font-size: 12px;
-					margin-top: 5px;
+					font-size: 24rpx;
+					margin-top: 10rpx;
+					width: 120rpx;
 				}
 			}
 		}
 		.u-scroll-list {
-			padding-bottom: 0px;
+			padding-bottom: 0rpx;
 		}
 	}
 }

@@ -53,21 +53,21 @@ export default class SlideGrid extends Vue {
 
 <style lang="scss" scoped>
 .grid-warp {
-  height: 160px;
+  height: 320rpx;
 }
 image {
-  width: 40px;
-  height: 40px;
+  width: 80rpx;
+  height: 80rpx;
 }
 .grid-item {
-  height: 70px;
+  height: 140rpx;
   /deep/ .u-grid-item-box {
-    padding: 0px !important;
+    padding: 0rpx !important;
   }
 }
 .grid-text {
   font-size: 28rpx;
-  margin-top: 2px;
+  margin-top: 4rpx;
   color: #5d656b;
 }
 .indicator-dots {
@@ -77,14 +77,14 @@ image {
 }
 .indicator-dots-item {
   background-color: $bg-color;
-  height: 7px;
-  width: 7px;
-  border-radius: 10px;
-  margin: 0px 3px;
+  height: 14rpx;
+  width: 14rpx;
+  border-radius: 20rpx;
+  margin: 0rpx 6rpx;
   transition: all 0.5s;
 }
 .indicator-dots-active {
-  width: 12px;
+  width: 24rpx;
   background-color: $color-primary;
 }
 </style>
