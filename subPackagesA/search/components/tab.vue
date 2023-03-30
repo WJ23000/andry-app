@@ -1,84 +1,92 @@
 <template lang="pug">
-  view.andry-search-tab
-    view.tab
-      view.item(
-        v-for="(item, index) in tabList",
-        :key="index",
-        :class="tabActive == item ? 'active' : ''",
-        @click="onTabItem(item)") 
-        view 
-          text {{ item }}
-          text(
-            v-if="item == '综合推荐' || item == '好评'", 
-            :class="recommendSort ? 'arrow-up' : 'arrow-down'")
-          text(
-            v-if="item == '价格'", 
-            :class="priceSort ? 'arrow-up' : 'arrow-down'")
-    //- 综合推荐遮罩层
-    u-overlay(:show="maskShow", @click="maskShow = false")
-    //- 综合推荐面板
-    view.recommend-content(v-if="maskShow && (tabActive == '综合推荐' || tabActive == '好评')", @tap.stop)
-      view.recommend.flex(
-        v-for="(item,index) in panelDataList", 
-        :key="index",
-        :class="recommendActive == item.name ? 'recommend-active' : ''",
-        @click="onPanelItem(item.name)")
-        text.recommend-check(v-if="recommendActive == item.name") √
-        text {{ item.name }}
-    //- 筛选遮罩层
-    u-popup(
-      :show="popupShow", 
-      mode="right",
-      zIndex="10090",
-      :overlay="true",
-      :closeOnClickOverlay="true",
-      @close="closePopup", 
-      @open="openPopup")
-      //- 筛选面板
-      view.retrieval-content
-        view.retrieval-service
-          view.retrieval-title 服务折扣
-          view.retrieval-list
-            view.item(
-              v-for="(item, index) in serviceList",
-              :key="index",
-              :class="item.checked ? 'retrieval-active' : ''",
-              @click="onServiceCheck(index, item.checked)") {{ item.name }}
-        view.retrieval-price-range
-          view.retrieval-title 价格区间
-          view.content
-            u--input.input(
-              placeholder="最低价",
-              border="surround",
-              shape="circle",
-              fontSize="12px",
-              type="number",
-              v-model="lowestPrice")
-            text.interval —
-            u--input.input(
-              placeholder="最高价",
-              border="surround",
-              shape="circle",
-              fontSize="12px",
-              type="number",
-              v-model="highestPrice")
-        //- u-gap.retrieval-gap(height="10" bgColor="#ededed")
-        view.retrieval-crowd
-          view.retrieval-title 使用人群
-          view.retrieval-list
-            view.item(
-              v-for="(item, index) in crowdList",
-              :key="index",
-              :class="item.checked ? 'retrieval-active' : ''",
-              @click="onCrowdCheck(index, item.checked)") {{ item.name }}
-        view.retrieval-address
-          view.retrieval-title 产地
-          view.retrieval-list
-            view.item(
-              v-for="(item, index) in addressList",
-              :key="index",
-              :class="item.checked ? 'retrieval-active' : ''",
-              @click="onAddressCheck(index, item.checked)") {{ item.name }}
+	view.andry-search-tab
+		view.tab
+			view.item(
+				v-for="(item, index) in tabList",
+				:key="index",
+				:class="tabActive == item ? 'active' : ''",
+				@click="onTabItem(item)") 
+				view 
+					text {{ item }}
+					text(
+						v-if="item == '综合推荐' || item == '好评'", 
+						:class="recommendSort ? 'arrow-up' : 'arrow-down'")
+					text(
+						v-if="item == '价格'", 
+						:class="priceSort ? 'arrow-up' : 'arrow-down'")
+		//- 综合推荐遮罩层
+		u-overlay(:show="maskShow", @click="maskShow = false")
+		//- 综合推荐面板
+		view.recommend-content(v-if="maskShow && (tabActive == '综合推荐' || tabActive == '好评')", @tap.stop)
+			view.recommend.flex(
+				v-for="(item,index) in panelDataList", 
+				:key="index",
+				:class="recommendActive == item.name ? 'recommend-active' : ''",
+				@click="onPanelItem(item.name)")
+				text.recommend-check(v-if="recommendActive == item.name") √
+				text {{ item.name }}
+		//- 筛选遮罩层
+		u-popup(
+			:show="popupShow", 
+			mode="right",
+			zIndex="10090",
+			:overlay="true",
+			:closeOnClickOverlay="true",
+			@close="closePopup", 
+			@open="openPopup",
+			:customStyle="customPopupStyle")
+			//- 筛选面板
+			view.retrieval-content
+				u-gap.retrieval-gap(height="0" bgColor="#ffffff")
+				view.retrieval-service
+					view.retrieval-title 服务折扣
+					view.retrieval-list
+						view.item(
+							v-for="(item, index) in serviceList",
+							:key="index",
+							:class="item.checked ? 'retrieval-active' : ''",
+							@click="onServiceCheck(index, item.checked)") {{ item.name }}
+				u-gap.retrieval-gap(height="10" bgColor="#ededed")
+				view.retrieval-price-range
+					view.retrieval-title 价格区间
+					view.content
+						u--input.input(
+							placeholder="最低价",
+							border="surround",
+							shape="circle",
+							fontSize="12px",
+							type="number",
+							v-model="lowestPrice")
+						text.interval —
+						u--input.input(
+							placeholder="最高价",
+							border="surround",
+							shape="circle",
+							fontSize="12px",
+							type="number",
+							v-model="highestPrice")
+				u-gap.retrieval-gap(height="10" bgColor="#ededed")
+				view.retrieval-crowd
+					view.retrieval-title 使用人群
+					view.retrieval-list
+						view.item(
+							v-for="(item, index) in crowdList",
+							:key="index",
+							:class="item.checked ? 'retrieval-active' : ''",
+							@click="onCrowdCheck(index, item.checked)") {{ item.name }}
+				u-gap.retrieval-gap(height="10" bgColor="#ededed")
+				view.retrieval-address
+					view.retrieval-title 产地
+					view.retrieval-list
+						view.item(
+							v-for="(item, index) in addressList",
+							:key="index",
+							:class="item.checked ? 'retrieval-active' : ''",
+							@click="onAddressCheck(index, item.checked)") {{ item.name }}
+			//- 筛选确认
+			view.retrieval-btn
+				<u-button shape="circle" text="重置"></u-button>
+				<u-button color="#fa3534" shape="circle" text="确定(10+件商品)"></u-button>
 </template>
 
 <script lang="ts">
@@ -107,6 +115,9 @@ export default class SearchTab extends Vue {
   priceSort = false;
 
   popupShow = false;
+	customPopupStyle = {
+		width: "300px"
+	}
   serviceList = [
     {
       id: 1,
@@ -299,11 +310,14 @@ export default class SearchTab extends Vue {
 	}
   .retrieval-content {
     position: relative;
-    width: 80%;
-    padding: 0rpx 40rpx 20rpx 40rpx;
     background: #ffffff;
     z-index: 10090;
     box-sizing: border-box;
+		flex: 1;
+	}
+	.retrieval-service, .retrieval-price-range, .retrieval-crowd, .retrieval-address {
+		padding: 20rpx 28rpx;
+		border-radius: 8rpx;
 	}
   .retrieval-list {
     display: flex;
@@ -334,12 +348,6 @@ export default class SearchTab extends Vue {
       color: #dadbde;
 		}
 	}
-  .retrieval-crowd {
-    margin-top: 20rpx;
-	}
-  .retrieval-gap {
-    margin: 20rpx 0rpx !important;
-	}
   .retrieval-title {
     margin-bottom: 20rpx;
     font-weight: bold;
@@ -353,6 +361,12 @@ export default class SearchTab extends Vue {
   .u-popup {
     position: relative;
     z-index: 10090;
+	}
+	.retrieval-btn {
+		display: flex;
+		justify-content: center;
+		padding: 12rpx 28rpx;
+		border-top: 2rpx solid #ededed;
 	}
 }
 </style>

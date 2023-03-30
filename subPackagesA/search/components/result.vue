@@ -1,9 +1,5 @@
 <template lang="pug">
   view.andry-search-result
-    u-sticky(
-      :offsetTop="-44",
-      :bgColor="stickyBgColor")
-      SearchTab(@searchResultChange="searchResultChange")
     view.card(
       v-for="(item,index) in searchList", 
       :key="index")
@@ -19,15 +15,11 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { GOODS_DATA } from "@/model";
-import SearchTab from "./tab.vue";
 @Component({
-  components: {
-    SearchTab
-  }
+  components: {}
 })
 export default class SearchResult extends Vue {
   searchList: any = GOODS_DATA;
-  stickyBgColor = "#ffffff";
 
   // 触底触发
   onReachBottom() {
@@ -40,10 +32,6 @@ export default class SearchResult extends Vue {
 
   decimal(value, type) {
     return value.split(".")[type];
-  }
-
-  searchResultChange(value) {
-    this.$emit("searchResultChange", value);
   }
 }
 </script>

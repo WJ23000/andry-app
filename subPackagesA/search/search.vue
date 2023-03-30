@@ -1,37 +1,41 @@
 <template lang="pug">
-  view.andry-search
-    view.header
-      u-icon.arrow-left(name="arrow-left", @click="onGoBack")
-      u-search(
-        placeholder="护肤品", 
-        v-model="keyword",
-        @custom="onSearch",
-        @clear="onClearSearch")
-    view.search-result(
-      v-if="isSearchResult",
-      :style="{zIndex: searchResultIndex ? 10080 : 100100}")
-      SearchResult(@searchResultChange="searchResultChange")
-    view.history(v-else)
-      u-cell(title="搜索历史", :border="false")
-        u-icon(slot="right-icon", name="trash", @click="clearHistory")
-      view.content
-        view.item(
-          v-for="(item,index) in historyList",
-          :key="index",
-          @click="onSearch(item, 'btn')") {{  formatItem(item) }}
+	view.andry-search
+		view.header
+			u-icon.arrow-left(name="arrow-left", @click="onGoBack")
+			u-search(
+				placeholder="护肤品", 
+				v-model="keyword",
+				@custom="onSearch",
+				@clear="onClearSearch")
+		view.search-result(
+			v-if="isSearchResult")
+			u-sticky(
+				:offsetTop="-44",
+				:bgColor="stickyBgColor")
+				SearchTab(@searchResultChange="searchResultChange")
+			SearchResult
+		view.history(v-else)
+			u-cell(title="搜索历史", :border="false")
+				u-icon(slot="right-icon", name="trash", @click="clearHistory")
+			view.content
+				view.item(
+					v-for="(item,index) in historyList",
+					:key="index",
+					@click="onSearch(item, 'btn')") {{  formatItem(item) }}
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import SearchTab from "./components/tab.vue";
 import SearchResult from "./components/result.vue";
 @Component({
-  components: { SearchResult }
+  components: { SearchTab, SearchResult }
 })
 export default class Search extends Vue {
   keyword = "";
   historyList: any = [];
   isSearchResult = false;
-  searchResultIndex = true;
+	stickyBgColor = "#ffffff";
 
   onLoad() {
     uni.getStorage({
@@ -49,9 +53,7 @@ export default class Search extends Vue {
     });
   }
 
-  searchResultChange(value) {
-    this.searchResultIndex = value;
-  }
+  searchResultChange(value) {}
 
   // 搜索
   onSearch(value, type) {
@@ -107,6 +109,7 @@ export default class Search extends Vue {
 	}
   .search-result {
     position: relative;
+		z-index: 100100;
 	}
   .history {
     .content {
