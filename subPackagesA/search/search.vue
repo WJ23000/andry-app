@@ -1,5 +1,5 @@
 <template lang="pug">
-	view.andry-search
+	view.andry-search(:class="{popupShow: popupShow}")
 		view.header
 			u-icon.arrow-left(name="arrow-left", @click="onGoBack")
 			u-search(
@@ -36,6 +36,7 @@ export default class Search extends Vue {
   historyList: any = [];
   isSearchResult = false;
 	stickyBgColor = "#ffffff";
+	popupShow = false;
 
   onLoad() {
     uni.getStorage({
@@ -53,18 +54,24 @@ export default class Search extends Vue {
     });
   }
 
-  searchResultChange(value) {}
+  searchResultChange(value) {
+		console.log("筛选", value)
+		this.popupShow = !value;
+	}
 
   // 搜索
   onSearch(value, type) {
     this.keyword = value;
-    if (!type) {
-      this.historyList.push(this.keyword);
-      uni.setStorage({
-        key: "historyList",
-        data: this.historyList,
-        success: () => {}
-      });
+    if (!type && value) {
+			const index = this.historyList.indexOf(value);
+			if (index == -1) {
+				this.historyList.push(this.keyword);
+				uni.setStorage({
+				  key: "historyList",
+				  data: this.historyList,
+				  success: () => {}
+				});
+			}
     }
     this.isSearchResult = true;
   }
@@ -128,5 +135,9 @@ export default class Search extends Vue {
       background: #ededed;
 		}
 	}
+}
+.popupShow {
+	overflow: hidden;
+	position: fixed;
 }
 </style>

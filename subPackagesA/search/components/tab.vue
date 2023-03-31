@@ -38,8 +38,8 @@
 			//- 筛选面板
 			view.retrieval-content
 				u-gap.retrieval-gap(height="0" bgColor="#ffffff")
-				view.retrieval-service
-					view.retrieval-title 服务折扣
+				view.retrieval-content-item
+					view.retrieval-title 服务/折扣
 					view.retrieval-list
 						view.item(
 							v-for="(item, index) in serviceList",
@@ -66,8 +66,35 @@
 							type="number",
 							v-model="highestPrice")
 				u-gap.retrieval-gap(height="10" bgColor="#ededed")
-				view.retrieval-crowd
-					view.retrieval-title 使用人群
+				view.retrieval-content-item
+					view.retrieval-title 品牌
+					view.retrieval-list
+						view.item(
+							v-for="(item, index) in brandList",
+							:key="index",
+							:class="item.checked ? 'retrieval-active' : ''",
+							@click="onBrandCheck(index, item.checked)") {{ item.name }}
+				u-gap.retrieval-gap(height="10" bgColor="#ededed")
+				view.retrieval-content-item
+					view.retrieval-title 发货地
+					view.retrieval-list
+						view.item(
+							v-for="(item, index) in addressList",
+							:key="index",
+							:class="item.checked ? 'retrieval-active' : ''",
+							@click="onAddressCheck(index, item.checked)") {{ item.name }}
+				u-gap.retrieval-gap(height="10" bgColor="#ededed")
+				view.retrieval-content-item
+					view.retrieval-title 适合肤质
+					view.retrieval-list
+						view.item(
+							v-for="(item, index) in skinList",
+							:key="index",
+							:class="item.checked ? 'retrieval-active' : ''",
+							@click="onSkinCheck(index, item.checked)") {{ item.name }}
+				u-gap.retrieval-gap(height="10" bgColor="#ededed")
+				view.retrieval-content-item
+					view.retrieval-title 适用人群
 					view.retrieval-list
 						view.item(
 							v-for="(item, index) in crowdList",
@@ -75,18 +102,18 @@
 							:class="item.checked ? 'retrieval-active' : ''",
 							@click="onCrowdCheck(index, item.checked)") {{ item.name }}
 				u-gap.retrieval-gap(height="10" bgColor="#ededed")
-				view.retrieval-address
-					view.retrieval-title 产地
+				view.retrieval-content-item
+					view.retrieval-title 类别
 					view.retrieval-list
 						view.item(
-							v-for="(item, index) in addressList",
+							v-for="(item, index) in categoryList",
 							:key="index",
 							:class="item.checked ? 'retrieval-active' : ''",
-							@click="onAddressCheck(index, item.checked)") {{ item.name }}
+							@click="onCategoryCheck(index, item.checked)") {{ item.name }}
 			//- 筛选确认
 			view.retrieval-btn
-				<u-button shape="circle" text="重置"></u-button>
-				<u-button color="#fa3534" shape="circle" text="确定(10+件商品)"></u-button>
+				u-button(shape="circle" text="重置" @click="onReset")
+				u-button(color="#fa3534" shape="circle" text="确定(10+件商品)" @click="onConfirm")
 </template>
 
 <script lang="ts">
@@ -142,6 +169,87 @@ export default class SearchTab extends Vue {
   ];
   lowestPrice = "";
   highestPrice = "";
+	brandList = [
+	  {
+	    id: 1,
+	    name: "欧莱雅",
+	    checked: false
+	  },
+	  {
+	    id: 2,
+	    name: "自然堂",
+	    checked: false
+	  },
+	  {
+	    id: 3,
+	    name: "海蓝之谜",
+	    checked: false
+	  },
+		{
+		  id: 4,
+		  name: "雅诗兰黛",
+		  checked: false
+		},
+		{
+		  id: 5,
+		  name: "韩束",
+		  checked: false
+		},
+		{
+		  id: 4,
+		  name: "SK-II",
+		  checked: false
+		},
+		{
+		  id: 5,
+		  name: "百雀羚",
+		  checked: false
+		}
+	];
+	addressList = [
+	  {
+	    id: 1,
+	    name: "中国大陆",
+	    checked: false
+	  },
+	  {
+	    id: 2,
+	    name: "中国台湾",
+	    checked: false
+	  },
+	  {
+	    id: 3,
+	    name: "海外",
+	    checked: false
+	  }
+	];
+	skinList = [
+	  {
+	    id: 1,
+	    name: "干性",
+	    checked: false
+	  },
+	  {
+	    id: 2,
+	    name: "中性",
+	    checked: false
+	  },
+	  {
+	    id: 3,
+	    name: "油性",
+	    checked: false
+	  },
+		{
+		  id: 2,
+		  name: "混合性",
+		  checked: false
+		},
+		{
+		  id: 3,
+		  name: "敏感性",
+		  checked: false
+		}
+	];
   crowdList = [
     {
       id: 1,
@@ -159,23 +267,49 @@ export default class SearchTab extends Vue {
       checked: false
     }
   ];
-  addressList = [
+	categoryList = [
     {
       id: 1,
-      name: "中国大陆",
+      name: "爽肤水",
       checked: false
     },
     {
       id: 2,
-      name: "中国台湾",
+      name: "精粹水",
       checked: false
     },
     {
       id: 3,
-      name: "海外",
+      name: "喷雾",
       checked: false
-    }
+    },
+		{
+		  id: 4,
+		  name: "精华乳/油",
+		  checked: false
+		},
+		{
+		  id: 5,
+		  name: "眼霜",
+		  checked: false
+		},
+		{
+		  id: 6,
+		  name: "乳液",
+		  checked: false
+		},
+		{
+		  id: 7,
+		  name: "精华水",
+		  checked: false
+		},
+		{
+		  id: 8,
+		  name: "眼部精华",
+		  checked: false
+		}
   ];
+  
 
   onTabItem(value) {
     switch (value) {
@@ -241,16 +375,62 @@ export default class SearchTab extends Vue {
   onServiceCheck(index, checked) {
     this.serviceList[index].checked = !checked;
   }
+	
+	// 品牌选中/取消选中
+	onBrandCheck(index, checked) {
+    this.brandList[index].checked = !checked;
+  }
+	
+	// 发货地选中/取消选中
+	onAddressCheck(index, checked) {
+	  this.addressList[index].checked = !checked;
+	}
+	
+	// 适合肤质选中/取消选中
+	onSkinCheck(index, checked) {
+    this.skinList[index].checked = !checked;
+  }
+	
 
-  // 使用人群选中/取消选中
+  // 适用人群选中/取消选中
   onCrowdCheck(index, checked) {
     this.crowdList[index].checked = !checked;
   }
 
-  // 产地选中/取消选中
-  onAddressCheck(index, checked) {
-    this.addressList[index].checked = !checked;
-  }
+	// 类别选中/取消选中
+	onCategoryCheck(index, checked) {
+	  this.categoryList[index].checked = !checked;
+	}
+  
+	
+	// 重置
+	onReset() {
+		this.serviceList.forEach(item => {
+			item.checked = false;
+		})
+		this.brandList.forEach(item => {
+			item.checked = false;
+		})
+		this.addressList.forEach(item => {
+			item.checked = false;
+		})
+		this.skinList.forEach(item => {
+			item.checked = false;
+		})
+		this.crowdList.forEach(item => {
+			item.checked = false;
+		})
+		this.categoryList.forEach(item => {
+			item.checked = false;
+		})
+	}
+	
+	// 确定
+	onConfirm() {
+		this.popupShow = false;
+		this.$emit("searchResultChange", true);
+		console.log("close");
+	}
 }
 </script>
 
@@ -313,18 +493,20 @@ export default class SearchTab extends Vue {
     background: #ffffff;
     z-index: 10090;
     box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
 		flex: 1;
+		overflow-y: scroll;
 	}
-	.retrieval-service, .retrieval-price-range, .retrieval-crowd, .retrieval-address {
+	.retrieval-content-item, .retrieval-price-range {
 		padding: 20rpx 28rpx;
 		border-radius: 8rpx;
 	}
   .retrieval-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     .item {
-      margin-bottom: 20rpx;
+      margin: 20rpx 10rpx 0rpx 0rpx;
       width: 24%;
       padding: 12rpx 20rpx;
       background: #ededed;
@@ -332,6 +514,9 @@ export default class SearchTab extends Vue {
       font-size: 24rpx;
       border-radius: 50rpx;
       text-align: center;
+		}
+		.item:nth-child(3n) {
+			margin-right: 0rpx;
 		}
 	}
   .retrieval-price-range {
@@ -363,10 +548,14 @@ export default class SearchTab extends Vue {
     z-index: 10090;
 	}
 	.retrieval-btn {
+		height: 88rpx;
 		display: flex;
 		justify-content: center;
 		padding: 12rpx 28rpx;
 		border-top: 2rpx solid #ededed;
+	}
+	/deep/ .u-popup__content {
+		overflow-y: scroll;
 	}
 }
 </style>
