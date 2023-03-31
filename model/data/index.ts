@@ -13,3 +13,7 @@ export {
 export {
 	CLASSIFY_DATA
 } from "./classify";
+
+export {
+	GOODS_BANNER_DATA
+} from "./goods";

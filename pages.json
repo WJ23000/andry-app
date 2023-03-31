@@ -38,7 +38,8 @@
 				{
 					"path": "goodsDetail/goodsDetail",
 					"style": {
-						"navigationBarTitleText": "商品详情"
+						"navigationBarTitleText": "商品详情",
+						"titleNView": "false" // 禁用原生导航栏
 					}
 				},
 				{

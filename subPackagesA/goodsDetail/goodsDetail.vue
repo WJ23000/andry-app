@@ -1,14 +1,20 @@
 <template lang="pug">
 	view.andry-goods-detail
-		view 商品详情
+		Banner(:bannerList="bannerList")
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { GOODS_BANNER_DATA } from "@/model";
+import Banner from "./components/banner.vue";
 @Component({
-	components: {}
+	components: {
+		Banner
+	}
 })
 export default class GoodsDetail extends Vue {
+	bannerList = GOODS_BANNER_DATA;
+	
 	onLoad(option) {
 		console.log("url参数", option);
 	}
