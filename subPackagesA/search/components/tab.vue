@@ -143,7 +143,7 @@ export default class SearchTab extends Vue {
 
   popupShow = false;
 	customPopupStyle = {
-		width: "300px"
+		// width: "80%"
 	}
   serviceList = [
     {
@@ -555,6 +555,7 @@ export default class SearchTab extends Vue {
 		border-top: 2rpx solid #ededed;
 	}
 	/deep/ .u-popup__content {
+		max-width: 80vw !important;
 		overflow-y: scroll;
 	}
 }
