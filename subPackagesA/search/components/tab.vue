@@ -33,8 +33,7 @@
 			:overlay="true",
 			:closeOnClickOverlay="true",
 			@close="closePopup", 
-			@open="openPopup",
-			:customStyle="customPopupStyle")
+			@open="openPopup")
 			//- 筛选面板
 			view.retrieval-content
 				u-gap.retrieval-gap(height="0" bgColor="#ffffff")
@@ -142,9 +141,6 @@ export default class SearchTab extends Vue {
   priceSort = false;
 
   popupShow = false;
-	customPopupStyle = {
-		// width: "80%"
-	}
   serviceList = [
     {
       id: 1,
