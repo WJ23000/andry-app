@@ -46,7 +46,8 @@
 import { Component, Vue } from "vue-property-decorator";
 import { BANNER_DATA, GRID_DATA, GOODS_DATA } from "@/model";
 @Component({
-  components: {}
+  components: {},
+	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序::v-deep不生效问题
 })
 export default class Home extends Vue {
   top = 0;

@@ -26,7 +26,8 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 @Component({
-  components: {}
+  components: {},
+	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序::v-deep不生效问题
 })
 export default class SlideGrid extends Vue {
   @Prop({
@@ -61,7 +62,7 @@ image {
 }
 .grid-item {
   height: 140rpx;
-  /deep/ .u-grid-item-box {
+  ::v-deep .u-grid-item-box {
     padding: 0rpx !important;
   }
 }

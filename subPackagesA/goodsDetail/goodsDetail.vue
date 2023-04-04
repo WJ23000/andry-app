@@ -1,5 +1,7 @@
 <template lang="pug">
 	view.andry-goods-detail
+		view.header
+			
 		Banner(:bannerList="bannerList")
 </template>
 

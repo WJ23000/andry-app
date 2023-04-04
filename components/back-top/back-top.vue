@@ -8,7 +8,8 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 @Component({
-	components: {}
+	components: {},
+	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序::v-deep不生效问题
 })
 export default class BackTop extends Vue {
 	@Prop()
@@ -17,8 +18,11 @@ export default class BackTop extends Vue {
 </script>
 
 <style lang="scss" scoped>
+	
+</style>
+<style lang="scss">
 	/deep/ .u-back-top {
-		background-color: #ffffff;
-		box-shadow: 0 0 6px #ededed;
+		background-color: #ffffff !important;
+		box-shadow: 0 0 6px #ededed !important;
 	}
 </style>
