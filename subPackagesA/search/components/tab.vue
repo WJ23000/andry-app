@@ -120,7 +120,7 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component({
   components: {},
-	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序::v-deep不生效问题
+	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序/deep/不生效问题
 })
 export default class SearchTab extends Vue {
   tabList = ["综合推荐", "销量", "价格", "筛选"];
@@ -551,6 +551,11 @@ export default class SearchTab extends Vue {
 		padding: 12rpx 28rpx;
 		border-top: 2rpx solid #ededed;
 	}
+	
+}
+</style>
+<style lang="scss">
+.u-popup {
 	/deep/ .u-popup__content {
 		max-width: 80vw !important;
 		overflow-y: scroll;

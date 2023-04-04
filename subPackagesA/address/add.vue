@@ -43,7 +43,7 @@
 import { Component, Vue } from "vue-property-decorator";
 @Component({
 	components: {},
-	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序::v-deep不生效问题
+	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序/deep/不生效问题
 })
 export default class AddressAdd extends Vue {
 	show = false;
@@ -104,10 +104,6 @@ export default class AddressAdd extends Vue {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .line {
-	color: $u-light-color;
-	font-size: 28rpx;
-}
 .andry-address-add {
 	background-color: #f2f2f2;
 	.top {
@@ -241,6 +237,14 @@ export default class AddressAdd extends Vue {
 				margin-right: 10rpx;
 			}
 		}
+	}
+}
+</style>
+<style lang="scss">
+.item {
+	/deep/ .line {
+		color: $u-light-color;
+		font-size: 28rpx;
 	}
 }
 </style>

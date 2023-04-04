@@ -27,7 +27,7 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 @Component({
   components: {},
-	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序::v-deep不生效问题
+	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序/deep/不生效问题
 })
 export default class SlideGrid extends Vue {
   @Prop({
@@ -60,12 +60,6 @@ image {
   width: 80rpx;
   height: 80rpx;
 }
-.grid-item {
-  height: 140rpx;
-  ::v-deep .u-grid-item-box {
-    padding: 0rpx !important;
-  }
-}
 .grid-text {
   font-size: 28rpx;
   margin-top: 4rpx;
@@ -87,5 +81,13 @@ image {
 .indicator-dots-active {
   width: 24rpx;
   background-color: $color-primary;
+}
+</style>
+<style lang="scss">
+.grid-item {
+	height: 140rpx;
+	/deep/ .u-grid-item-box {
+		padding: 0rpx !important;
+	}
 }
 </style>

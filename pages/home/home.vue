@@ -47,7 +47,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { BANNER_DATA, GRID_DATA, GOODS_DATA } from "@/model";
 @Component({
   components: {},
-	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序::v-deep不生效问题
+	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序/deep/不生效问题
 })
 export default class Home extends Vue {
   top = 0;
@@ -330,7 +330,11 @@ page {
     }
   }
 }
-/deep/ .u-tabs__wrapper__nav__item__text {
-  font-size: 30rpx;
+</style>
+<style lang="scss">
+.tabs {
+	/deep/ .u-tabs__wrapper__nav__item__text {
+	  font-size: 28rpx;
+	}
 }
 </style>

@@ -17,5 +17,4 @@
 <style lang="scss">
 	/*公共css */
 	@import "uview-ui/index.scss";
-	@import "@/style/global.scss";
 </style>
