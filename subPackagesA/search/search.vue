@@ -1,5 +1,5 @@
 <template lang="pug">
-	view.andry-search(:class="{popupShow: popupShow}")
+	view.andry-search(:class="{'popup-show': popupShow}")
 		view.header
 			u-icon.arrow-left(name="arrow-left", @click="onGoBack")
 			u-search(
@@ -8,11 +8,12 @@
 				@custom="onSearch",
 				@clear="onClearSearch")
 		view.search-result(
+			:class="{'search-sesult-index': popupShow}"
 			v-if="isSearchResult")
 			u-sticky(
 				:offsetTop="-44",
 				:bgColor="stickyBgColor")
-				SearchTab(@searchResultChange="searchResultChange")
+				SearchTab(ref="searchTabRef", @searchResultChange="searchResultChange")
 			SearchResult
 		view.history(v-else)
 			u-cell(title="搜索历史", :border="false")
@@ -116,6 +117,8 @@ export default class Search extends Vue {
 	}
   .search-result {
     position: relative;
+	}
+	.search-sesult-index {
 		z-index: 100100;
 	}
   .history {
@@ -136,7 +139,7 @@ export default class Search extends Vue {
 		}
 	}
 }
-.popupShow {
+.popup-show {
 	overflow: hidden;
 	position: fixed;
 }

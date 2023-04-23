@@ -354,8 +354,8 @@ export default class SearchTab extends Vue {
     this.$emit("searchResultChange", false);
   }
   closePopup() {
-    this.popupShow = false;
     this.$emit("searchResultChange", true);
+		this.popupShow = false;
     console.log("close");
   }
 

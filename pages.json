@@ -12,21 +12,24 @@
 			"path": "pages/classify/classify",
 			"style": {
 				"navigationBarTitleText": "分类",
-				"navigationStyle": "custom" // 自定义导航栏
+				"titleNView": "false" // 禁用原生导航栏
+				// "navigationStyle": "custom" // 自定义小程序导航栏
 			}
 		},
 		{
 			"path": "pages/cart/cart",
 			"style": {
 				"navigationBarTitleText": "分类",
-				"navigationStyle": "custom" // 自定义导航栏
+				"titleNView": "false" // 禁用原生导航栏
+				// "navigationStyle": "custom" // 自定义小程序导航栏
 			}
 		},
 		{
 			"path": "pages/mine/mine",
 			"style": {
 				"navigationBarTitleText": "我的",
-				"navigationStyle": "custom" // 自定义导航栏
+				"titleNView": "false" // 禁用原生导航栏
+				// "navigationStyle": "custom" // 自定义小程序导航栏
 			}
 		}
 	],
@@ -78,7 +81,8 @@
 					"path": "search/search",
 					"style": {
 						"navigationBarTitleText": "搜索",
-						"navigationStyle": "custom" // 自定义导航栏
+						"titleNView": "false" // 禁用原生导航栏
+						// "navigationStyle": "custom" // 自定义小程序导航栏
 					}
 				}
 			]
