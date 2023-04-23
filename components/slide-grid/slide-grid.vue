@@ -26,8 +26,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 @Component({
-  components: {},
-	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序/deep/不生效问题
+  components: {}
 })
 export default class SlideGrid extends Vue {
   @Prop({

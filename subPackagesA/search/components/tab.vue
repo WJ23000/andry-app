@@ -119,8 +119,7 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
-  components: {},
-	options: { styleIsolation: 'shared', addGlobalClass: true } // 解决小程序/deep/不生效问题
+  components: {}
 })
 export default class SearchTab extends Vue {
   tabList = ["综合推荐", "销量", "价格", "筛选"];

@@ -59,7 +59,7 @@ export default class Classify extends Vue {
 			const query = uni.createSelectorQuery().in(this);
 			query
 				.select("." + elClass)
-				.fields({ size: true }, res => {
+				.fields({ size: true }, (res: any) => {
 					// 如果节点尚未生成，res值为null，循环调用执行
 					if (!res) {
 						setTimeout(() => {
