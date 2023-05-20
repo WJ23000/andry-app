@@ -16,8 +16,8 @@
 					view.phone {{ userInfo.phone }}
 		view.wrap
 			view.order-grid
-				u-cell.order-grid-other(title="订单", value="查看更多", :isLink="true", :clickable="true")
-				u-grid(:col="4", :border="false")
+				u-cell.order-grid-other(title="订单", value="全部订单", :isLink="true", :clickable="true")
+				u-grid(:col="5", :border="false")
 					u-grid-item(v-for="(item, index) in orderGridList", :index="index", :key="index", @click="toOrder(item.id)")
 						image.grid-image(:src="item.image")
 						text.grid-text {{ item.name }}
@@ -63,10 +63,11 @@ export default class Mine extends Vue {
 		phone: "180XXXX9388"
 	};
 	orderGridList = [
-		{ id: 0, name: "待支付", image: require("@/static/mine/pay.png") },
-		{ id: 1, name: "待收货", image: require("@/static/mine/the-goods.png") },
-		{ id: 2, name: "待评价", image: require("@/static/mine/evaluate.png") },
-		{ id: 3, name: "售后/退款", image: require("@/static/mine/after-sale.png") }
+		{ id: 0, name: "待付款", image: require("@/static/mine/pay.png") },
+		{ id: 1, name: "待发货", image: require("@/static/mine/deliver-goods.png") },
+		{ id: 2, name: "待收货", image: require("@/static/mine/the-goods.png") },
+		{ id: 3, name: "待评价", image: require("@/static/mine/evaluate.png") },
+		{ id: 4, name: "售后/退款", image: require("@/static/mine/after-sale.png") }
 	];
 	otherGridList = [
 		{ name: "我的钱包", image: require("@/static/mine/wallet.png") },
@@ -301,7 +302,8 @@ page {
 }
 .andry-mine {
 	.header {
-		background: linear-gradient(to top, #ededed, #ff6666, #fa3534);
+		background-image: url("../../static/mine-bj.png");
+		background-size: cover;
 		padding: 0rpx 20rpx;
 		.user-info {
 			display: flex;

@@ -15,36 +15,35 @@
 							u-icon(:name="iconXz" v-if="item.selected" @click="selectedCart(index)" :data-index="index" size="20px")
 							u-icon(:name="iconWxz" v-else @click="selectedCart(index)" :data-index="index" size="20px")
 						view.cart-main
-							view.left
-								view.left_image
-									img.cart-image(:src="item.icon")
-								view.left_box
-									text.cart-title {{item.title}}
-									text.cart-specif {{item.specif}}
-									view.cart-count
-										view.cart-money
-											text.cart-unit ￥
-											text.cart-price {{item.price}}
-										view
-											text(@click='reduce'  class="input cart-reduce"  :data-index="index") -
-											text(class="input cart-text") {{item.value}}
-											text(@click='add' class="input cart-add"  :data-index="index") +
-						<!-- 底部 -->
-						view(v-if="showVal")
-							view.del-bottom
-								view.cart-bottom-cell(@click='cancel') 取消
-								view(class='cart-bottom-cell del-color' @click='del') 删除({{delCount}})
-						view(v-else)
-							view.cart-bottom
-								view.cart-bottom-icon
-									u-icon(:name="iconXz" v-if="CheckAll" @click="select" :data-index="index" size="20px")
-									u-icon(:name="iconWxz" v-else @click="select" :data-index="index"  size="20px")
-								view.checkAll 全选
-								view.cart-sum
-									text.sum_text 合计：
-									text.sum_color ￥{{total}}元
-								view.cart-pay
-									text.cart_pay(@click="payOrder" :data-id="item.id") 去结算({{goodsCount}})
+							view.left_image
+								img.cart-image(:src="item.icon")
+							view.left_box
+								text.cart-title {{item.title}}
+								text.cart-specif {{item.specif}}
+								view.cart-count
+									view.cart-money
+										text.cart-unit ￥
+										text.cart-price {{item.price}}
+									view
+										text(@click='reduce'  class="input cart-reduce"  :data-index="index") -
+										text(class="input cart-text") {{item.value}}
+										text(@click='add' class="input cart-add"  :data-index="index") +
+				<!-- 底部 -->
+				view(v-if="showVal")
+					view.del-bottom
+						view.cart-bottom-cell(@click='cancel') 取消
+						view(class='cart-bottom-cell del-color' @click='del') 删除({{delCount}})
+				view(v-else)
+					view.cart-bottom
+						view.cart-bottom-icon
+							u-icon(:name="iconXz" v-if="CheckAll" @click="select" size="20px")
+							u-icon(:name="iconWxz" v-else @click="select" size="20px")
+						view.checkAll 全选
+						view.cart-sum
+							text.sum_text 合计：
+							text.sum_color ￥{{total}}元
+						view.cart-pay
+							text.cart_pay(@click="payOrder") 去结算({{goodsCount}})
 			<!--如果无数据，则显示数据-->
 			u-empty.empty(
 				v-else
@@ -417,13 +416,10 @@ page {
 		line-height: 88rpx;
 	}
 	.page-content {
-		display: flex;
-		flex: 1;
-		justify-content: center;
 		background: #ffffff;
 		.cart-main {
-			float: left;
-			width: 86%;
+			display: flex;
+			margin-right: 20rpx;
 		}
 		.cart-active {
 			float: left;
@@ -438,8 +434,7 @@ page {
 			padding: 15rpx 10rpx;
 		}
 		.cart-box {
-			width: 100%;
-			height: auto;
+			display: flex;
 			background: white;
 		}
 		.cart-boxtwo {
@@ -488,9 +483,6 @@ page {
 			line-height: 36rpx;
 			margin-bottom: 10rpx;
 			border-radius: 50rpx;
-		}
-		.left {
-			display: flex;
 		}
 		.right {
 			float: right;
@@ -598,8 +590,7 @@ page {
 			font-size: 28rpx;
 		}
 		.cart-cell {
-			float: left;
-			width: 100%;
+			display: flex;
 			background: #ffffff;
 			border-top: 2rpx solid #ccc;
 			padding: 20rpx 0rpx;
@@ -619,8 +610,6 @@ page {
 			}
 		}
 		.icon {
-			float: left;
-			width: 6%;
 			margin: 94rpx 20rpx;
 			background: #ffffff;
 		}
@@ -668,6 +657,7 @@ page {
 	}
 	.empty {
 		margin-bottom: 40rpx;
+		padding-bottom: 40rpx;
 	}
 }
 .cart-right {
