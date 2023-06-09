@@ -1,7 +1,7 @@
 <template lang="pug">
 	view.andry-mine
 		view.search-sticky(v-if="top > 44")
-			u-navbar.cart-header(
+			u-navbar.mine-header(
 				title="我的",
 				:autoBack="false")
 				view.cart-right(slot="left")
@@ -108,7 +108,7 @@ export default class Mine extends Vue {
 
 	// 监听页面滚动(一键置顶，tabs吸顶)
 	onPageScroll(e) {
-		this.top = e.scrollTop;
+	  this.top = e.scrollTop;
 	}
 
 	// 查看全部订单
@@ -302,7 +302,7 @@ page {
 }
 .andry-mine {
 	.header {
-		background-image: url("../../static/mine-bj.png");
+		background-image: $andry-bg-image;
 		background-size: cover;
 		padding: 0rpx 20rpx;
 		.user-info {
@@ -347,9 +347,10 @@ page {
 		}
 		.grid-text {
 			font-size: 24rpx;
+			padding-bottom: 28rpx;
 		}
 		.u-grid {
-			padding: 28rpx;
+			padding: 28rpx 28rpx 0rpx 28rpx;
 		}
 		.other-grid, .other-grid-two {
 			margin: 16rpx 10rpx;
@@ -381,5 +382,8 @@ page {
 			padding-bottom: 0rpx;
 		}
 	}
+}
+/deep/ .u-status-bar {
+  display: none !important;
 }
 </style>

@@ -1,9 +1,11 @@
 <template lang="pug">
 	view.andry-search(:class="{'popup-show': popupShow}")
 		view.header
+			<!-- #ifdef H5 -->
 			u-icon.arrow-left(name="arrow-left", @click="onGoBack")
+			<!-- #endif -->
 			u-search(
-				placeholder="护肤品", 
+				placeholder="护肤品",
 				v-model="keyword",
 				@custom="onSearch",
 				@clear="onClearSearch")
@@ -11,7 +13,7 @@
 			:class="{'search-sesult-index': popupShow}"
 			v-if="isSearchResult")
 			u-sticky(
-				:offsetTop="-44",
+				:offsetTop="0",
 				:bgColor="stickyBgColor")
 				SearchTab(ref="searchTabRef", @searchResultChange="searchResultChange")
 			SearchResult

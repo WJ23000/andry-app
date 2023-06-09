@@ -1,7 +1,7 @@
 <template lang="pug">
 	view.andry-cart
 		u-navbar.cart-header(
-			title=""
+			title=" "
 			:autoBack="false")
 			view(slot="left")
 				text 购物车
@@ -417,6 +417,9 @@ page {
 	}
 	.page-content {
 		background: #ffffff;
+		/* #ifdef MP */
+		margin-top: 88rpx;
+		/* #endif */
 		.cart-main {
 			display: flex;
 			margin-right: 20rpx;
@@ -525,7 +528,12 @@ page {
 			position: fixed;
 			width: 100%;
 			height: 88rpx;
+			/* #ifdef H5 */
 			bottom: 100rpx;
+			/* #endif */
+			/* #ifdef MP */
+			bottom: 0rpx;
+			/* #endif */
 			background: #ffffff;
 			padding: 0rpx 20rpx;
 			box-sizing: border-box;
@@ -621,7 +629,12 @@ page {
 			position: fixed;
 			width: 100%;
 			height: 88rpx;
+			/* #ifdef H5 */
 			bottom: 100rpx;
+			/* #endif */
+			/* #ifdef MP */
+			bottom: 0rpx;
+			/* #endif */
 			background: #ffffff;
 			border-top: 2rpx solid #f2f2f2;
 			z-index: 999;
@@ -662,5 +675,8 @@ page {
 }
 .cart-right {
 	font-size: 24rpx;
+}
+/deep/ .u-status-bar {
+  display: none !important;
 }
 </style>
