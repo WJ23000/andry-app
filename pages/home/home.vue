@@ -20,7 +20,7 @@
 				slide(:bannerList="bannerList")
 			view.grid
 				slide-grid(:gridList="gridList")
-		u-sticky(:bgColor="stickyBgColor" offset-top="44")
+		u-sticky(:bgColor="stickyBgColor" :offset-top="offsetTop")
 			view.tabs.flex.justify-center
 				u-tabs(
 					:list="tabList",
@@ -78,6 +78,7 @@ export default class Home extends Vue {
     transform: "scale(1)"
   };
   stickyBgColor = "";
+  offsetTop = "44";
 
   // 商品推荐
   leftHeight = 0;
@@ -96,6 +97,9 @@ export default class Home extends Vue {
   };
 
   onLoad() {
+	// #ifdef H5
+	this.offsetTop = "0";
+	// #endif
     this.getList();
   }
 
@@ -154,7 +158,7 @@ export default class Home extends Vue {
       icon: "none"
     });
     uni.navigateTo({
-      url: "/subPackagesA/goodsDetail/goodsDetail?id=" + this.leftList[index].id
+      url: "/packageA/goodsDetail/goodsDetail?id=" + this.leftList[index].id
     });
   }
   // 获取数据
@@ -264,7 +268,7 @@ export default class Home extends Vue {
   // 搜索
   onSearch() {
     uni.navigateTo({
-      url: "/subPackagesA/search/search"
+      url: "/packageA/search/search"
     });
   }
 }
@@ -330,7 +334,7 @@ page {
   }
 }
 </style>
-<style lang="scss">
+<style lang="scss" scoped>
 .tabs {
 	/deep/ .u-tabs__wrapper__nav__item__text {
 	  font-size: 28rpx;

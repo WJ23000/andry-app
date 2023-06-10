@@ -22,7 +22,7 @@ export default class GlobalSearch extends Vue {
   // 搜索
   onSearch() {
     uni.navigateTo({
-    	url: "/subPackagesA/search/search"
+    	url: "/packageA/search/search"
     });
   }
 }

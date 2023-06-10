@@ -11,9 +11,9 @@
 			view(v-if="cartItems.length > 0 ? true : false")
 				view.cart-cell(v-for="(item,index) in cartItems" :key="index")
 					view.cart-box(:data-id="item.id" :data-index="index")
-						view.icon
-							u-icon(:name="iconXz" v-if="item.selected" @click="selectedCart(index)" :data-index="index" size="20px")
-							u-icon(:name="iconWxz" v-else @click="selectedCart(index)" :data-index="index" size="20px")
+						view.icon-main
+							img(:src="iconXz" v-if="item.selected" @click="selectedCart(index)" :data-index="index")
+							img(:src="iconWxz" v-else @click="selectedCart(index)" :data-index="index")
 						view.cart-main
 							view.left_image
 								img.cart-image(:src="item.icon")
@@ -36,8 +36,8 @@
 				view(v-else)
 					view.cart-bottom
 						view.cart-bottom-icon
-							u-icon(:name="iconXz" v-if="CheckAll" @click="select" size="20px")
-							u-icon(:name="iconWxz" v-else @click="select" size="20px")
+							img(:src="iconXz" v-if="CheckAll" @click="select")
+							img(:src="iconWxz" v-else @click="select")
 						view.checkAll 全选
 						view.cart-sum
 							text.sum_text 合计：
@@ -45,7 +45,7 @@
 						view.cart-pay
 							text.cart_pay(@click="payOrder") 去结算({{goodsCount}})
 			<!--如果无数据，则显示数据-->
-			u-empty.empty(
+			u-empty(
 				v-else
 				mode="car"
 				icon="http://cdn.uviewui.com/uview/empty/car.png")
@@ -542,6 +542,10 @@ page {
 		}
 		.cart-bottom-icon {
 			margin-top: 22rpx;
+			img {
+				width: 40rpx !important;
+				height: 40rpx !important;
+			}
 		}
 		.yuan {
 			display: block;
@@ -617,12 +621,13 @@ page {
 				height: 300rpx;
 			}
 		}
-		.icon {
+		.icon-main {
 			margin: 94rpx 20rpx;
 			background: #ffffff;
-		}
-		.icon-bj {
-			margin-top: 8rpx;
+			img {
+				width: 40rpx !important;
+				height: 40rpx !important;
+			}
 		}
 		/* 底部 */
 		.del-bottom {
@@ -668,13 +673,13 @@ page {
 	.wrap {
 		padding: 0rpx 8rpx 100rpx 8rpx;
 	}
-	.empty {
+	/deep/ .u-empty {
 		margin-bottom: 40rpx;
 		padding-bottom: 40rpx;
 	}
 }
 .cart-right {
-	font-size: 24rpx;
+	font-size: 26rpx;
 }
 /deep/ .u-status-bar {
   display: none !important;

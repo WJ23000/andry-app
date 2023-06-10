@@ -35,8 +35,7 @@
 	],
 	"subPackages": [
 		{
-			"root": "subPackagesA",
-			"name": "subPackagesA",
+			"root": "packageA",
 			"pages": [
 				{
 					"path": "goodsDetail/goodsDetail",
@@ -88,8 +87,7 @@
 			]
 		},
 		{
-			"root": "subPackagesB",
-			"name": "subPackagesB",
+			"root": "packageB",
 			"pages": [
 				{
 					"path": "setting/setting",

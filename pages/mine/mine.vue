@@ -115,7 +115,7 @@ export default class Mine extends Vue {
 	toOrder(id) {
 		const current = id ? id : 0;
 		uni.navigateTo({
-			url: `/subPackagesA/order/list?current=${current}`
+			url: `/packageA/order/list?current=${current}`
 		});
 	}
 
@@ -124,12 +124,12 @@ export default class Mine extends Vue {
 		switch (name) {
 			case "我的收藏":
 				uni.navigateTo({
-					url: "/subPackagesA/collection/collection"
+					url: "/packageA/collection/collection"
 				});
 				break;
 			case "收货地址":
 				uni.navigateTo({
-					url: "/subPackagesA/address/list"
+					url: "/packageA/address/list"
 				});
 				break;
 			case "关注公众号":
@@ -143,7 +143,7 @@ export default class Mine extends Vue {
 	// 账户设置
 	onSettingClick() {
 		uni.navigateTo({
-			url: "/subPackagesB/setting/setting"
+			url: "/packageB/setting/setting"
 		});
 	}
 	
@@ -358,6 +358,10 @@ page {
 			border-radius: 8rpx;
 			background: #ffffff;
 			color: #5d656b;
+			.scroll-list__goods-item__image {
+				display: block;
+				margin: 0 auto;
+			}
 		}
 		.scroll-list {
 			@include flex(column);

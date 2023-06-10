@@ -63,7 +63,7 @@ export default class Setting extends Vue {
 			title: "功能反馈",
 			value: "",
 			isLink: true,
-			url: "/subPackagesB/feedBack/feedBack"
+			url: "/packageB/feedBack/feedBack"
 		},
 		{
 			title: "关于APP",

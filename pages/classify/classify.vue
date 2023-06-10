@@ -21,7 +21,7 @@
 								text {{item.name}}
 							view.item-container
 								view.thumb-box(v-for="(item1, index1) in item.foods", :key="index1")
-									image.item-menu-image(:src="item1.icon" mode="")
+									image.item-menu-image(:src="item1.icon")
 									view.item-menu-name(@click="onMenuItem") {{item1.name}}
 </template>
 
