@@ -82,7 +82,7 @@ export default class Cart extends Vue {
 			sell: 101,
 			url: "",
 			selected: false,
-			icon: require("@/static/goods/sk-ii sk2神仙水小灯泡精华大红瓶面霜套装.jpg")
+			icon: require("@/static/goods/img.jpg")
 		},
 		{
 			id: 2,
@@ -93,7 +93,7 @@ export default class Cart extends Vue {
 			sell: 102,
 			url: "",
 			selected: false,
-			icon: require("@/static/goods/Whoo后天气丹礼盒花献光彩紧颜水乳礼盒7件.jpg")
+			icon: require("@/static/goods/img2.jpg")
 		}
 	];
 	total = 0;
