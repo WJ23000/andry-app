@@ -66,7 +66,7 @@ export const GOODS_DATA = [
   {
     id: 1,
     title: "sk-ii sk2神仙水小灯泡精华大红瓶面霜套装",
-    url: require("@/static/goods/sk-ii sk2神仙水小灯泡精华大红瓶面霜套装.jpg"),
+    url: require("@/static/goods/img.jpg"),
     money: "1540.00",
     label: "自营",
     shop: "andry旗舰店",
@@ -75,7 +75,7 @@ export const GOODS_DATA = [
   {
     id: 2,
     title: "Whoo后天气丹礼盒花献光彩紧颜水乳礼盒7件",
-    url: require("@/static/goods/Whoo后天气丹礼盒花献光彩紧颜水乳礼盒7件.jpg"),
+    url: require("@/static/goods/img2.jpg"),
     money: "1590.00",
     label: "自营",
     shop: "andry旗舰店",
@@ -84,7 +84,7 @@ export const GOODS_DATA = [
   {
     id: 3,
     title: "官方正品TOMFORD RosePrick 玫瑰花香调",
-    url: require("@/static/goods/官方正品TOMFORD RosePrick 玫瑰花香调.jpg"),
+    url: require("@/static/goods/img3.jpg"),
     money: "169.00",
     label: "",
     shop: "andry旗舰店",
@@ -93,7 +93,7 @@ export const GOODS_DATA = [
   {
     id: 4,
     title: "官方正品TOMFORD 鎏金花影限量口红 TF16 80",
-    url: require("@/static/goods/官方正品TOMFORD 鎏金花影限量口红 TF16 80.jpg"),
+    url: require("@/static/goods/img4.jpg"),
     money: "625.00",
     label: "",
     shop: "andry旗舰店",
@@ -102,7 +102,7 @@ export const GOODS_DATA = [
   {
     id: 5,
     title: "海蓝之谜鎏光焕变粉底液保湿遮瑕防晒",
-    url: require("@/static/goods/海蓝之谜鎏光焕变粉底液保湿遮瑕防晒.jpg"),
+    url: require("@/static/goods/img5.jpg"),
     money: "350.00",
     label: "自营",
     shop: "andry旗舰店",
@@ -111,7 +111,7 @@ export const GOODS_DATA = [
   {
     id: 6,
     title: "海蓝之谜修护唇霜舒缓干燥润唇淡化唇纹",
-    url: require("@/static/goods/海蓝之谜修护唇霜舒缓干燥润唇淡化唇纹.jpg"),
+    url: require("@/static/goods/img6.jpg"),
     money: "350.00",
     label: "自营",
     shop: "andry旗舰店",
@@ -120,7 +120,7 @@ export const GOODS_DATA = [
   {
     id: 7,
     title: "珀莱雅水漾芯肌透润霜倍润补水锁水保湿滋润面霜学生护肤专柜正品",
-    url: require("@/static/goods/珀莱雅水漾芯肌透润霜倍润补水锁水保湿滋润面霜学生护肤专柜正品.jpg"),
+    url: require("@/static/goods/img7.jpg"),
     money: "390.00",
     label: "自营",
     shop: "andry旗舰店",
@@ -129,7 +129,7 @@ export const GOODS_DATA = [
   {
     id: 8,
     title: "雅诗兰黛 缪斯淡香氛香水女士持久淡茉莉香",
-    url: require("@/static/goods/雅诗兰黛 缪斯淡香氛香水女士持久淡茉莉香.jpg"),
+    url: require("@/static/goods/img8.jpg"),
     money: "509.00",
     label: "自营",
     shop: "andry旗舰店",
