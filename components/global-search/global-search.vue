@@ -32,6 +32,8 @@ export default class GlobalSearch extends Vue {
 .search {
   display: flex;
   justify-content: space-between;
+  background: #ffffff;
+  padding: 0rpx 24rpx;
   .u-search-box {
 		padding: 12rpx 0rpx;
     flex: 1;

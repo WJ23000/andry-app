@@ -14,7 +14,7 @@
 						:class="{ red: tag.tagText == '默认' }") {{ tag.tagText }}
 			view.bottom
 				text {{ item.site }}
-				u-icon.icon(name="edit-pen", color="#999999", @click="onEditAddress(item)")
+				u-icon(name="edit-pen", :size="20", color="#999999", @click="onEditAddress(item)")
 		view.addSite(@click="onEditAddress('')")
 			view.add
 				u-icon(
@@ -138,12 +138,10 @@ export default class AddressList extends Vue {
 			font-size: 28rpx;
 			justify-content: space-between;
 			color: #999999;
-			.icon {
-				/deep/ .u-icon__icon {
-					font-size: 48rpx !important;
-				}
-			}
 		}
+	}
+	.item:last-child {
+		border-bottom: 0rpx solid $u-border-color;
 	}
 	.addSite {
 		display: flex;

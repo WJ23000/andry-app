@@ -101,9 +101,6 @@ export default class Setting extends Vue {
 </script>
 
 <style lang="scss" scoped>
-page {
-	// background-color: #ededed;
-}
 .andry-setting {
 	// background-color: #f2f2f2;
 }

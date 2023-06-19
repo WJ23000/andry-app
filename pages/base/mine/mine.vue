@@ -334,7 +334,7 @@ page {
 	}
 	.wrap {
 		margin-top: -84rpx;
-		padding: 20rpx 8rpx;
+		padding: 20rpx 10rpx;
 		.order-grid {
 			margin: 16rpx 10rpx;
 			border-radius: 8rpx;
@@ -363,6 +363,9 @@ page {
 				margin: 0 auto;
 			}
 		}
+		.other-grid-two {
+			margin: 16rpx 10rpx 0rpx 10rpx;
+		}
 		.scroll-list {
 			@include flex(column);
 			&__goods-item {
@@ -386,6 +389,10 @@ page {
 			padding-bottom: 0rpx;
 		}
 	}
+}
+/deep/ .u-divider {
+	margin: 0rpx !important;
+	height: 100rpx;
 }
 /deep/ .u-status-bar {
   display: none !important;

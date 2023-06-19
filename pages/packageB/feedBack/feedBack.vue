@@ -45,9 +45,7 @@ export default class FeedBack extends Vue {
 
 <style lang="scss" scoped>
 .andry-feedback {
-	background-color: #f2f2f2;
 	.top {
-		background-color: #ffffff;
 		padding: 24rpx;
 		.item {
 			display: flex;

@@ -671,7 +671,7 @@ page {
 		}
 	}
 	.wrap {
-		padding: 0rpx 8rpx 100rpx 8rpx;
+		padding: 0rpx 10rpx 100rpx 10rpx;
 	}
 	/deep/ .u-empty {
 		margin-bottom: 40rpx;
@@ -680,6 +680,10 @@ page {
 }
 .cart-right {
 	font-size: 26rpx;
+}
+/deep/ .u-divider {
+	margin: 0rpx !important;
+	height: 100rpx;
 }
 /deep/ .u-status-bar {
   display: none !important;

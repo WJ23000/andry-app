@@ -1,6 +1,6 @@
 <template lang="pug">
 	view.andry-classify
-		global-search.ml1
+		global-search
 		view.u-menu-wrap
 			scroll-view.u-tab-view.menu-scroll-view(
 				scroll-y 
@@ -80,6 +80,9 @@ export default class Classify extends Vue {
 </script>
 
 <style lang="scss" scoped>
+page {
+	background-color: #ffffff;
+}
 .andry-classify {
 	height: calc(100vh);
 	/* #ifdef H5 */
@@ -120,7 +123,7 @@ export default class Classify extends Vue {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 26rpx;
+		font-size: 28rpx;
 		color: #444444;
 		font-weight: 400;
 		line-height: 1;
@@ -129,7 +132,7 @@ export default class Classify extends Vue {
 	.u-tab-item-active {
 		position: relative;
 		color: #000000;
-		font-size: 30rpx;
+		font-size: 28rpx;
 		font-weight: 600;
 		background: #ffffff;
 	}
@@ -142,12 +145,9 @@ export default class Classify extends Vue {
 		left: 0;
 		top: 39rpx;
 	}
-
-	.u-tab-view {
-		height: 100%;
-	}
-
+	
 	.right-box {
+		width: 100%;
 		background-color: rgb(250, 250, 250);
 	}
 

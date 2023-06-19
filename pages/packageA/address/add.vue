@@ -105,9 +105,7 @@ export default class AddressAdd extends Vue {
 
 <style lang="scss" scoped>
 .andry-address-add {
-	background-color: #f2f2f2;
 	.top {
-		background-color: #ffffff;
 		padding: 24rpx;
 		.item {
 			display: flex;

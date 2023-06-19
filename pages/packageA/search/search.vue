@@ -70,6 +70,7 @@ export default class Search extends Vue {
 	onSearch(value, type) {
 		this.keyword = value;
 		if (!type && value) {
+			console.log("history", this.historyList);
 			const index = this.historyList.indexOf(value);
 			if (index == -1) {
 				this.historyList.push(this.keyword);

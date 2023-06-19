@@ -5,21 +5,21 @@
 			:indicatorActiveColor="indicatorActiveColor")
 			swiper-item
 				u-grid(:col="4", :border="false")
-					u-grid-item.grid-item(
+					u-grid-item(
 						v-for="(item, index) in oneList", 
 						:index="index", 
 						:key="index",
 						@click="onGridItem(item)")
-						image(:src="item.image" :size="46")
+						image.grid-image(:src="item.image" :size="46")
 						text.grid-text {{ item.name }}
 			swiper-item
 				u-grid(:col="4", :border="false")
-					u-grid-item.grid-item(
+					u-grid-item(
 						v-for="(item, index) in twoList", 
 						:index="index + 9", 
 						:key="index",
 						@click="onGridItem(item)")
-						image(:src="item.image" :size="46")
+						image.grid-image(:src="item.image" :size="46")
 						text.grid-text {{ item.name }}
 </template>
 
@@ -55,13 +55,14 @@ export default class SlideGrid extends Vue {
 .grid-warp {
   height: 320rpx;
 }
-image {
+.grid-image {
   width: 80rpx;
   height: 80rpx;
+  margin-top: 10rpx;
 }
 .grid-text {
   font-size: 28rpx;
-  margin-top: 4rpx;
+  margin: 4rpx 0rpx 8rpx 0rpx;
   color: #5d656b;
 }
 .indicator-dots {
@@ -80,13 +81,5 @@ image {
 .indicator-dots-active {
   width: 24rpx;
   background-color: $color-primary;
-}
-</style>
-<style lang="scss">
-.grid-item {
-	height: 140rpx;
-	/deep/ .u-grid-item-box {
-		padding: 0rpx !important;
-	}
 }
 </style>
