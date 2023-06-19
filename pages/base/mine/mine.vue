@@ -115,7 +115,7 @@ export default class Mine extends Vue {
 	toOrder(id) {
 		const current = id ? id : 0;
 		uni.navigateTo({
-			url: `/packageA/order/list?current=${current}`
+			url: `/pages/packageA/order/list?current=${current}`
 		});
 	}
 
@@ -124,12 +124,12 @@ export default class Mine extends Vue {
 		switch (name) {
 			case "我的收藏":
 				uni.navigateTo({
-					url: "/packageA/collection/collection"
+					url: "/pages/packageA/collection/collection"
 				});
 				break;
 			case "收货地址":
 				uni.navigateTo({
-					url: "/packageA/address/list"
+					url: "/pages/packageA/address/list"
 				});
 				break;
 			case "关注公众号":
@@ -143,7 +143,7 @@ export default class Mine extends Vue {
 	// 账户设置
 	onSettingClick() {
 		uni.navigateTo({
-			url: "/packageB/setting/setting"
+			url: "/pages/packageB/setting/setting"
 		});
 	}
 	

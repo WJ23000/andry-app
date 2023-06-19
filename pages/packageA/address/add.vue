@@ -41,6 +41,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { CITY_DATA } from "@/model";
 @Component({
 	components: {}
 })

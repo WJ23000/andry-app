@@ -1,19 +1,11 @@
 // 用户
-export {
-  STORAGE_CONFIG,
-} from "./user";
+export { STORAGE_CONFIG } from "./user";
 
 // other
-export {
-	BANNER_DATA,
-	GRID_DATA,
-  GOODS_DATA
-} from "./home";
+export { BANNER_DATA, GRID_DATA, GOODS_DATA } from "./home";
 
-export {
-	CLASSIFY_DATA
-} from "./classify";
+export { CLASSIFY_DATA } from "./classify";
 
-export {
-	GOODS_BANNER_DATA
-} from "./goods";
+export { GOODS_BANNER_DATA } from "./goods";
+
+export { CITY_DATA } from "./area";

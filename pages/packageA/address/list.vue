@@ -14,7 +14,7 @@
 						:class="{ red: tag.tagText == '默认' }") {{ tag.tagText }}
 			view.bottom
 				text {{ item.site }}
-				u-icon(name="edit-pen", :size="40", color="#999999", @click="onEditAddress(item)")
+				u-icon.icon(name="edit-pen", color="#999999", @click="onEditAddress(item)")
 		view.addSite(@click="onEditAddress('')")
 			view.add
 				u-icon(
@@ -93,7 +93,7 @@ export default class AddressList extends Vue {
 	onEditAddress(item) {
 		const addressId = item.id ? item.id : "";
 		uni.navigateTo({
-			url: `/subPackagesA/address/add?id=${addressId}`
+			url: `/pages/packageA/address/add?id=${addressId}`
 		});
 	}
 }
@@ -138,6 +138,11 @@ export default class AddressList extends Vue {
 			font-size: 28rpx;
 			justify-content: space-between;
 			color: #999999;
+			.icon {
+				/deep/ .u-icon__icon {
+					font-size: 48rpx !important;
+				}
+			}
 		}
 	}
 	.addSite {

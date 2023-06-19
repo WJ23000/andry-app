@@ -2,7 +2,7 @@
 	view.andry-goods-detail
 		view.header
 			view 返回
-		Banner(:bannerList="bannerList")
+		<!-- Banner(:bannerList="bannerList") -->
 		view.cell
 			view.money
 				text.unit ￥

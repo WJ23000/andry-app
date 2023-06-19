@@ -24,6 +24,7 @@
 			view.tabs.flex.justify-center
 				u-tabs(
 					:list="tabList",
+					:scrollable="false",
 					lineWidth="30",
 					lineColor="#f56c6c",
 					:activeStyle="activeStyle",
@@ -158,7 +159,7 @@ export default class Home extends Vue {
       icon: "none"
     });
     uni.navigateTo({
-      url: "/packageA/goodsDetail/goodsDetail?id=" + this.leftList[index].id
+      url: "/pages/packageA/goodsDetail/goodsDetail?id=" + this.leftList[index].id
     });
   }
   // 获取数据
@@ -268,7 +269,7 @@ export default class Home extends Vue {
   // 搜索
   onSearch() {
     uni.navigateTo({
-      url: "/packageA/search/search"
+      url: "/pages/packageA/search/search"
     });
   }
 }
