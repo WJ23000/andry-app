@@ -98,7 +98,7 @@ export default class SlideGrid extends Vue {
 				}
 			}
 			&__item:nth-child(6){
-				margin-right: 36rpx;
+				margin-right: 47rpx;
 			}
 		}
 	}

@@ -8,6 +8,7 @@
 				placeholder="护肤品",
 				v-model="keyword",
 				@custom="onSearch",
+				@search="onSearch",
 				@clear="onClearSearch")
 		view.search-result(
 			:class="{'search-sesult-index': popupShow}"
@@ -49,7 +50,7 @@ export default class Search extends Vue {
 		uni.getStorage({
 			key: "historyList",
 			success: (res) => {
-				this.historyList = res.data;
+				this.historyList = res.data == null ? [] : res.data;
 			}
 		});
 	}
