@@ -89,6 +89,7 @@
 					"path": "search/search",
 					"style": {
 						"navigationBarTitleText": "搜索",
+						"backgroundColor": "#ffffff",
 						"titleNView": "false" // 禁用原生导航栏
 						// "navigationStyle": "custom" // 自定义小程序导航栏
 					}
