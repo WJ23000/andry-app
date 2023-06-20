@@ -1,26 +1,16 @@
 <template lang="pug">
-	view.slide-grid
-		swiper.grid-warp( 
-			:indicator-dots="true",
-			:indicatorActiveColor="indicatorActiveColor")
-			swiper-item
-				u-grid(:col="4", :border="false")
-					u-grid-item(
-						v-for="(item, index) in oneList", 
-						:index="index", 
-						:key="index",
-						@click="onGridItem(item)")
-						image.grid-image(:src="item.image" :size="46")
-						text.grid-text {{ item.name }}
-			swiper-item
-				u-grid(:col="4", :border="false")
-					u-grid-item(
-						v-for="(item, index) in twoList", 
-						:index="index + 9", 
-						:key="index",
-						@click="onGridItem(item)")
-						image.grid-image(:src="item.image" :size="46")
-						text.grid-text {{ item.name }}
+	view.slide-wrap
+		u-scroll-list(indicatorColor="#fff0f0", indicatorActiveColor="#f56c6c")
+			view.scroll-list
+				view.scroll-list__line(
+					v-for="(item, index) in gridList"
+					:key="index")
+					view.scroll-list__line__item(
+						v-for="(item1, index1) in item"
+						:key="index1"
+						:class="[(index1 === item.length - 1) && 'scroll-list__line__item--no-margin-right']")
+						image.scroll-list__line__item__image(:src="item1.image")
+						text.scroll-list__line__item__text {{ item1.name }}
 </template>
 
 <script lang="ts">
@@ -35,15 +25,6 @@ export default class SlideGrid extends Vue {
     }
   })
   gridList!: any;
-  oneList = [];
-  twoList = [];
-
-  indicatorActiveColor = "#fa3534";
-
-  created() {
-    this.oneList = this.gridList.slice(0, 8);
-    this.twoList = this.gridList.slice(8, 16);
-  }
 
   onGridItem(item) {
     console.log("点击", item);
@@ -52,34 +33,74 @@ export default class SlideGrid extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.grid-warp {
-  height: 320rpx;
-}
-.grid-image {
-  width: 80rpx;
-  height: 80rpx;
-  margin-top: 10rpx;
-}
-.grid-text {
-  font-size: 28rpx;
-  margin: 4rpx 0rpx 8rpx 0rpx;
-  color: #5d656b;
-}
-.indicator-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.indicator-dots-item {
-  background-color: $bg-color;
-  height: 14rpx;
-  width: 14rpx;
-  border-radius: 20rpx;
-  margin: 0rpx 6rpx;
-  transition: all 0.5s;
-}
-.indicator-dots-active {
-  width: 24rpx;
-  background-color: $color-primary;
+.slide-wrap {
+	.scroll-list {
+		@include flex(column);
+	
+		&__goods-item {
+			margin-right: 40rpx;
+	
+			&__image {
+				width: 120rpx;
+				height: 120rpx;
+				border-radius: 8rpx;
+			}
+	
+			&__text {
+				color: #f56c6c;
+				text-align: center;
+				font-size: 24rpx;
+				margin-top: 10rpx;
+			}
+		}
+	
+		&__show-more {
+			background-color: #fff0f0;
+			border-radius: 6rpx;
+			padding: 6rpx 12rpx;
+			@include flex(column);
+			align-items: center;
+	
+			&__text {
+				font-size: 24rpx;
+				width: 24rpx;
+				color: #f56c6c;
+				line-height: 32rpx;
+			}
+		}
+	
+		&__line {
+			@include flex;
+			margin-top: 20rpx;
+			text-align: center;
+	
+			&__item {
+				margin-left: 47rpx;
+				width: 120rpx;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+	
+				&__image {
+					width: 100rpx;
+					height: 100rpx;
+				}
+	
+				&__text {
+					margin-top: 10rpx;
+					color: $u-content-color;
+					font-size: 24rpx;
+					text-align: center;
+				}
+	
+				&--no-margin-right {
+					margin-right: 0;
+				}
+			}
+			&__item:nth-child(6){
+				margin-right: 36rpx;
+			}
+		}
+	}
 }
 </style>

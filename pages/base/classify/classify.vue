@@ -80,9 +80,6 @@ export default class Classify extends Vue {
 </script>
 
 <style lang="scss" scoped>
-page {
-	background-color: #ffffff;
-}
 .andry-classify {
 	height: calc(100vh);
 	/* #ifdef H5 */

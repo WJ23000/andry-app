@@ -13,6 +13,7 @@
 			view.item.address
 				view.left 详细地址
 				textarea(v-model="form.inAddress", type="text", placeholder-class="line", placeholder="街道、楼牌等")
+		u-gap(height="10" bgColor="#ededed")
 		view.bottom
 			view.tag
 				view.left 标签

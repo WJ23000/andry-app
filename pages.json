@@ -4,6 +4,7 @@
 			"path": "pages/base/home/home",
 			"style": {
 				"navigationBarTitleText": "首页",
+				"backgroundColor": "#ededed",
 				"titleNView": "false", // 禁用原生导航栏
 				"enablePullDownRefresh": true // 使用下拉刷新
 			}
@@ -12,6 +13,7 @@
 			"path": "pages/base/classify/classify",
 			"style": {
 				"navigationBarTitleText": "分类",
+				"backgroundColor": "#ededed",
 				"titleNView": "false" // 禁用原生导航栏
 				// "navigationStyle": "custom" // 自定义小程序导航栏
 			}
@@ -20,6 +22,7 @@
 			"path": "pages/base/cart/cart",
 			"style": {
 				"navigationBarTitleText": "购物车",
+				"backgroundColor": "#ededed",
 				"titleNView": "false" // 禁用原生导航栏
 				// "navigationStyle": "custom" // 自定义小程序导航栏
 			}
@@ -28,6 +31,7 @@
 			"path": "pages/base/mine/mine",
 			"style": {
 				"navigationBarTitleText": "我的",
+				"backgroundColor": "#ededed",
 				"titleNView": "false" // 禁用原生导航栏
 				// "navigationStyle": "custom" // 自定义小程序导航栏
 			}
@@ -41,38 +45,43 @@
 					"path": "goodsDetail/goodsDetail",
 					"style": {
 						"navigationBarTitleText": "商品详情",
+						"backgroundColor": "#ffffff",
 						"titleNView": "false" // 禁用原生导航栏
 					}
 				},
 				{
 					"path": "order/list",
 					"style": {
-						"navigationBarTitleText": "我的订单"
+						"navigationBarTitleText": "我的订单",
+						"backgroundColor": "#ffffff"
 					}
 				},
 				{
 					"path": "order/detail",
 					"style": {
-						"navigationBarTitleText": "订单详情"
+						"navigationBarTitleText": "订单详情",
+						"backgroundColor": "#ffffff"
 					}
 				},
 				{
 					"path": "address/list",
 					"style": {
-						"navigationBarTitleText": "收货地址"
-						// "navigationBarBackgroundColor": "#ffffff"
+						"navigationBarTitleText": "收货地址",
+						"backgroundColor": "#ffffff"
 					}
 				},
 				{
 					"path": "address/add",
 					"style": {
-						"navigationBarTitleText": "添加地址"
+						"navigationBarTitleText": "添加地址",
+						"backgroundColor": "#ffffff"
 					}
 				},
 				{
 					"path": "collection/collection",
 					"style": {
 						"navigationBarTitleText": "我的收藏",
+						"backgroundColor": "#ffffff",
 						"enablePullDownRefresh": true // 使用下拉刷新
 					}
 				},
@@ -92,13 +101,15 @@
 				{
 					"path": "setting/setting",
 					"style": {
-						"navigationBarTitleText": "账户设置"
+						"navigationBarTitleText": "账户设置",
+						"backgroundColor": "#ffffff"
 					}
 				},
 				{
 					"path": "feedBack/feedBack",
 					"style": {
-						"navigationBarTitleText": "功能反馈"
+						"navigationBarTitleText": "功能反馈",
+						"backgroundColor": "#ffffff"
 					}
 				}
 			]
@@ -108,7 +119,7 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "AndryApp",
 		"navigationBarBackgroundColor": "#ffffff", // 设置为#ffffff，支付宝小程序才能在导航上显示黑色文字
-		"backgroundColor": "#ffffff"
+		"backgroundColor": "#ededed" // 窗口背景颜色
 	},
 	"tabBar": {
 		"color": "#606266",

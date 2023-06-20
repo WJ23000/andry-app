@@ -297,9 +297,6 @@ export default class Mine extends Vue {
 </script>
 
 <style lang="scss" scoped>
-page {
-	background-color: #ededed;
-}
 .andry-mine {
 	.header {
 		background-image: $andry-bg-image;

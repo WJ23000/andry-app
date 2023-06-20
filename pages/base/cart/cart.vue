@@ -407,9 +407,6 @@ export default class Cart extends Vue {
 </script>
 
 <style lang="scss" scoped>
-page {
-	background-color: #ededed;
-}
 .andry-cart {
 	.cart-header {
 		height: 88rpx;

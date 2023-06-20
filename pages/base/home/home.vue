@@ -278,9 +278,6 @@ export default class Home extends Vue {
 </script>
 
 <style lang="scss" scoped>
-page {
-	background-color: #ededed;
-}
 .andry-home {
 	.header {
 		background: linear-gradient(to top, #ededed, #ff6666, #fa3534);
