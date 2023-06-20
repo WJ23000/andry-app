@@ -1,7 +1,7 @@
 <template lang="pug">
 	view.andry-search(:class="{'popup-show': popupShow}")
 		view.header
-			<!-- #ifdef H5 -->
+			<!-- #ifdef H5 || APP-PLUS -->
 			u-icon.arrow-left(name="arrow-left", @click="onGoBack")
 			<!-- #endif -->
 			u-search(

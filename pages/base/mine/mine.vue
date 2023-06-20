@@ -45,7 +45,7 @@
 				:rightList="rightList",
 				:loadTxt="ajax.loadTxt",
 				@onHeight="onHeight",
-				@onClick="onClick")
+				@onClick="onGoodsClick")
 			back-top(:top="top")
 </template>
 
@@ -296,6 +296,12 @@ export default class Mine extends Vue {
 }
 </script>
 
+<style lang="scss">
+// APP窗口背景色默认白色，需用此种方式调整窗口背景色
+page {
+	background-color: #ededed;
+}
+</style>
 <style lang="scss" scoped>
 .andry-mine {
 	.header {

@@ -12,11 +12,11 @@
 				view.cart-cell(v-for="(item,index) in cartItems" :key="index")
 					view.cart-box(:data-id="item.id" :data-index="index")
 						view.icon-main
-							img(:src="iconXz" v-if="item.selected" @click="selectedCart(index)" :data-index="index")
-							img(:src="iconWxz" v-else @click="selectedCart(index)" :data-index="index")
+							image(:src="iconXz" v-if="item.selected" @click="selectedCart(index)" :data-index="index")
+							image(:src="iconWxz" v-else @click="selectedCart(index)" :data-index="index")
 						view.cart-main
 							view.left_image
-								img.cart-image(:src="item.icon")
+								image.cart-image(:src="item.icon")
 							view.left_box
 								text.cart-title {{item.title}}
 								text.cart-specif {{item.specif}}
@@ -36,8 +36,8 @@
 				view(v-else)
 					view.cart-bottom
 						view.cart-bottom-icon
-							img(:src="iconXz" v-if="CheckAll" @click="select")
-							img(:src="iconWxz" v-else @click="select")
+							image(:src="iconXz" v-if="CheckAll" @click="select")
+							image(:src="iconWxz" v-else @click="select")
 						view.checkAll 全选
 						view.cart-sum
 							text.sum_text 合计：
@@ -59,7 +59,7 @@
 				:rightList="rightList",
 				:loadTxt="ajax.loadTxt",
 				@onHeight="onHeight",
-				@onClick="onClick")
+				@onClick="onGoodsClick")
 			back-top(:top="top")
 </template>
 
@@ -406,6 +406,12 @@ export default class Cart extends Vue {
 }
 </script>
 
+<style lang="scss">
+// APP窗口背景色默认白色，需用此种方式调整窗口背景色
+page {
+	background-color: #ededed;
+}
+</style>
 <style lang="scss" scoped>
 .andry-cart {
 	.cart-header {
@@ -488,7 +494,7 @@ export default class Cart extends Vue {
 			float: right;
 			width: 5%;
 		}
-		.right img {
+		.right image {
 			width: 50rpx;
 			height: 50rpx;
 			float: right;
@@ -528,7 +534,7 @@ export default class Cart extends Vue {
 			/* #ifdef H5 */
 			bottom: 100rpx;
 			/* #endif */
-			/* #ifdef MP */
+			/* #ifdef MP || APP  */
 			bottom: 0rpx;
 			/* #endif */
 			background: #ffffff;
@@ -539,7 +545,7 @@ export default class Cart extends Vue {
 		}
 		.cart-bottom-icon {
 			margin-top: 22rpx;
-			img {
+			image {
 				width: 40rpx !important;
 				height: 40rpx !important;
 			}
@@ -612,7 +618,7 @@ export default class Cart extends Vue {
 			text-align: center;
 		}
 		.nodata_text {
-			img {
+			image {
 				margin-top: 100rpx;
 				width: 44%;
 				height: 300rpx;
@@ -621,7 +627,7 @@ export default class Cart extends Vue {
 		.icon-main {
 			margin: 94rpx 20rpx;
 			background: #ffffff;
-			img {
+			image {
 				width: 40rpx !important;
 				height: 40rpx !important;
 			}

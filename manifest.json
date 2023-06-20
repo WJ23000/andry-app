@@ -6,6 +6,10 @@
     "versionCode" : "100",
     "transformPx" : false,
     "app-plus" : {
+        /* 关闭App状态栏沉浸式 */
+        "statusbar" : {
+            "immersed" : false
+        },
         /* 5+App特有相关 */
         "modules" : {},
         /* 模块配置 */
@@ -54,7 +58,7 @@
     "mp-weixin" : {
         /* 小程序特有相关 */
         "usingComponents" : true,
-        "appid" : "wxc5df542218cf3fc8",
+        "appid" : "wxb0f423e9bbd696ce",
         "setting" : {
             "urlCheck" : true
         },

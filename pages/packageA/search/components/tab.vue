@@ -544,10 +544,9 @@ export default class SearchTab extends Vue {
 		z-index: 10090;
 	}
 	.retrieval-btn {
-		height: 88rpx;
 		display: flex;
 		justify-content: center;
-		padding: 12rpx 28rpx;
+		padding: 12rpx 28rpx 14rpx 28rpx;
 		border-top: 2rpx solid #ededed;
 	}
 }

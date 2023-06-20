@@ -8,7 +8,14 @@ Vue.use(uView);
 
 Vue.config.productionTip = false;
 
-new Vue({
+const app = new Vue({
   store,
   render: (h) => h(App)
-}).$mount("#app");
+})
+app.$mount();
+
+// 此写法会导致App白屏
+// new Vue({
+//   store,
+//   render: (h) => h(App)
+// }).$mount("#app");
