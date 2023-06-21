@@ -63,7 +63,7 @@ import {
 export default class Mine extends Vue {
 	top = 0;
 	userInfo = {
-		userImage: require("@/static/user.png"),
+		userImage: "http://cdn.wjaxx.xyz/mine/user.png",
 		username: "Baymax",
 		phone: "180XXXX9388"
 	};

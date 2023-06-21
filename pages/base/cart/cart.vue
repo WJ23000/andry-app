@@ -419,7 +419,6 @@ page {
 		line-height: 88rpx;
 	}
 	.page-content {
-		background: #ffffff;
 		/* #ifdef MP */
 		margin-top: 88rpx;
 		/* #endif */
@@ -437,11 +436,12 @@ page {
 			width: 200rpx;
 			height: 200rpx;
 			float: left;
-			padding: 15rpx 10rpx;
+			margin: 20rpx 10rpx;
 		}
 		.cart-box {
 			display: flex;
 			background: white;
+			border-radius: 8rpx;
 		}
 		.cart-boxtwo {
 			display: flex;
@@ -449,7 +449,7 @@ page {
 		}
 		.left_box {
 			margin-left: 8rpx;
-			margin-top: 12rpx;
+			margin-top: 20rpx;
 			line-height: 60rpx;
 		}
 		.cart-title {
@@ -606,9 +606,7 @@ page {
 		}
 		.cart-cell {
 			display: flex;
-			background: #ffffff;
-			border-top: 2rpx solid #ccc;
-			padding: 20rpx 0rpx;
+			padding: 20rpx 20rpx 0rpx 20rpx;
 			box-sizing: border-box;
 		}
 		.nodata_text {
@@ -677,6 +675,7 @@ page {
 		padding: 0rpx 10rpx 100rpx 10rpx;
 	}
 	/deep/ .u-empty {
+		background: #ffffff;
 		margin-bottom: 40rpx;
 		padding-bottom: 40rpx;
 	}
