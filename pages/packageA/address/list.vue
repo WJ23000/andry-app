@@ -1,28 +1,28 @@
 <template lang="pug">
-	view.andry-address-list
-		view.item(
-			v-for="(item, index) in siteList", 
-			:key="item.id",
-			@longpress="onSetDefault(item.id)")
-			view.top
-				view.name {{ item.name }}
-				view.phone {{ item.phone }}
-				view.tag
-					text(
-						v-for="(tag, index) in item.tag"
-						:key="index"
-						:class="{ red: tag.tagText == '默认' }") {{ tag.tagText }}
-			view.bottom
-				text {{ item.site }}
-				u-icon(name="edit-pen", :size="20", color="#999999", @click="onEditAddress(item)")
-		view.addSite(@click="onEditAddress('')")
-			view.add
-				u-icon(
-					name="plus",
-					color="#ffffff",
-					class="icon",
-					:size="16")
-				text 添加新地址
+view.andry-address-list
+	view.item(
+		v-for="(item, index) in siteList", 
+		:key="item.id",
+		@longpress="onSetDefault(item.id)")
+		view.top
+			view.name {{ item.name }}
+			view.phone {{ item.phone }}
+			view.tag
+				text(
+					v-for="(tag, index) in item.tag"
+					:key="index"
+					:class="{ red: tag.tagText == '默认' }") {{ tag.tagText }}
+		view.bottom
+			text {{ item.site }}
+			u-icon(name="edit-pen", :size="20", color="#999999", @click="onEditAddress(item)")
+	view.addSite(@click="onEditAddress('')")
+		view.add
+			u-icon(
+				name="plus",
+				color="#ffffff",
+				class="icon",
+				:size="16")
+			text 添加新地址
 </template>
 
 <script lang="ts">
@@ -79,7 +79,7 @@ export default class AddressList extends Vue {
 		console.log("设为默认", id);
 		uni.showModal({
 			content: "设为默认地址",
-			success: function(res) {
+			success: function (res) {
 				if (res.confirm) {
 					console.log("用户点击确定");
 				} else if (res.cancel) {
@@ -104,17 +104,21 @@ export default class AddressList extends Vue {
 	.item {
 		padding: 40rpx 24rpx;
 		border-bottom: 2rpx solid $u-border-color;
+
 		.top {
 			display: flex;
 			font-weight: bold;
 			font-size: 34rpx;
+
 			.phone {
 				margin-left: 60rpx;
 			}
+
 			.tag {
 				display: flex;
 				font-weight: normal;
 				align-items: center;
+
 				text {
 					display: block;
 					width: 60rpx;
@@ -127,11 +131,13 @@ export default class AddressList extends Vue {
 					margin-left: 30rpx;
 					background-color: #2979ff;
 				}
+
 				.red {
 					background-color: #fa3534;
 				}
 			}
 		}
+
 		.bottom {
 			display: flex;
 			margin-top: 20rpx;
@@ -140,9 +146,11 @@ export default class AddressList extends Vue {
 			color: #999999;
 		}
 	}
+
 	.item:last-child {
 		border-bottom: 0rpx solid $u-border-color;
 	}
+
 	.addSite {
 		display: flex;
 		justify-content: space-around;
@@ -154,10 +162,12 @@ export default class AddressList extends Vue {
 		background-color: #fa3534;
 		border-radius: 60rpx;
 		font-size: 30rpx;
+
 		.add {
 			display: flex;
 			align-items: center;
 			color: #ffffff;
+
 			.icon {
 				margin-right: 10rpx;
 			}

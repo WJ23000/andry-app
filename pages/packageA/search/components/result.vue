@@ -1,15 +1,15 @@
 <template lang="pug">
-  view.andry-search-result
-    view.card(
-      v-for="(item,index) in searchList", 
-      :key="index")
-      image(:src="item.url")
-      view.content
-        view.title {{ item.title }}
-        view.money
-          text.unit ￥
-          text.price {{ decimal(item.money,0) }}
-          text.decimal .{{ decimal(item.money,1) }}
+view.andry-search-result
+  view.card(
+    v-for="(item,index) in searchList", 
+    :key="index")
+    image(:src="item.url")
+    view.content
+      view.title {{ item.title }}
+      view.money
+        text.unit ￥
+        text.price {{ decimal(item.money,0) }}
+        text.decimal .{{ decimal(item.money,1) }}
 </template>
 
 <script lang="ts">
@@ -42,25 +42,31 @@ export default class SearchResult extends Vue {
     display: flex;
     padding: 24rpx;
     border-bottom: 2rpx solid #f6f6f6;
+
     image {
       width: 200rpx;
       height: 200rpx;
     }
+
     .content {
       flex: 1;
       margin-left: 24rpx;
     }
+
     .title {
       font-size: 32rpx;
     }
+
     .money {
       margin-top: 8rpx;
       color: #fa3534;
     }
+
     .price {
       font-size: 32rpx;
       font-weight: bold;
     }
+
     .unit,
     .decimal {
       font-size: 24rpx;

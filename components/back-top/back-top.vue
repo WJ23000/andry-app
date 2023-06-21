@@ -1,9 +1,9 @@
 <template lang="pug">
-	view.back-top
-		u-back-top(
-			:scroll-top="top", 
-			right="12", 
-			z-index="1000")
+view.back-top
+	u-back-top(
+		:scroll-top="top", 
+		right="12", 
+		z-index="1000")
 </template>
 
 <script lang="ts">
@@ -17,9 +17,7 @@ export default class BackTop extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-	
-</style>
+<style lang="scss" scoped></style>
 <style lang="scss">
 .back-top {
 	/deep/ .u-back-top {

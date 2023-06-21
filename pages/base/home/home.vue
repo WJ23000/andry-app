@@ -1,46 +1,46 @@
 <template lang="pug">
-	view.andry-home
-		view.search-sticky(v-if="top > 44")
+view.andry-home
+	view.search-sticky(v-if="top > 44")
+		u-search(
+			placeholder="护肤品", 
+			v-model="keyword", 
+			:show-action="false",
+			:disabled="true",
+			@click="onSearch")
+	view.header
+		view.search
 			u-search(
 				placeholder="护肤品", 
 				v-model="keyword", 
 				:show-action="false",
+				bg-color="#ffffff",
 				:disabled="true",
 				@click="onSearch")
-		view.header
-			view.search
-				u-search(
-					placeholder="护肤品", 
-					v-model="keyword", 
-					:show-action="false",
-					bg-color="#ffffff",
-					:disabled="true",
-					@click="onSearch")
-			view.swiper
-				slide(:bannerList="bannerList")
-			view.grid
-				slide-grid(:gridList="gridList")
-		u-sticky(:bgColor="stickyBgColor" :offset-top="offsetTop")
-			view.tabs.flex.justify-center
-				u-tabs(
-					:list="tabList",
-					:scrollable="false",
-					lineWidth="30",
-					lineColor="#f56c6c",
-					:activeStyle="activeStyle",
-					:inactiveStyle="inactiveStyle",
-					itemStyle="padding: 0px 15px; height: 44px;",
-					@click="onTabItem")
-		view.wrap
-			goods-list(
-				:leftHeight="leftHeight",
-				:rightHeight="rightHeight",
-				:leftList="leftList",
-				:rightList="rightList",
-				:loadTxt="ajax.loadTxt",
-				@onHeight="onHeight",
-				@onClick="onGoodsClick")
-		back-top(:top="top")
+		view.swiper
+			slide(:bannerList="bannerList")
+		view.grid
+			slide-grid(:gridList="gridList")
+	u-sticky(:bgColor="stickyBgColor" :offset-top="offsetTop")
+		view.tabs.flex.justify-center
+			u-tabs(
+				:list="tabList",
+				:scrollable="false",
+				lineWidth="30",
+				lineColor="#f56c6c",
+				:activeStyle="activeStyle",
+				:inactiveStyle="inactiveStyle",
+				itemStyle="padding: 0px 15px; height: 44px;",
+				@click="onTabItem")
+	view.wrap
+		goods-list(
+			:leftHeight="leftHeight",
+			:rightHeight="rightHeight",
+			:leftList="leftList",
+			:rightList="rightList",
+			:loadTxt="ajax.loadTxt",
+			@onHeight="onHeight",
+			@onClick="onGoodsClick")
+	back-top(:top="top")
 </template>
 
 <script lang="ts">
@@ -288,9 +288,11 @@ page {
 	.header {
 		background: linear-gradient(to top, #ededed, #ff6666, #fa3534);
 		padding: 0rpx 20rpx;
+
 		.search {
 			padding: 12rpx 0rpx;
 		}
+
 		.grid {
 			margin-top: 12rpx;
 			padding: 12rpx 0rpx;
@@ -298,6 +300,7 @@ page {
 			border-radius: 8rpx;
 		}
 	}
+
 	.search-sticky {
 		position: fixed;
 		top: 0;
@@ -307,16 +310,20 @@ page {
 		z-index: 1000;
 		box-sizing: border-box;
 	}
+
 	.wrap {
 		padding: 20rpx 10rpx;
 		background: #ededed;
+
 		.waterfall-box {
 			padding: 20rpx 0rpx;
 			box-sizing: border-box;
-			> view {
+
+			>view {
 				padding: 0 10rpx;
 			}
 		}
+
 		.h-flex-x {
 			display: flex;
 			flex-direction: row;
@@ -324,12 +331,14 @@ page {
 			justify-content: flex-start;
 			align-items: flex-start;
 			align-content: flex-start;
+
 			&.h-flex-2 {
-				> view {
+				>view {
 					width: 50%;
 				}
 			}
 		}
+
 		.load-txt {
 			padding: 0 0 20rpx 0;
 			height: 100%;

@@ -1,31 +1,31 @@
 <template lang="pug">
-	view.andry-search(:class="{'popup-show': popupShow}")
-		view.header
-			<!-- #ifdef H5 || APP-PLUS -->
-			u-icon.arrow-left(name="arrow-left", @click="onGoBack")
-			<!-- #endif -->
-			u-search(
-				placeholder="护肤品",
-				v-model="keyword",
-				@custom="onSearch",
-				@search="onSearch",
-				@clear="onClearSearch")
-		view.search-result(
-			:class="{'search-sesult-index': popupShow}"
-			v-if="isSearchResult")
-			u-sticky(
-				:offsetTop="offsetTop",
-				:bgColor="stickyBgColor")
-				SearchTab(ref="searchTabRef", @searchResultChange="searchResultChange")
-			SearchResult
-		view.history(v-else)
-			u-cell(title="搜索历史", :border="false")
-				u-icon(slot="right-icon", name="trash", @click="clearHistory")
-			view.content
-				view.item(
-					v-for="(item,index) in historyList",
-					:key="index",
-					@click="onSearch(item, 'btn')") {{  formatItem(item) }}
+view.andry-search(:class="{'popup-show': popupShow}")
+	view.header
+		<!-- #ifdef H5 || APP-PLUS -->
+		u-icon.arrow-left(name="arrow-left", @click="onGoBack")
+		<!-- #endif -->
+		u-search(
+			placeholder="护肤品",
+			v-model="keyword",
+			@custom="onSearch",
+			@search="onSearch",
+			@clear="onClearSearch")
+	view.search-result(
+		:class="{'search-sesult-index': popupShow}"
+		v-if="isSearchResult")
+		u-sticky(
+			:offsetTop="offsetTop",
+			:bgColor="stickyBgColor")
+			SearchTab(ref="searchTabRef", @searchResultChange="searchResultChange")
+		SearchResult
+	view.history(v-else)
+		u-cell(title="搜索历史", :border="false")
+			u-icon(slot="right-icon", name="trash", @click="clearHistory")
+		view.content
+			view.item(
+				v-for="(item,index) in historyList",
+				:key="index",
+				@click="onSearch(item, 'btn')") {{  formatItem(item) }}
 </template>
 
 <script lang="ts">
@@ -78,7 +78,7 @@ export default class Search extends Vue {
 				uni.setStorage({
 					key: "historyList",
 					data: this.historyList,
-					success: () => {}
+					success: () => { }
 				});
 			}
 		}
@@ -96,7 +96,7 @@ export default class Search extends Vue {
 		this.historyList = [];
 		uni.removeStorage({
 			key: "historyList",
-			success: () => {}
+			success: () => { }
 		});
 	}
 
@@ -119,20 +119,25 @@ export default class Search extends Vue {
 		padding: 12rpx 24rpx;
 		background: #ffffff;
 		z-index: 10090;
+
 		.arrow-left {
 			margin-right: 20rpx;
 		}
 	}
+
 	.search-result {
 		position: relative;
 	}
+
 	.search-sesult-index {
 		z-index: 100100;
 	}
+
 	.history {
 		.content {
 			padding: 0rpx 10rpx 0rpx 30rpx;
 		}
+
 		.item {
 			display: inline-block;
 			margin: 0rpx 20rpx 20rpx 0rpx;
@@ -142,11 +147,13 @@ export default class Search extends Vue {
 			border: 2rpx solid #ededed;
 			border-radius: 50rpx;
 		}
+
 		.item:active {
 			background: #ededed;
 		}
 	}
 }
+
 .popup-show {
 	overflow: hidden;
 	position: fixed;

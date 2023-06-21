@@ -1,52 +1,52 @@
 <template lang="pug">
-	view.andry-mine
-		view.search-sticky(v-if="top > 44")
-			u-navbar.mine-header(
-				title="我的",
-				:autoBack="false")
-				view.cart-right(slot="left")
-					u-avatar(:src="userInfo.userImage", size="24")
-				view.cart-right(slot="right")
-					u-icon(name="setting", size="20", @click="onSettingClick")
-		view.header
-			view.user-info
-				u-avatar(:src="userInfo.userImage", size="50")
-				view.account.ml2
-					view.username {{ userInfo.username }}
-					view.phone {{ userInfo.phone }}
-		view.wrap
-			view.order-grid
-				u-cell.order-grid-other(title="订单", value="全部订单", :isLink="true", :clickable="true")
-				u-grid(:col="5", :border="false")
-					u-grid-item(v-for="(item, index) in orderGridList", :index="index", :key="index", @click="toOrder(item.id)")
-						image.grid-image(:src="item.image")
-						text.grid-text {{ item.name }}
-			view.other-grid
-				u-scroll-list(indicatorColor="#fff0f0", indicatorActiveColor="#f56c6c")
-					view.scroll-list__goods-item(
-						v-for="(item, index) in otherGridList", 
-						:key="index",
-						@click="toNextPage(item.name)")
-						image.scroll-list__goods-item__image(:src="item.image")
-						text.scroll-list__goods-item__text {{ item.name }}
-			view.other-grid-two
-				u-scroll-list(indicatorColor="#fff0f0", indicatorActiveColor="#f56c6c")
-					view.scroll-list__goods-item(
-						v-for="(item, index) in otherGridListTwo", 
-						:key="index",
-						@click="toNextPage(item.name)")
-						image.scroll-list__goods-item__image(:src="item.image")
-						text.scroll-list__goods-item__text {{ item.name }}
-			u-divider(text="猜您喜欢")
-			goods-list(
-				:leftHeight="leftHeight",
-				:rightHeight="rightHeight",
-				:leftList="leftList",
-				:rightList="rightList",
-				:loadTxt="ajax.loadTxt",
-				@onHeight="onHeight",
-				@onClick="onGoodsClick")
-			back-top(:top="top")
+view.andry-mine
+	view.search-sticky(v-if="top > 44")
+		u-navbar.mine-header(
+			title="我的",
+			:autoBack="false")
+			view.cart-right(slot="left")
+				u-avatar(:src="userInfo.userImage", size="24")
+			view.cart-right(slot="right")
+				u-icon(name="setting", size="20", @click="onSettingClick")
+	view.header
+		view.user-info
+			u-avatar(:src="userInfo.userImage", size="50")
+			view.account.ml2
+				view.username {{ userInfo.username }}
+				view.phone {{ userInfo.phone }}
+	view.wrap
+		view.order-grid
+			u-cell.order-grid-other(title="订单", value="全部订单", :isLink="true", :clickable="true")
+			u-grid(:col="5", :border="false")
+				u-grid-item(v-for="(item, index) in orderGridList", :index="index", :key="index", @click="toOrder(item.id)")
+					image.grid-image(:src="item.image")
+					text.grid-text {{ item.name }}
+		view.other-grid
+			u-scroll-list(indicatorColor="#fff0f0", indicatorActiveColor="#f56c6c")
+				view.scroll-list__goods-item(
+					v-for="(item, index) in otherGridList", 
+					:key="index",
+					@click="toNextPage(item.name)")
+					image.scroll-list__goods-item__image(:src="item.image")
+					text.scroll-list__goods-item__text {{ item.name }}
+		view.other-grid-two
+			u-scroll-list(indicatorColor="#fff0f0", indicatorActiveColor="#f56c6c")
+				view.scroll-list__goods-item(
+					v-for="(item, index) in otherGridListTwo", 
+					:key="index",
+					@click="toNextPage(item.name)")
+					image.scroll-list__goods-item__image(:src="item.image")
+					text.scroll-list__goods-item__text {{ item.name }}
+		u-divider(text="猜您喜欢")
+		goods-list(
+			:leftHeight="leftHeight",
+			:rightHeight="rightHeight",
+			:leftList="leftList",
+			:rightList="rightList",
+			:loadTxt="ajax.loadTxt",
+			@onHeight="onHeight",
+			@onClick="onGoodsClick")
+		back-top(:top="top")
 </template>
 
 <script lang="ts">
@@ -292,24 +292,29 @@ page {
 		background-image: $andry-bg-image;
 		background-size: cover;
 		padding: 0rpx 20rpx;
+
 		.user-info {
 			display: flex;
 			align-items: center;
 			height: 280rpx;
 		}
+
 		.account {
 			display: flex;
 			flex-direction: column;
 			margin-left: 24rpx;
 		}
-		.account > .username {
+
+		.account>.username {
 			font-size: 36rpx;
 		}
-		.account > .phone {
+
+		.account>.phone {
 			margin-top: 8rpx;
 			font-size: 28rpx;
 		}
 	}
+
 	.search-sticky {
 		position: fixed;
 		top: 0;
@@ -319,26 +324,32 @@ page {
 		z-index: 1000;
 		box-sizing: border-box;
 	}
+
 	.wrap {
 		margin-top: -84rpx;
 		padding: 20rpx 10rpx;
+
 		.order-grid {
 			margin: 16rpx 10rpx;
 			border-radius: 8rpx;
 			background: #ffffff;
 			color: #5d656b;
 		}
+
 		.grid-image {
 			width: 100rpx;
 			height: 100rpx;
 		}
+
 		.grid-text {
 			font-size: 24rpx;
 			padding-bottom: 28rpx;
 		}
+
 		.u-grid {
 			padding: 28rpx 28rpx 0rpx 28rpx;
 		}
+
 		.other-grid,
 		.other-grid-two {
 			margin: 16rpx 10rpx;
@@ -346,24 +357,30 @@ page {
 			border-radius: 8rpx;
 			background: #ffffff;
 			color: #5d656b;
+
 			.scroll-list__goods-item__image {
 				display: block;
 				margin: 0 auto;
 			}
 		}
+
 		.other-grid-two {
 			margin: 16rpx 10rpx 0rpx 10rpx;
 		}
+
 		.scroll-list {
 			@include flex(column);
+
 			&__goods-item {
 				margin-right: 20rpx;
 				text-align: center;
+
 				&__image {
 					width: 100rpx;
 					height: 100rpx;
 					border-radius: 8rpx;
 				}
+
 				&__text {
 					display: inline-block;
 					text-align: center;
@@ -373,15 +390,18 @@ page {
 				}
 			}
 		}
+
 		.u-scroll-list {
 			padding-bottom: 0rpx;
 		}
 	}
 }
+
 /deep/ .u-divider {
 	margin: 0rpx !important;
 	height: 100rpx;
 }
+
 /deep/ .u-status-bar {
 	display: none !important;
 }

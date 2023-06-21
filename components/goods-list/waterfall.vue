@@ -1,19 +1,19 @@
 <template lang="pug">
-	view.waterfall-item(@tap="onTap")
-		image(
-			:src="params.url",
-			mode="widthFix",
-			@load="emitHeight",
-			@error="emitHeight")
-		view.content
-			view.title
-				text.tag(v-if="params.label") {{ params.label }}
-				text.name {{ params.title }}
-			view.money 
-				text.unit ￥
-				text.price {{ decimal(params.money,0) }}
-				text.decimal .{{ decimal(params.money,1) }}
-			view(style="margin: 0 0 8rpx 0;")
+view.waterfall-item(@tap="onTap")
+	image(
+		:src="params.url",
+		mode="widthFix",
+		@load="emitHeight",
+		@error="emitHeight")
+	view.content
+		view.title
+			text.tag(v-if="params.label") {{ params.label }}
+			text.name {{ params.title }}
+		view.money 
+			text.unit ￥
+			text.price {{ decimal(params.money,0) }}
+			text.decimal .{{ decimal(params.money,1) }}
+		view(style="margin: 0 0 8rpx 0;")
 </template>
 
 <script lang="ts">
@@ -68,22 +68,27 @@ export default class Waterfall extends Vue {
 
 	.content {
 		margin-top: 16rpx;
+
 		.money {
 			color: #fa3534;
 		}
+
 		.price {
 			font-size: 32rpx;
 			font-weight: bold;
 		}
+
 		.unit,
 		.decimal {
 			font-size: 24rpx;
 		}
+
 		.title {
 			margin-bottom: 8rpx;
 			height: 76rpx;
 			line-height: 40rpx;
 			overflow: hidden;
+
 			.tag {
 				background-color: #fa3534;
 				color: #fff;
@@ -93,6 +98,7 @@ export default class Waterfall extends Vue {
 				margin-right: 8rpx;
 			}
 		}
+
 		.shop-name {
 			font-size: 20rpx;
 			color: #999;

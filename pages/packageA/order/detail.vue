@@ -1,6 +1,6 @@
 <template lang="pug">
-	view.andry-order-detail
-		view 订单详情
+view.andry-order-detail
+	view 订单详情
 </template>
 
 <script lang="ts">
@@ -15,6 +15,4 @@ export default class OrderDetail extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

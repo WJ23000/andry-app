@@ -1,17 +1,16 @@
 <template lang="pug">
-	view.andry-goods-detail
-		view.header
-			view 返回
-		<!-- Banner(:bannerList="bannerList") -->
-		view.cell
-			view.money
-				text.unit ￥
-				text.price 2580
-				text.decimal .00
-			view.title
-				text.type 自营
-				text.sub-title SK-II神仙水160ml精华液双支装sk2护肤品skii化妆品礼盒520情人节礼物
-				
+view.andry-goods-detail
+	view.header
+		view 返回
+	<!-- Banner(:bannerList="bannerList") -->
+	view.cell
+		view.money
+			text.unit ￥
+			text.price 2580
+			text.decimal .00
+		view.title
+			text.type 自营
+			text.sub-title SK-II神仙水160ml精华液双支装sk2护肤品skii化妆品礼盒520情人节礼物	
 </template>
 
 <script lang="ts">
@@ -25,13 +24,13 @@ import Banner from "./components/banner.vue";
 })
 export default class GoodsDetail extends Vue {
 	bannerList = GOODS_BANNER_DATA;
-	
+
 	onLoad(option) {
 		console.log("url参数", option);
 	}
-	
+
 	decimal(value, type) {
-	  return value.split(".")[type];
+		return value.split(".")[type];
 	}
 }
 </script>
@@ -40,7 +39,9 @@ export default class GoodsDetail extends Vue {
 page {
 	background-color: #ededed;
 }
+
 .andry-goods-detail {
+
 	// background-color: #f2f2f2;
 	.cell {
 		background: #ffffff;
@@ -48,18 +49,22 @@ page {
 		margin: 24rpx;
 		border-radius: 16rpx;
 	}
+
 	.money {
-	  margin-top: 8rpx;
-	  color: #fa3534;
+		margin-top: 8rpx;
+		color: #fa3534;
 	}
+
 	.price {
-	  font-size: 48rpx;
-	  font-weight: bold;
+		font-size: 48rpx;
+		font-weight: bold;
 	}
+
 	.unit,
 	.decimal {
-	  font-size: 28rpx;
+		font-size: 28rpx;
 	}
+
 	.title {
 		.type {
 			background: #fa3534;

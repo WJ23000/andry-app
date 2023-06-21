@@ -1,18 +1,18 @@
 <template lang="pug">
-	view.andry-feedback
-		view.top
-			view.item
-				view.left 问题
-				input(v-model="form.reason", type="text", placeholder-class="line", placeholder="请填写问题")
-			view.item.describe
-				view.left 描述
-				textarea(v-model="form.describe", type="text", placeholder-class="line", placeholder="请填写描述")
-			view.item
-				view.left 手机号
-				input(v-model="form.phone", type="number", placeholder-class="line", placeholder="请填写手机号")
-		view.addSite(@click="onSubmitFeedback")
-			view.add
-				text 提交
+view.andry-feedback
+	view.top
+		view.item
+			view.left 问题
+			input(v-model="form.reason", type="text", placeholder-class="line", placeholder="请填写问题")
+		view.item.describe
+			view.left 描述
+			textarea(v-model="form.describe", type="text", placeholder-class="line", placeholder="请填写描述")
+		view.item
+			view.left 手机号
+			input(v-model="form.phone", type="number", placeholder-class="line", placeholder="请填写手机号")
+	view.addSite(@click="onSubmitFeedback")
+		view.add
+			text 提交
 </template>
 
 <script lang="ts">
@@ -21,11 +21,11 @@ import { Component, Vue } from "vue-property-decorator";
 	components: {}
 })
 export default class FeedBack extends Vue {
-	
+
 	form = {
 		reason: "",
 		describe: "",
-		phone:""
+		phone: ""
 	};
 
 	onLoad(option) {
@@ -47,24 +47,29 @@ export default class FeedBack extends Vue {
 .andry-feedback {
 	.top {
 		padding: 24rpx;
+
 		.item {
 			display: flex;
 			font-size: 32rpx;
 			line-height: 100rpx;
 			align-items: center;
 			border-bottom: solid 2rpx $u-border-color;
+
 			.left {
 				width: 140rpx;
 			}
+
 			input {
 				text-align: left;
 				flex: 1
 			}
+
 			textarea {
 				text-align: left;
 				flex: 1
 			}
 		}
+
 		.describe {
 			textarea {
 				height: 150rpx;
@@ -73,6 +78,7 @@ export default class FeedBack extends Vue {
 			}
 		}
 	}
+
 	.addSite {
 		display: flex;
 		justify-content: space-around;
@@ -84,10 +90,12 @@ export default class FeedBack extends Vue {
 		background-color: #fa3534;
 		border-radius: 60rpx;
 		font-size: 30rpx;
+
 		.add {
 			display: flex;
 			align-items: center;
 			color: #ffffff;
+
 			.icon {
 				margin-right: 10rpx;
 			}

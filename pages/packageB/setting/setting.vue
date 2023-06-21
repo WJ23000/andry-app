@@ -1,22 +1,22 @@
 <template lang="pug">
-	view.andry-setting
-		u-cell-group
-			u-cell(
-				v-for="(item,index) in otherCellList",
-				:key="index",
-				:title="item.title",
-				:value="item.value",
-				:isLink="item.isLink",
-				@click="toNextPage(item.url)")
-		u-gap(height="10", bgColor="#ededed")
-		u-cell-group
-			u-cell(
-				v-for="(item,index) in otherCellListTwo",
-				:key="index",
-				:title="item.title",
-				:value="item.value",
-				:isLink="item.isLink",
-				@click="toNextPage(item.url)")
+view.andry-setting
+	u-cell-group
+		u-cell(
+			v-for="(item,index) in otherCellList",
+			:key="index",
+			:title="item.title",
+			:value="item.value",
+			:isLink="item.isLink",
+			@click="toNextPage(item.url)")
+	u-gap(height="10", bgColor="#ededed")
+	u-cell-group
+		u-cell(
+			v-for="(item,index) in otherCellListTwo",
+			:key="index",
+			:title="item.title",
+			:value="item.value",
+			:isLink="item.isLink",
+			@click="toNextPage(item.url)")
 </template>
 
 <script lang="ts">

@@ -1,66 +1,66 @@
 <template lang="pug">
-	view.andry-cart
-		u-navbar.cart-header(
-			title=" "
-			:autoBack="false")
-			view(slot="left")
-				text 购物车
-			view.cart-right(slot="right")
-				text(@click="onRightEdit") 编辑
-		view.page-content
-			view(v-if="cartItems.length > 0 ? true : false")
-				view.cart-cell(v-for="(item,index) in cartItems" :key="index")
-					view.cart-box(:data-id="item.id" :data-index="index")
-						view.icon-main
-							image(:src="iconXz" v-if="item.selected" @click="selectedCart(index)" :data-index="index")
-							image(:src="iconWxz" v-else @click="selectedCart(index)" :data-index="index")
-						view.cart-main
-							view.left_image
-								image.cart-image(:src="item.icon")
-							view.left_box
-								text.cart-title {{item.title}}
-								text.cart-specif {{item.specif}}
-								view.cart-count
-									view.cart-money
-										text.cart-unit ￥
-										text.cart-price {{item.price}}
-									view
-										text(@click='reduce'  class="input cart-reduce"  :data-index="index") -
-										text(class="input cart-text") {{item.value}}
-										text(@click='add' class="input cart-add"  :data-index="index") +
-				<!-- 底部 -->
-				view(v-if="showVal")
-					view.del-bottom
-						view.cart-bottom-cell(@click='cancel') 取消
-						view(class='cart-bottom-cell del-color' @click='del') 删除({{delCount}})
-				view(v-else)
-					view.cart-bottom
-						view.cart-bottom-icon
-							image(:src="iconXz" v-if="CheckAll" @click="select")
-							image(:src="iconWxz" v-else @click="select")
-						view.checkAll 全选
-						view.cart-sum
-							text.sum_text 合计：
-							text.sum_color ￥{{total}}元
-						view.cart-pay
-							text.cart_pay(@click="payOrder") 去结算({{goodsCount}})
-			<!--如果无数据，则显示数据-->
-			u-empty(
-				v-else
-				mode="car"
-				icon="http://cdn.uviewui.com/uview/empty/car.png")
-		<!-- 为您推荐 -->
-		view.wrap
-			u-divider(text="为您推荐")
-			goods-list(
-				:leftHeight="leftHeight",
-				:rightHeight="rightHeight",
-				:leftList="leftList",
-				:rightList="rightList",
-				:loadTxt="ajax.loadTxt",
-				@onHeight="onHeight",
-				@onClick="onGoodsClick")
-			back-top(:top="top")
+view.andry-cart
+	u-navbar.cart-header(
+		title=" "
+		:autoBack="false")
+		view(slot="left")
+			text 购物车
+		view.cart-right(slot="right")
+			text(@click="onRightEdit") 编辑
+	view.page-content
+		view(v-if="cartItems.length > 0 ? true : false")
+			view.cart-cell(v-for="(item,index) in cartItems" :key="index")
+				view.cart-box(:data-id="item.id" :data-index="index")
+					view.icon-main
+						image(:src="iconXz" v-if="item.selected" @click="selectedCart(index)" :data-index="index")
+						image(:src="iconWxz" v-else @click="selectedCart(index)" :data-index="index")
+					view.cart-main
+						view.left_image
+							image.cart-image(:src="item.icon")
+						view.left_box
+							text.cart-title {{item.title}}
+							text.cart-specif {{item.specif}}
+							view.cart-count
+								view.cart-money
+									text.cart-unit ￥
+									text.cart-price {{item.price}}
+								view
+									text(@click='reduce'  class="input cart-reduce"  :data-index="index") -
+									text(class="input cart-text") {{item.value}}
+									text(@click='add' class="input cart-add"  :data-index="index") +
+			<!-- 底部 -->
+			view(v-if="showVal")
+				view.del-bottom
+					view.cart-bottom-cell(@click='cancel') 取消
+					view(class='cart-bottom-cell del-color' @click='del') 删除({{delCount}})
+			view(v-else)
+				view.cart-bottom
+					view.cart-bottom-icon
+						image(:src="iconXz" v-if="CheckAll" @click="select")
+						image(:src="iconWxz" v-else @click="select")
+					view.checkAll 全选
+					view.cart-sum
+						text.sum_text 合计：
+						text.sum_color ￥{{total}}元
+					view.cart-pay
+						text.cart_pay(@click="payOrder") 去结算({{goodsCount}})
+		<!--如果无数据，则显示数据-->
+		u-empty(
+			v-else
+			mode="car"
+			icon="http://cdn.uviewui.com/uview/empty/car.png")
+	<!-- 为您推荐 -->
+	view.wrap
+		u-divider(text="为您推荐")
+		goods-list(
+			:leftHeight="leftHeight",
+			:rightHeight="rightHeight",
+			:leftList="leftList",
+			:rightList="rightList",
+			:loadTxt="ajax.loadTxt",
+			@onHeight="onHeight",
+			@onClick="onGoodsClick")
+		back-top(:top="top")
 </template>
 
 <script lang="ts">
@@ -122,7 +122,7 @@ export default class Cart extends Vue {
 	onLoad() {
 		this.getList();
 	}
-	
+
 	// 监听页面滚动(一键置顶，tabs吸顶)
 	onPageScroll(e) {
 		this.top = e.scrollTop;
@@ -418,40 +418,48 @@ page {
 		height: 88rpx;
 		line-height: 88rpx;
 	}
+
 	.page-content {
 		/* #ifdef MP */
 		margin-top: 88rpx;
+
 		/* #endif */
 		.cart-main {
 			display: flex;
 			margin-right: 20rpx;
 		}
+
 		.cart-active {
 			float: left;
 			width: 100%;
 			background: #ffffff;
 			border-bottom: 2rpx solid #f2f2f2;
 		}
+
 		.cart-image {
 			width: 200rpx;
 			height: 200rpx;
 			float: left;
 			margin: 20rpx 10rpx;
 		}
+
 		.cart-box {
 			display: flex;
 			background: white;
 			border-radius: 8rpx;
 		}
+
 		.cart-boxtwo {
 			display: flex;
 			flex-direction: column;
 		}
+
 		.left_box {
 			margin-left: 8rpx;
 			margin-top: 20rpx;
 			line-height: 60rpx;
 		}
+
 		.cart-title {
 			font-size: 28rpx;
 			line-height: 34rpx;
@@ -460,19 +468,23 @@ page {
 			overflow: hidden;
 			-webkit-line-clamp: 2;
 		}
+
 		.cart-count {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 		}
+
 		.cart-unit {
 			font-size: 24rpx;
 			color: #fa3534;
 		}
+
 		.cart-money {
 			display: flex;
 			align-items: center;
 		}
+
 		.cart-price {
 			display: flex;
 			color: #fa3534;
@@ -480,6 +492,7 @@ page {
 			height: 36rpx;
 			line-height: 36rpx;
 		}
+
 		.cart-specif {
 			padding: 4rpx 12rpx;
 			background: #999999;
@@ -490,16 +503,19 @@ page {
 			margin-bottom: 10rpx;
 			border-radius: 50rpx;
 		}
+
 		.right {
 			float: right;
 			width: 5%;
 		}
+
 		.right image {
 			width: 50rpx;
 			height: 50rpx;
 			float: right;
 			margin-right: 30rpx;
 		}
+
 		.input {
 			display: block;
 			width: 65rpx;
@@ -508,24 +524,28 @@ page {
 			text-align: center;
 			float: left;
 		}
+
 		.cart-add {
 			border-left: none;
 			border: 2rpx solid #ededed;
 			border-radius: 0rpx 40rpx 40rpx 0rpx;
 			font-size: 36rpx;
 		}
+
 		.cart-reduce {
 			border-right: none;
 			border: 2rpx solid #ededed;
 			border-radius: 40rpx 0rpx 0rpx 40rpx;
 			font-size: 36rpx;
 		}
+
 		.cart-text {
 			width: 90rpx;
 			border-top: 2rpx solid #ededed;
 			border-bottom: 2rpx solid #ededed;
 			font-size: 30rpx;
 		}
+
 		.cart-bottom {
 			display: flex;
 			position: fixed;
@@ -543,13 +563,16 @@ page {
 			border-top: 2rpx solid #f2f2f2;
 			z-index: 999;
 		}
+
 		.cart-bottom-icon {
 			margin-top: 22rpx;
+
 			image {
 				width: 40rpx !important;
 				height: 40rpx !important;
 			}
 		}
+
 		.yuan {
 			display: block;
 			width: 50rpx;
@@ -557,18 +580,22 @@ page {
 			border-radius: 50%;
 			border: 2rpx solid red;
 		}
+
 		.SpCart {
 			display: block;
 			width: 300rpx;
 			height: 300rpx;
 		}
+
 		.Sptext {
 			font-size: 30rpx;
 		}
+
 		.cart-icon {
 			margin: 26rpx 20rpx;
 			float: left;
 		}
+
 		.cart-sum {
 			width: 300rpx;
 			height: 100%;
@@ -578,6 +605,7 @@ page {
 			margin-left: 20rpx;
 			font-size: 28rpx;
 		}
+
 		.cart-pay {
 			position: absolute;
 			width: 230rpx;
@@ -585,6 +613,7 @@ page {
 			background: #fa3534;
 			right: 0;
 		}
+
 		.cart_pay {
 			display: block;
 			line-height: 87rpx;
@@ -592,29 +621,35 @@ page {
 			font-size: 30rpx;
 			color: white;
 		}
+
 		.sum_color {
 			color: #fa3534;
 			font-size: 25rpx;
 		}
+
 		.sum_text {
 			font-size: 30rpx;
 		}
+
 		.checkAll {
 			margin-left: 20rpx;
 			line-height: 87rpx;
 			font-size: 28rpx;
 		}
+
 		.cart-cell {
 			display: flex;
 			padding: 20rpx 20rpx 0rpx 20rpx;
 			box-sizing: border-box;
 		}
+
 		.nodata_text {
 			background: #ffffff;
 			color: black;
 			font-size: 28rpx;
 			text-align: center;
 		}
+
 		.nodata_text {
 			image {
 				margin-top: 100rpx;
@@ -622,14 +657,17 @@ page {
 				height: 300rpx;
 			}
 		}
+
 		.icon-main {
 			margin: 94rpx 20rpx;
 			background: #ffffff;
+
 			image {
 				width: 40rpx !important;
 				height: 40rpx !important;
 			}
 		}
+
 		/* 底部 */
 		.del-bottom {
 			position: fixed;
@@ -645,6 +683,7 @@ page {
 			border-top: 2rpx solid #f2f2f2;
 			z-index: 999;
 		}
+
 		.cart-bottom-edit {
 			float: left;
 			width: 100%;
@@ -654,6 +693,7 @@ page {
 			font-size: 28rpx;
 			color: #fa3534;
 		}
+
 		.cart-bottom-cell {
 			float: left;
 			width: 49.725%;
@@ -664,30 +704,37 @@ page {
 			color: #999999;
 			border-right: 2rpx solid #f2f2f2;
 		}
+
 		.cart-bottom-cell:last-child {
 			border-right: 0rpx;
 		}
+
 		.del-color {
 			color: #fa3534;
 		}
 	}
+
 	.wrap {
 		padding: 0rpx 10rpx 100rpx 10rpx;
 	}
+
 	/deep/ .u-empty {
 		background: #ffffff;
 		margin-bottom: 40rpx;
 		padding-bottom: 40rpx;
 	}
 }
+
 .cart-right {
 	font-size: 26rpx;
 }
+
 /deep/ .u-divider {
 	margin: 0rpx !important;
 	height: 100rpx;
 }
+
 /deep/ .u-status-bar {
-  display: none !important;
+	display: none !important;
 }
 </style>

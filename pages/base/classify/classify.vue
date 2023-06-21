@@ -1,28 +1,28 @@
 <template lang="pug">
-	view.andry-classify
-		global-search
-		view.u-menu-wrap
-			scroll-view.u-tab-view.menu-scroll-view(
-				scroll-y 
-				scroll-with-animation 
-				:scroll-top="scrollTop")
-				view.u-tab-item(
-					v-for="(item,index) in classifyData",
-					:key="index",
-					:class="[current==index ? 'u-tab-item-active' : '']",
-					:data-current="index", 
-					@tap.stop="swichMenu(index)")
-					text.u-line-1 {{item.name}}
-			block(v-for="(item,index) in classifyData", :key="index")
-				scroll-view.right-box(scroll-y, v-if="current==index")
-					view.page-view
-						view.class-item
-							view.item-title
-								text {{item.name}}
-							view.item-container
-								view.thumb-box(v-for="(item1, index1) in item.foods", :key="index1")
-									image.item-menu-image(:src="item1.icon")
-									view.item-menu-name(@click="onMenuItem") {{item1.name}}
+view.andry-classify
+	global-search
+	view.u-menu-wrap
+		scroll-view.u-tab-view.menu-scroll-view(
+			scroll-y 
+			scroll-with-animation 
+			:scroll-top="scrollTop")
+			view.u-tab-item(
+				v-for="(item,index) in classifyData",
+				:key="index",
+				:class="[current==index ? 'u-tab-item-active' : '']",
+				:data-current="index", 
+				@tap.stop="swichMenu(index)")
+				text.u-line-1 {{item.name}}
+		block(v-for="(item,index) in classifyData", :key="index")
+			scroll-view.right-box(scroll-y, v-if="current==index")
+				view.page-view
+					view.class-item
+						view.item-title
+							text {{item.name}}
+						view.item-container
+							view.thumb-box(v-for="(item1, index1) in item.foods", :key="index1")
+								image.item-menu-image(:src="item1.icon")
+								view.item-menu-name(@click="onMenuItem") {{item1.name}}
 </template>
 
 <script lang="ts">
@@ -148,7 +148,7 @@ page {
 		left: 0;
 		top: 39rpx;
 	}
-	
+
 	.right-box {
 		width: 100%;
 		background-color: rgb(250, 250, 250);

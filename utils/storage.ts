@@ -7,7 +7,7 @@
  * @param type String (获取类型： session或者local)
  */
 const storeType = "local";
-const getStorage = function(storageName: string, type = storeType) {
+const getStorage = function (storageName: string, type = storeType) {
   if (type === "session") {
     if (sessionStorage.getItem(storageName)) {
       if (/{|\[/.test(sessionStorage.getItem(storageName) as string)) {
@@ -36,7 +36,7 @@ const getStorage = function(storageName: string, type = storeType) {
  * @param params Object (需要储存的数据)
  * @param type String (储存类型 session或者local)
  */
-const setStorage = function(
+const setStorage = function (
   storageName: string,
   params: any,
   type = storeType
@@ -55,7 +55,7 @@ const setStorage = function(
   }
 };
 
-const removeStorage = function(storageName: string, type = storeType) {
+const removeStorage = function (storageName: string, type = storeType) {
   if (type === "session") {
     sessionStorage.removeItem(storageName);
   } else {

@@ -11,4 +11,4 @@ export {
 	CITY_DATA
 } from "./data";
 
-export { LoginData, LoginQuery, TianQiQuery } from "./interface/user";
+export { LoginData, LoginQuery } from "./interface/user";

@@ -1,5 +1,5 @@
 import request from "@/utils/request";
-import { LoginData, LoginQuery, TianQiQuery } from "@/model";
+import { LoginData, LoginQuery } from "@/model";
 
 const userUrl = "";
 export default class UserApi {
@@ -30,17 +30,6 @@ export default class UserApi {
     return request({
       url: `${userUrl}/logout`,
       method: "GET",
-    }).then((res) => {
-      return res.data;
-    });
-  }
-
-  // 天气预测
-  static getTianQi(query: TianQiQuery) {
-    return request({
-      url: `https://tianqiapi.com/api`,
-      method: "GET",
-      params: query,
     }).then((res) => {
       return res.data;
     });

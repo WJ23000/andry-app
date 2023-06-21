@@ -1,4 +1,4 @@
-import { LoginData, LoginQuery, TianQiQuery } from "@/model";
+import { LoginData, LoginQuery } from "@/model";
 import { UserApi } from "@/api";
 
 export default class UserService {
@@ -15,10 +15,5 @@ export default class UserService {
   // 退出登录
   static loginOut() {
     return UserApi.loginOut();
-  }
-
-  // 天气预测
-  static getTianQi(query: TianQiQuery) {
-    return UserApi.getTianQi(query);
   }
 }

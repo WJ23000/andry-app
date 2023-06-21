@@ -1,13 +1,13 @@
 <template lang="pug">
-	view.search
-		view.u-search-box
-			u-search(
-				:placeholder="placeholder", 
-				v-model="keyword",
-				:showAction="false",
-				:disabled="true",
-				@click="onSearch")
-		u-icon.camera(name="camera", color="#909193", size="28")
+view.search
+  view.u-search-box
+    u-search(
+      :placeholder="placeholder", 
+      v-model="keyword",
+      :showAction="false",
+      :disabled="true",
+      @click="onSearch")
+  u-icon.camera(name="camera", color="#909193", size="28")
 </template>
 
 <script lang="ts">
@@ -22,7 +22,7 @@ export default class GlobalSearch extends Vue {
   // 搜索
   onSearch() {
     uni.navigateTo({
-    	url: "/pages/packageA/search/search"
+      url: "/pages/packageA/search/search"
     });
   }
 }
@@ -34,27 +34,32 @@ export default class GlobalSearch extends Vue {
   justify-content: space-between;
   background: #ffffff;
   padding: 0rpx 24rpx;
+
   .u-search-box {
-		padding: 12rpx 0rpx;
+    padding: 12rpx 0rpx;
     flex: 1;
+
     .icon-width-left {
       position: relative;
       padding: 0rpx 0rpx 0rpx 24rpx;
     }
+
     .icon-width-right {
       position: relative;
       padding: 0rpx 24rpx 0rpx 0rpx;
     }
+
     .header-center {
       flex: 1;
       padding: 0rpx 24rpx;
     }
+
     .setting {
       margin-left: 24rpx;
     }
   }
+
   .camera {
     margin-left: $spacing-row-8;
   }
-}
-</style>
+}</style>

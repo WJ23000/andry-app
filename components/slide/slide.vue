@@ -1,11 +1,11 @@
 <template lang="pug">
-	view.swiper
-		u-swiper(
-			:list="bannerList",
-			keyName="image",
-			indicator,
-			indicatorMode="line",
-			circular)
+view.swiper
+	u-swiper(
+		:list="bannerList",
+		keyName="image",
+		indicator,
+		indicatorMode="line",
+		circular)
 </template>
 
 <script lang="ts">
@@ -19,7 +19,4 @@ export default class Slide extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.slideshow {
-}
-</style>
+<style lang="scss" scoped></style>
