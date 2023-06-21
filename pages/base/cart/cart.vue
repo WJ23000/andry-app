@@ -82,7 +82,7 @@ export default class Cart extends Vue {
 			sell: 101,
 			url: "",
 			selected: false,
-			icon: require("@/static/goods/img.jpg")
+			icon: "http://cdn.wjaxx.xyz/goods/img.jpg"
 		},
 		{
 			id: 2,
@@ -93,7 +93,7 @@ export default class Cart extends Vue {
 			sell: 102,
 			url: "",
 			selected: false,
-			icon: require("@/static/goods/img2.jpg")
+			icon: "http://cdn.wjaxx.xyz/goods/img2.jpg"
 		}
 	];
 	total = 0;
@@ -101,8 +101,8 @@ export default class Cart extends Vue {
 	goodsCount = 0;
 	delCount = 0;
 	showVal = false;
-	iconXz = require("@/static/cart/check-xz.png");
-	iconWxz = require("@/static/cart/check-wxz.png");
+	iconXz = "http://cdn.wjaxx.xyz/cart/check-xz.png";
+	iconWxz = "http://cdn.wjaxx.xyz/cart/check-wxz.png";
 	// 商品推荐
 	leftHeight = 0;
 	rightHeight = 0;
@@ -640,7 +640,7 @@ page {
 			/* #ifdef H5 */
 			bottom: 100rpx;
 			/* #endif */
-			/* #ifdef MP */
+			/* #ifdef MP || APP */
 			bottom: 0rpx;
 			/* #endif */
 			background: #ffffff;

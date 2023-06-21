@@ -25,6 +25,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### 注意事项
 
 ```
-布局高度使用px
-字体大小使用rpx
+1、css单位使用rpx
+2、pages.json backgroundColor属性对App端不生效，需要在页面设置
+	page {
+		background-color: #ededed;
+	}
 ```

@@ -51,7 +51,12 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { GOODS_DATA } from "@/model";
+import {
+	GOODS_DATA,
+	ORDER_GRID_DATA,
+	FEATURE_GRID_DATA,
+	FEATURE_GRID_DATA2
+} from "@/model";
 @Component({
 	components: {}
 })
@@ -62,30 +67,9 @@ export default class Mine extends Vue {
 		username: "Baymax",
 		phone: "180XXXX9388"
 	};
-	orderGridList = [
-		{ id: 0, name: "待付款", image: require("@/static/mine/pay.png") },
-		{ id: 1, name: "待发货", image: require("@/static/mine/deliver-goods.png") },
-		{ id: 2, name: "待收货", image: require("@/static/mine/the-goods.png") },
-		{ id: 3, name: "待评价", image: require("@/static/mine/evaluate.png") },
-		{ id: 4, name: "售后/退款", image: require("@/static/mine/after-sale.png") }
-	];
-	otherGridList = [
-		{ name: "我的钱包", image: require("@/static/mine/wallet.png") },
-		{ name: "我的收藏", image: require("@/static/mine/collection.png") },
-		{ name: "收货地址", image: require("@/static/mine/delivery-address.png") },
-		{ name: "生活服务", image: require("@/static/mine/life-service.png") },
-		{ name: "理财服务", image: require("@/static/mine/finance.png") },
-		{ name: "优惠券", image: require("@/static/mine/coupons.png") },
-		{ name: "更多功能", image: require("@/static/mine/other.png") },
-	];
-	otherGridListTwo = [
-		{ name: "联系客服", image: require("@/static/mine/customer-service.png") },
-		{ name: "车辆服务", image: require("@/static/mine/vehicle-service.png") },
-		{ name: "美食服务", image: require("@/static/mine/food-service.png") },
-		{ name: "积分服务", image: require("@/static/mine/integral.png") },
-		{ name: "帮助中心", image: require("@/static/mine/help.png") },
-		{ name: "关于", image: require("@/static/mine/about.png") },
-	];
+	orderGridList = ORDER_GRID_DATA;
+	otherGridList = FEATURE_GRID_DATA;
+	otherGridListTwo = FEATURE_GRID_DATA2;
 	// 商品推荐
 	leftHeight = 0;
 	rightHeight = 0;
@@ -101,14 +85,14 @@ export default class Mine extends Vue {
 		// 页码
 		page: 1
 	};
-	
+
 	onLoad() {
 		this.getList();
 	}
 
 	// 监听页面滚动(一键置顶，tabs吸顶)
 	onPageScroll(e) {
-	  this.top = e.scrollTop;
+		this.top = e.scrollTop;
 	}
 
 	// 查看全部订单
@@ -139,14 +123,14 @@ export default class Mine extends Vue {
 				break;
 		}
 	}
-	
+
 	// 账户设置
 	onSettingClick() {
 		uni.navigateTo({
 			url: "/pages/packageB/setting/setting"
 		});
 	}
-	
+
 	// 商品推荐列表
 	// 触底触发
 	onReachBottom() {
@@ -202,15 +186,15 @@ export default class Mine extends Vue {
 		}
 		this.ajax.load = false;
 		this.ajax.loadTxt = "加载中";
-	
+
 		setTimeout(() => {
 			// 生成随机数方法
 			let random = (min = 0, max) => {
 				return Math.floor(Math.random() * max) + min;
 			};
-	
+
 			let res: any = [];
-			GOODS_DATA.forEach(item => {
+			GOODS_DATA.forEach((item) => {
 				const price = random(9, 9999) + Math.random();
 				item.money = price.toFixed(2);
 			});
@@ -223,31 +207,31 @@ export default class Mine extends Vue {
 			this.ajax.loadTxt = "没有更多了";
 			return;
 		}
-	
+
 		// 左右列表高度的差
 		let differ = this.leftHeight - this.rightHeight;
 		// 计算差值，用于确定优先插入那一边
 		let differVal = 0;
-	
+
 		// 初始化左右列表的数据
 		let i = differ > 0 ? 1 : 0;
-	
+
 		let [left, right]: any = [[], []];
-	
+
 		// 获取插入的方向
-		let getDirection = index => {
+		let getDirection = (index) => {
 			/* 左侧高度大于右侧超过 600px 时，则前3条数据都插入到右边 */
 			if (differ >= 600 && index < 3) {
 				differVal = 1;
 				return "right";
 			}
-	
+
 			/* 右侧高度大于左侧超过 600px 时，则前3条数据都插入到左边 */
 			if (differ <= -600 && index < 3) {
 				differVal = -1;
 				return "left";
 			}
-	
+
 			/* 左侧高度大于右侧超过 350px 时，则前2条数据都插入到右边 */
 			if (differ >= 350 && index < 2) {
 				return "right";
@@ -257,7 +241,7 @@ export default class Mine extends Vue {
 				differVal = -1;
 				return "left";
 			}
-	
+
 			/* 当前数据序号为偶数时，则插入到左边 */
 			if ((i + differVal) % 2 == 0) {
 				return "left";
@@ -266,7 +250,7 @@ export default class Mine extends Vue {
 				return "right";
 			}
 		};
-	
+
 		// 将数据源分为左右两个列表，容错差值请自行根据项目中的数据情况调节
 		res.forEach((item, index) => {
 			if (getDirection(index) == "left") {
@@ -278,7 +262,7 @@ export default class Mine extends Vue {
 			}
 			i++;
 		});
-	
+
 		// 将左右列表的数据插入，第一页时则覆盖
 		if (this.ajax.page == 1) {
 			this.leftList = left;
@@ -288,7 +272,7 @@ export default class Mine extends Vue {
 			this.leftList = [...this.leftList, ...left];
 			this.rightList = [...this.rightList, ...right];
 		}
-	
+
 		this.ajax.load = true;
 		this.ajax.loadTxt = "上拉加载更多";
 		this.ajax.page++;
@@ -355,7 +339,8 @@ page {
 		.u-grid {
 			padding: 28rpx 28rpx 0rpx 28rpx;
 		}
-		.other-grid, .other-grid-two {
+		.other-grid,
+		.other-grid-two {
 			margin: 16rpx 10rpx;
 			padding: 24rpx 28rpx;
 			border-radius: 8rpx;
@@ -398,6 +383,6 @@ page {
 	height: 100rpx;
 }
 /deep/ .u-status-bar {
-  display: none !important;
+	display: none !important;
 }
 </style>

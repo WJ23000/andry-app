@@ -8,4 +8,6 @@ export { CLASSIFY_DATA } from "./classify";
 
 export { GOODS_BANNER_DATA } from "./goods";
 
+export { ORDER_GRID_DATA, FEATURE_GRID_DATA, FEATURE_GRID_DATA2 } from "./mine";
+
 export { CITY_DATA } from "./area";
