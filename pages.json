@@ -1,11 +1,10 @@
 {
-	"pages": [
-		{
+	"pages": [{
 			"path": "pages/base/home/home",
 			"style": {
 				"navigationBarTitleText": "首页",
 				"backgroundColor": "#ededed",
-				"titleNView": "false", // 禁用原生导航栏
+				"titleNView": false, // 禁用原生导航栏
 				"enablePullDownRefresh": true // 使用下拉刷新
 			}
 		},
@@ -14,8 +13,7 @@
 			"style": {
 				"navigationBarTitleText": "分类",
 				"backgroundColor": "#ededed",
-				"titleNView": "false" // 禁用原生导航栏
-				// "navigationStyle": "custom" // 自定义小程序导航栏
+				"titleNView": false // 禁用原生导航栏
 			}
 		},
 		{
@@ -23,8 +21,7 @@
 			"style": {
 				"navigationBarTitleText": "购物车",
 				"backgroundColor": "#ededed",
-				"titleNView": "false" // 禁用原生导航栏
-				// "navigationStyle": "custom" // 自定义小程序导航栏
+				"titleNView": false // 禁用原生导航栏
 			}
 		},
 		{
@@ -32,21 +29,19 @@
 			"style": {
 				"navigationBarTitleText": "我的",
 				"backgroundColor": "#ededed",
-				"titleNView": "false" // 禁用原生导航栏
+				"titleNView": false // 禁用原生导航栏
 				// "navigationStyle": "custom" // 自定义小程序导航栏
 			}
 		}
 	],
-	"subPackages": [
-		{
+	"subPackages": [{
 			"root": "pages/packageA",
-			"pages": [
-				{
+			"pages": [{
 					"path": "goodsDetail/goodsDetail",
 					"style": {
 						"navigationBarTitleText": "商品详情",
 						"backgroundColor": "#ffffff",
-						"titleNView": "false" // 禁用原生导航栏
+						"titleNView": false // 禁用原生导航栏
 					}
 				},
 				{
@@ -90,16 +85,14 @@
 					"style": {
 						"navigationBarTitleText": "搜索",
 						"backgroundColor": "#ffffff",
-						"titleNView": "false" // 禁用原生导航栏
-						// "navigationStyle": "custom" // 自定义小程序导航栏
+						"titleNView": false // 禁用原生导航栏
 					}
 				}
 			]
 		},
 		{
 			"root": "pages/packageB",
-			"pages": [
-				{
+			"pages": [{
 					"path": "setting/setting",
 					"style": {
 						"navigationBarTitleText": "账户设置",
