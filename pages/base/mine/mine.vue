@@ -9,11 +9,15 @@ view.andry-mine
 			view.cart-right(slot="right")
 				u-icon(name="setting", size="20", @click="onSettingClick")
 	view.header
-		view.user-info
+		view.user-info(v-if="isAccountInfo")
 			u-avatar(:src="userInfo.userImage", size="50")
 			view.account.ml2
 				view.username {{ userInfo.username }}
 				view.phone {{ userInfo.phone }}
+		view.user-info(v-else)
+			u-avatar(:src="userInfo.noUserImage", size="50")
+			view.account.ml2
+				view.login(@click="onLogin") 注册/登录
 	view.wrap
 		view.order-grid
 			u-cell.order-grid-other(title="订单", value="全部订单", :isLink="true", :clickable="true")
@@ -64,9 +68,11 @@ export default class Mine extends Vue {
 	top = 0;
 	userInfo = {
 		userImage: "http://cdn.wjaxx.xyz/mine/user.png",
+		noUserImage: "http://cdn.wjaxx.xyz/user-mr.png",
 		username: "Baymax",
 		phone: "180XXXX9388"
 	};
+	isAccountInfo = false;
 	orderGridList = ORDER_GRID_DATA;
 	otherGridList = FEATURE_GRID_DATA;
 	otherGridListTwo = FEATURE_GRID_DATA2;
@@ -87,12 +93,52 @@ export default class Mine extends Vue {
 	};
 
 	onLoad() {
+		// #ifdef H5
+		this.isAccountInfo = true;
+		// #endif
 		this.getList();
+		uni.getStorage({
+			key: "accountInfo",
+			success: (res) => {
+				this.isAccountInfo = res.data ? true : false;
+			}
+		});
+	}
+
+	// 监听自定义事件并进行页面刷新操作
+	onShow() {
+		uni.$on("refresh", (data) => {
+			if (data.refresh) {
+				// 刷新操作
+				this.isAccountInfo = false;
+			}
+		});
+	}
+
+	onUnload() {
+		uni.$off("refresh"); // 需要手动解绑自定义事件
 	}
 
 	// 监听页面滚动(一键置顶，tabs吸顶)
 	onPageScroll(e) {
 		this.top = e.scrollTop;
+	}
+
+	// 注册&&登录
+	onLogin() {
+		uni.login({
+			success: (res) => {
+				// res.code 即为获取到的 code
+				console.log("登录", res);
+				uni.setStorage({
+					key: "accountInfo",
+					data: true,
+					success: () => {
+						this.isAccountInfo = true;
+					}
+				});
+			}
+		});
 	}
 
 	// 查看全部订单
@@ -292,26 +338,33 @@ page {
 		background-image: $andry-bg-image;
 		background-size: cover;
 		padding: 0rpx 20rpx;
+		display: flex;
+		height: 280rpx;
 
 		.user-info {
 			display: flex;
-			align-items: center;
-			height: 280rpx;
+			margin-top: 66rpx;
 		}
 
 		.account {
 			display: flex;
 			flex-direction: column;
 			margin-left: 24rpx;
+			height: 100rpx;
+			justify-content: center;
 		}
 
-		.account>.username {
+		.account > .username {
 			font-size: 36rpx;
 		}
 
-		.account>.phone {
+		.account > .phone {
 			margin-top: 8rpx;
 			font-size: 28rpx;
+		}
+
+		.account > .login {
+			font-size: 32rpx;
 		}
 	}
 

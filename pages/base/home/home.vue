@@ -7,6 +7,7 @@ view.andry-home
 			:show-action="false",
 			:disabled="true",
 			@click="onSearch")
+		u-icon.scan(name="scan", color="#909193", size="28", @click="onScanCode")
 	view.header
 		view.search
 			u-search(
@@ -16,6 +17,7 @@ view.andry-home
 				bg-color="#ffffff",
 				:disabled="true",
 				@click="onSearch")
+			u-icon.scan(name="scan", color="#ffffff", size="28", @click="onScanCode")
 		view.swiper
 			slide(:bannerList="bannerList")
 		view.grid
@@ -102,6 +104,22 @@ export default class Home extends Vue {
 		this.offsetTop = "0";
 		// #endif
 		this.getList();
+	}
+	
+	onScanCode() {
+		// #ifdef H5
+		uni.showToast({
+			title: "H5暂不支持该功能",
+			icon: "none"
+		});
+		return false;
+		// #endif
+		uni.scanCode({
+			success: function (res) {
+				console.log('条码类型：' + res.scanType);
+				console.log('条码内容：' + res.result);
+			}
+		});
 	}
 
 	// tab切换
@@ -291,6 +309,8 @@ page {
 
 		.search {
 			padding: 12rpx 0rpx;
+			display: flex;
+			justify-content: space-between;
 		}
 
 		.grid {
@@ -309,6 +329,12 @@ page {
 		padding: 12rpx 24rpx;
 		z-index: 1000;
 		box-sizing: border-box;
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	.scan {
+	  margin-left: $spacing-row-8;
 	}
 
 	.wrap {

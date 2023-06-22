@@ -17,6 +17,8 @@ view.andry-setting
 			:value="item.value",
 			:isLink="item.isLink",
 			@click="toNextPage(item.url)")
+	u-gap(height="10", bgColor="#ededed")
+	view.exit-login(@click="onExitLogin") 退出登录
 </template>
 
 <script lang="ts">
@@ -26,6 +28,12 @@ import { Component, Vue } from "vue-property-decorator";
 })
 export default class Setting extends Vue {
 	otherCellList = [
+		{
+			title: "地址管理",
+			value: "",
+			isLink: true,
+			url: ""
+		},
 		{
 			title: "账户与安全",
 			value: "",
@@ -46,6 +54,12 @@ export default class Setting extends Vue {
 		},
 		{
 			title: "通用",
+			value: "",
+			isLink: true,
+			url: ""
+		},
+		{
+			title: "消息通知设置",
 			value: "",
 			isLink: true,
 			url: ""
@@ -72,7 +86,13 @@ export default class Setting extends Vue {
 			url: ""
 		},
 		{
-			title: "隐私政策",
+			title: "隐私设置",
+			value: "",
+			isLink: true,
+			url: ""
+		},
+		{
+			title: "隐私政策简要版",
 			value: "",
 			isLink: true,
 			url: ""
@@ -84,12 +104,28 @@ export default class Setting extends Vue {
 			url: ""
 		},
 		{
+			title: "应用权限说明",
+			value: "",
+			isLink: true,
+			url: ""
+		},
+		{
 			title: "第三方共享个人信息清单",
 			value: "",
 			isLink: true,
 			url: ""
 		}
 	];
+	
+	loginCellList = [
+		{
+			title: "退出登录",
+			value: "",
+			isLink: false,
+			url: ""
+		}
+	];
+	
 
 	// 去往其他模块
 	toNextPage(url) {
@@ -97,11 +133,42 @@ export default class Setting extends Vue {
 			url
 		});
 	}
+	
+	// 退出登录
+	onExitLogin() {
+		// #ifdef H5
+		uni.showToast({
+			title: "H5暂不支持该功能",
+			icon: "none"
+		});
+		return false;
+		// #endif
+		uni.removeStorage({
+			key: 'accountInfo',
+			success: function (res) {
+				uni.$emit('refresh', { refresh: true });
+				// 返回我的页面
+				uni.navigateBack({
+					delta: 1
+				});
+			}
+		});
+	}
 }
 </script>
 
+<style lang="scss">
+// APP窗口背景色默认白色，需用此种方式调整窗口背景色
+page {
+	background-color: #ededed;
+}
+</style>
 <style lang="scss" scoped>
 .andry-setting {
-	// background-color: #f2f2f2;
+	background-color: #ffffff;
+	.exit-login {
+		padding: 30rpx 0rpx;
+		text-align: center;
+	}
 }
 </style>
