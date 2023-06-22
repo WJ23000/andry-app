@@ -5,7 +5,8 @@ view.andry-mine
 			title="我的",
 			:autoBack="false")
 			view.cart-right(slot="left")
-				u-avatar(:src="userInfo.userImage", size="24")
+				u-avatar(v-if="isAccountInfo", :src="userInfo.userImage", size="24")
+				u-avatar(v-else, :src="userInfo.noUserImage", size="24")
 			view.cart-right(slot="right")
 				u-icon(name="setting", size="20", @click="onSettingClick")
 	view.header
@@ -126,6 +127,12 @@ export default class Mine extends Vue {
 
 	// 注册&&登录
 	onLogin() {
+		uni.getProvider({
+			service: "oauth",
+			success: function (res) {
+				console.log(res.provider);
+			}
+		});
 		uni.login({
 			success: (res) => {
 				// res.code 即为获取到的 code
@@ -137,6 +144,12 @@ export default class Mine extends Vue {
 						this.isAccountInfo = true;
 					}
 				});
+			},
+			fail(e) {
+				console.log("fail", e);
+			},
+			complete(e) {
+				console.log("complete", e);
 			}
 		});
 	}
