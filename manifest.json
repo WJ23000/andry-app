@@ -1,5 +1,5 @@
 {
-    "name" : "andry-app",
+    "name" : "YidaGO",
     "appid" : "__UNI__6A03600",
     "description" : "",
     "versionName" : "1.0.0",
@@ -131,10 +131,10 @@
         "usingComponents" : true
     },
     "h5" : {
-        "title" : "andry-app",
+        "title" : "YidaGO",
         "router" : {
             "mode" : "hash",
-            "base" : "/andry-app-h5"
+            "base" : "/ydgo-h5"
         },
         "devServer" : {
             "port" : 8080

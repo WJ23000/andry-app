@@ -1,4 +1,4 @@
-# andry-app
+# YidaGO
 
 ## Project setup
 
