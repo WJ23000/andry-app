@@ -21,9 +21,9 @@ view.andry-mine
 				view.login(@click="onLogin") 注册/登录
 	view.wrap
 		view.order-grid
-			u-cell.order-grid-other(title="订单", value="全部订单", :isLink="true", :clickable="true")
+			u-cell.order-grid-other(title="订单", value="全部订单", :isLink="true", :clickable="true", @click="toOrder(0)")
 			u-grid(:col="5", :border="false")
-				u-grid-item(v-for="(item, index) in orderGridList", :index="index", :key="index", @click="toOrder(item.id)")
+				u-grid-item(v-for="(item, index) in orderGridList", :index="index", :key="index", @click="toOrder(item.index)")
 					image.grid-image(:src="item.image")
 					text.grid-text {{ item.name }}
 		view.other-grid
@@ -155,11 +155,13 @@ export default class Mine extends Vue {
 	}
 
 	// 查看全部订单
-	toOrder(id) {
-		const current = id ? id : 0;
-		uni.navigateTo({
-			url: `/pages/packageA/order/list?current=${current}`
-		});
+	toOrder(index) {
+		const current = index ? index : 0;
+		if (index<5) {
+			uni.navigateTo({
+				url: `/pages/packageA/order/list?current=${index}`
+			});
+		}
 	}
 
 	// 去往其他模块

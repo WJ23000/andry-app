@@ -16,7 +16,7 @@ view.andry-cart
 						image(:src="iconWxz" v-else @click="selectedCart(index)" :data-index="index")
 					view.cart-main
 						view.left_image
-							image.cart-image(:src="item.icon")
+							image.cart-image(:src="item.url")
 						view.left_box
 							text.cart-title {{item.title}}
 							text.cart-specif {{item.specif}}
@@ -80,9 +80,8 @@ export default class Cart extends Vue {
 			specif: "自营",
 			value: 1,
 			sell: 101,
-			url: "",
-			selected: false,
-			icon: "http://cdn.wjaxx.xyz/goods/img.jpg"
+			url: "http://cdn.wjaxx.xyz/goods/img.jpg",
+			selected: false
 		},
 		{
 			id: 2,
@@ -91,9 +90,8 @@ export default class Cart extends Vue {
 			specif: "专卖店",
 			value: 2,
 			sell: 102,
-			url: "",
-			selected: false,
-			icon: "http://cdn.wjaxx.xyz/goods/img2.jpg"
+			url: "http://cdn.wjaxx.xyz/goods/img2.jpg",
+			selected: false
 		}
 	];
 	total = 0;

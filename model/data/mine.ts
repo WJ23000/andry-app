@@ -1,16 +1,33 @@
 export const ORDER_GRID_DATA = [
-	{ id: 0, name: "待付款", image: "http://cdn.wjaxx.xyz/mine/pay.png" },
+	{
+		id: 0,
+		name: "待付款",
+		image: "http://cdn.wjaxx.xyz/mine/pay.png",
+		index: 1
+	},
 	{
 		id: 1,
 		name: "待发货",
-		image: "http://cdn.wjaxx.xyz/mine/deliver-goods.png"
+		image: "http://cdn.wjaxx.xyz/mine/deliver-goods.png",
+		index: 2
 	},
-	{ id: 2, name: "待收货", image: "http://cdn.wjaxx.xyz/mine/the-goods.png" },
-	{ id: 3, name: "待评价", image: "http://cdn.wjaxx.xyz/mine/evaluate.png" },
+	{
+		id: 2,
+		name: "待收货",
+		image: "http://cdn.wjaxx.xyz/mine/the-goods.png",
+		index: 3
+	},
+	{
+		id: 3,
+		name: "待评价",
+		image: "http://cdn.wjaxx.xyz/mine/evaluate.png",
+		index: 4
+	},
 	{
 		id: 4,
 		name: "售后/退款",
-		image: "http://cdn.wjaxx.xyz/mine/after-sale.png"
+		image: "http://cdn.wjaxx.xyz/mine/after-sale.png",
+		index: 5
 	}
 ];
 

@@ -31,7 +31,7 @@ view.andry-home
 				lineColor="#f56c6c",
 				:activeStyle="activeStyle",
 				:inactiveStyle="inactiveStyle",
-				itemStyle="padding: 0px 15px; height: 44px;",
+				itemStyle="padding: 0px 16px; height: 44px;",
 				@click="onTabItem")
 	view.wrap
 		goods-list(
@@ -123,9 +123,9 @@ export default class Home extends Vue {
 	}
 
 	// tab切换
-	onTabItem(index) {
-		console.log("点击", index);
-		this.tabCurrent = index;
+	onTabItem(item) {
+		console.log("点击", item);
+		this.tabCurrent = item.index;
 	}
 
 	// 监听页面滚动(一键置顶，tabs吸顶)
@@ -374,8 +374,6 @@ page {
 		}
 	}
 }
-</style>
-<style lang="scss" scoped>
 .tabs {
 	/deep/ .u-tabs__wrapper__nav__item__text {
 		font-size: 28rpx;
