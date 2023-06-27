@@ -97,6 +97,9 @@ page {
 <style lang="scss" scoped>
 .andry-order-list {}
 .tabs {
+	/deep/ .u-tabs__wrapper__nav {
+		width: 100%;
+	}
 	/deep/ .u-tabs__wrapper__nav__item__text {
 		font-size: 28rpx;
 	}

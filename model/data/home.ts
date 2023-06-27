@@ -74,7 +74,8 @@ export const GOODS_DATA = [
 		money: "1540.00",
 		label: "自营",
 		shop: "andry旗舰店",
-		sold: 500
+		sold: 500,
+		status: 1
 	},
 	{
 		id: 2,
@@ -83,7 +84,8 @@ export const GOODS_DATA = [
 		money: "1590.00",
 		label: "自营",
 		shop: "andry旗舰店",
-		sold: 320
+		sold: 320,
+		status: 2
 	},
 	{
 		id: 3,
@@ -92,7 +94,7 @@ export const GOODS_DATA = [
 		money: "169.00",
 		label: "",
 		shop: "andry旗舰店",
-		sold: 738
+		status: 3
 	},
 	{
 		id: 4,
@@ -101,7 +103,7 @@ export const GOODS_DATA = [
 		money: "625.00",
 		label: "",
 		shop: "andry旗舰店",
-		sold: 465
+		status: 3
 	},
 	{
 		id: 5,
@@ -110,7 +112,7 @@ export const GOODS_DATA = [
 		money: "350.00",
 		label: "自营",
 		shop: "andry旗舰店",
-		sold: 277
+		status: 4
 	},
 	{
 		id: 6,
@@ -119,7 +121,8 @@ export const GOODS_DATA = [
 		money: "350.00",
 		label: "自营",
 		shop: "andry旗舰店",
-		sold: 346
+		sold: 346,
+		status: 4
 	},
 	{
 		id: 7,
@@ -128,7 +131,8 @@ export const GOODS_DATA = [
 		money: "390.00",
 		label: "自营",
 		shop: "andry旗舰店",
-		sold: 582
+		sold: 582,
+		status: 4
 	},
 	{
 		id: 8,
@@ -137,6 +141,7 @@ export const GOODS_DATA = [
 		money: "509.00",
 		label: "自营",
 		shop: "andry旗舰店",
-		sold: 963
+		sold: 963,
+		status: 4
 	}
 ];
