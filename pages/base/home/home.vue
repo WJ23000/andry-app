@@ -306,7 +306,6 @@ page {
 	.header {
 		background: linear-gradient(to top, #ededed, #ff6666, #fa3534);
 		padding: 0rpx 20rpx;
-
 		.search {
 			padding: 12rpx 0rpx;
 			display: flex;
@@ -331,6 +330,7 @@ page {
 		box-sizing: border-box;
 		display: flex;
 		justify-content: space-between;
+		animation: fadeIn 1s;
 	}
 	
 	.scan {
@@ -377,6 +377,14 @@ page {
 .tabs {
 	/deep/ .u-tabs__wrapper__nav__item__text {
 		font-size: 28rpx;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }
 </style>

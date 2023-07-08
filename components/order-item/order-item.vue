@@ -8,7 +8,10 @@ view.order-item
 				view.left_box
 					view.order-title {{item.title}}
 					view.order-count
-						text 1000
+						view.money
+							text.unit ￥
+							text.price {{ decimal(item.money,0) }}
+							text.decimal .{{ decimal(item.money,1) }}
 						text 共2件
 		view.order-btn
 			view 更多
@@ -44,6 +47,10 @@ export default class OrderItem extends Vue {
 		} else {
 			this.orderData = this.orderItems;
 		}
+	}
+	
+	decimal(value, type) {
+		return value.split(".")[type];
 	}
 }
 </script>
@@ -83,7 +90,7 @@ export default class OrderItem extends Vue {
 		font-size: 28rpx;
 		line-height: 34rpx;
 		margin-right: 20rpx;
-		flex: 0 0 79%;
+		// flex: 0 0 79%;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
@@ -93,8 +100,21 @@ export default class OrderItem extends Vue {
 	.order-count {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-end;
 		font-size: 28rpx;
+		.money {
+			color: #333333;
+		}
+
+		.price {
+			font-size: 32rpx;
+			font-weight: bold;
+		}
+
+		.unit,
+		.decimal {
+			font-size: 24rpx;
+		}
 	}
 
 	.order-btn {

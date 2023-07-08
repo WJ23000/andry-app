@@ -352,13 +352,11 @@ page {
 	.header {
 		background-image: $andry-bg-image;
 		background-size: cover;
-		padding: 0rpx 20rpx;
+		padding: 80rpx 20rpx 120rpx 20rpx;
 		display: flex;
-		height: 280rpx;
 
 		.user-info {
 			display: flex;
-			margin-top: 66rpx;
 		}
 
 		.account {
@@ -381,16 +379,6 @@ page {
 		.account > .login {
 			font-size: 32rpx;
 		}
-	}
-
-	.search-sticky {
-		position: fixed;
-		top: 0;
-		width: 100%;
-		background: #ffffff;
-		padding: 12rpx 24rpx;
-		z-index: 1000;
-		box-sizing: border-box;
 	}
 
 	.wrap {
@@ -462,6 +450,18 @@ page {
 		.u-scroll-list {
 			padding-bottom: 0rpx;
 		}
+	}
+	
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	.search-sticky {
+		animation: fadeIn 1s;
 	}
 }
 
