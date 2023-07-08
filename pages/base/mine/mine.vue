@@ -461,7 +461,7 @@ page {
 		}
 	}
 	.search-sticky {
-		animation: fadeIn 1s;
+		animation: fadeIn 0.3s;
 	}
 }
 

@@ -4,8 +4,8 @@ view.order-item
 		view.order-company
 			view.order-store
 				image.store-image(:src="storeImage")
-				text.title 自营
-				u-icon(name="arrow-right" size="18" bold="true")
+				text.title YidaGO自营
+				u-icon(name="arrow-right" size="18" :bold="true")
 			text.status {{ isStatus(item) }}
 		view.order-box(:data-id="item.id" :data-index="index")
 			view.order-main
@@ -91,21 +91,23 @@ export default class OrderItem extends Vue {
 	.order-company {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		padding: 20rpx 20rpx 0rpx 20rpx;
 		.order-store {
 			display: flex;
 		}
 		.title {
-			line-height: 38rpx;
+			line-height: 40rpx;
 			font-weight: bold;
 		}
 		.status {
 			color: #fa3534;
+			font-size: 26rpx;
 		}
 	}
 	.store-image {
-		width: 46rpx;
-		height: 46rpx;
+		width: 44rpx;
+		height: 44rpx;
 		margin-top: -3rpx;
 	}
 	.order-box {

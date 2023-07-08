@@ -31,7 +31,7 @@ view.andry-home
 				lineColor="#f56c6c",
 				:activeStyle="activeStyle",
 				:inactiveStyle="inactiveStyle",
-				itemStyle="padding: 0px 16px; height: 44px;",
+				itemStyle="padding: 0px 15px; height: 44px;",
 				@click="onTabItem")
 	view.wrap
 		goods-list(
@@ -330,7 +330,6 @@ page {
 		box-sizing: border-box;
 		display: flex;
 		justify-content: space-between;
-		animation: fadeIn 1s;
 	}
 	
 	.scan {
@@ -377,14 +376,6 @@ page {
 .tabs {
 	/deep/ .u-tabs__wrapper__nav__item__text {
 		font-size: 28rpx;
-	}
-}
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
 	}
 }
 </style>
