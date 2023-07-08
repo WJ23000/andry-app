@@ -1,6 +1,12 @@
 <template lang="pug">
 view.order-item
 	view.order-cell(v-for="(item,index) in orderData" :key="index")
+		view.order-company
+			view.order-store
+				image.store-image(:src="storeImage")
+				text.title 自营
+				u-icon(name="arrow-right" size="18" bold="true")
+			text.status {{ isStatus(item) }}
 		view.order-box(:data-id="item.id" :data-index="index")
 			view.order-main
 				view.left_image
@@ -37,7 +43,8 @@ export default class OrderItem extends Vue {
 	current!: any;
 
 	orderData: any = [];
-	
+	storeImage = "http://cdn.wjaxx.xyz/mine/store.png"
+
 	@Watch("current", { immediate: true })
 	onCurrentChange() {
 		if (this.current != 0) {
@@ -48,7 +55,19 @@ export default class OrderItem extends Vue {
 			this.orderData = this.orderItems;
 		}
 	}
-	
+
+	// 显示订单对应的状态
+	isStatus(item) {
+		const status = item.status;
+		return status == 1
+			? "待付款"
+			: status == 2
+			? "待发货"
+			: status == 3
+			? "待收货"
+			: "已完成";
+	}
+
 	decimal(value, type) {
 		return value.split(".")[type];
 	}
@@ -69,8 +88,28 @@ export default class OrderItem extends Vue {
 	.order-main {
 		display: flex;
 	}
+	.order-company {
+		display: flex;
+		justify-content: space-between;
+		padding: 20rpx 20rpx 0rpx 20rpx;
+		.order-store {
+			display: flex;
+		}
+		.title {
+			line-height: 38rpx;
+			font-weight: bold;
+		}
+		.status {
+			color: #fa3534;
+		}
+	}
+	.store-image {
+		width: 46rpx;
+		height: 46rpx;
+		margin-top: -3rpx;
+	}
 	.order-box {
-		padding: 0rpx 20rpx;
+		padding: 0rpx 24rpx;
 	}
 	.order-image {
 		width: 200rpx;
@@ -121,7 +160,7 @@ export default class OrderItem extends Vue {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 20rpx 20rpx;
+		padding: 20rpx 24rpx;
 		font-size: 28rpx;
 		.btn-item {
 			display: flex;
