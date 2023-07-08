@@ -45,7 +45,6 @@ export default class OrderList extends Vue {
 	];
 	activeStyle = {
 		color: "#303133",
-		fontWeight: "bold",
 		transform: "scale(1.05)"
 	};
 	inactiveStyle = {

@@ -81,7 +81,7 @@ export default class OrderItem extends Vue {
 		display: flex;
 		flex-direction: column;
 		background-color: #ffffff;
-		margin: 20rpx 0rpx;
+		margin-top: 20rpx;
 		box-sizing: border-box;
 		border-radius: 8rpx;
 	}
