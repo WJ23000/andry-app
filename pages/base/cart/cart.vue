@@ -549,12 +549,7 @@ page {
 			position: fixed;
 			width: 100%;
 			height: 88rpx;
-			/* #ifdef H5 */
-			bottom: 100rpx;
-			/* #endif */
-			/* #ifdef MP || APP  */
-			bottom: 0rpx;
-			/* #endif */
+			bottom: var(--window-bottom);
 			background: #ffffff;
 			padding: 0rpx 20rpx;
 			box-sizing: border-box;
@@ -671,12 +666,7 @@ page {
 			position: fixed;
 			width: 100%;
 			height: 88rpx;
-			/* #ifdef H5 */
-			bottom: 100rpx;
-			/* #endif */
-			/* #ifdef MP || APP */
-			bottom: 0rpx;
-			/* #endif */
+			bottom: var(--window-bottom);
 			background: #ffffff;
 			border-top: 2rpx solid #f2f2f2;
 			z-index: 999;
