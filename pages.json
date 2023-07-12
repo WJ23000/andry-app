@@ -114,7 +114,10 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "AndryApp",
 		"navigationBarBackgroundColor": "#ffffff", // 设置为#ffffff，支付宝小程序才能在导航上显示黑色文字
-		"backgroundColor": "#ffffff" // 窗口背景颜色
+		"backgroundColor": "#ffffff", // 窗口背景颜色
+		"app-plus": {
+			"bounce": "none" // app禁止回弹
+		}
 	},
 	"tabBar": {
 		"color": "#606266",

@@ -547,7 +547,7 @@ page {
 			display: flex;
 			position: fixed;
 			width: 100%;
-			height: 88rpx;
+			height: 44px;
 			bottom: var(--window-bottom);
 			background: #ffffff;
 			padding: 0rpx 20rpx;
@@ -664,7 +664,7 @@ page {
 		.del-bottom {
 			position: fixed;
 			width: 100%;
-			height: 88rpx;
+			height: 44px;
 			bottom: var(--window-bottom);
 			background: #ffffff;
 			border-top: 2rpx solid #f2f2f2;
