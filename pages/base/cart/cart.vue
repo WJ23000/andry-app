@@ -413,14 +413,13 @@ page {
 <style lang="scss" scoped>
 .andry-cart {
 	.cart-header {
-		height: 88rpx;
-		line-height: 88rpx;
+		height: 44px;
+		line-height: 44px;
 	}
 
 	.page-content {
 		/* #ifdef MP */
-		margin-top: 88rpx;
-
+		margin-top: 44px;
 		/* #endif */
 		.cart-main {
 			display: flex;
