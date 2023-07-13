@@ -100,12 +100,20 @@ export default class Home extends Vue {
 	};
 
 	onLoad() {
+		// 初始化动态修改状态栏的颜色
+		// #ifdef !APP-PLUS
+		uni.setNavigationBarColor({
+			frontColor: "#ffffff",
+			borderBottomColor: "#fa3534",
+			backgroundColor: "#fa3534"
+		});
+		// #endif
 		// #ifdef H5
 		this.offsetTop = "0";
 		// #endif
 		this.getList();
 	}
-	
+
 	onScanCode() {
 		// #ifdef H5
 		uni.showToast({
@@ -116,8 +124,8 @@ export default class Home extends Vue {
 		// #endif
 		uni.scanCode({
 			success: function (res) {
-				console.log('条码类型：' + res.scanType);
-				console.log('条码内容：' + res.result);
+				console.log("条码类型：" + res.scanType);
+				console.log("条码内容：" + res.result);
 			}
 		});
 	}
@@ -132,6 +140,14 @@ export default class Home extends Vue {
 	onPageScroll(e) {
 		this.top = e.scrollTop;
 		this.stickyBgColor = e.scrollTop > 300 ? "#ffffff" : "";
+		// 动态修改状态栏的颜色
+		// #ifdef !APP-PLUS
+		uni.setNavigationBarColor({
+			frontColor: e.scrollTop >= 44 ? "#000000" : "#ffffff",
+			borderBottomColor: e.scrollTop >= 44 ? "#ffffff" : "#fa3534",
+			backgroundColor: e.scrollTop >= 44 ? "#ffffff" : "#fa3534"
+		});
+		// #endif
 	}
 
 	// 商品推荐列表
@@ -178,8 +194,7 @@ export default class Home extends Vue {
 		});
 		uni.navigateTo({
 			url:
-				"/pages/packageA/goodsDetail/goodsDetail?id=" +
-				this.leftList[index].id
+				"/pages/packageA/goodsDetail/goodsDetail?id=" + this.leftList[index].id
 		});
 	}
 	// 获取数据
@@ -331,9 +346,9 @@ page {
 		display: flex;
 		justify-content: space-between;
 	}
-	
+
 	.scan {
-	  margin-left: $spacing-row-8;
+		margin-left: $spacing-row-8;
 	}
 
 	.wrap {
@@ -344,7 +359,7 @@ page {
 			padding: 20rpx 0rpx;
 			box-sizing: border-box;
 
-			>view {
+			> view {
 				padding: 0 10rpx;
 			}
 		}
@@ -358,7 +373,7 @@ page {
 			align-content: flex-start;
 
 			&.h-flex-2 {
-				>view {
+				> view {
 					width: 50%;
 				}
 			}

@@ -4,17 +4,24 @@ view.andry-mine
 		u-navbar.mine-header(
 			title="我的",
 			:autoBack="false")
-			view.cart-right(slot="left")
+			view(slot="left")
 				u-avatar(v-if="isAccountInfo", :src="userInfo.userImage", size="24")
 				u-avatar(v-else, :src="userInfo.noUserImage", size="24")
-			view.cart-right(slot="right")
+			view.setting(slot="right")
 				u-icon(name="setting", size="20", @click="onSettingClick")
+				u-badge(max="99", value="2", :offset="[6,4]", :absolute="true", bgColor="#fa3534")
+				u-icon.chat(name="kefu-ermai", size="20")
 	view.header
 		view.user-info(v-if="isAccountInfo")
-			u-avatar(:src="userInfo.userImage", size="50")
-			view.account.ml2
-				view.username {{ userInfo.username }}
-				view.phone {{ userInfo.phone }}
+			view.content
+				image.avatar(:src="userInfo.userImage")
+				view.account.ml2
+					view.username {{ userInfo.username }}
+					view.phone {{ userInfo.phone }}
+			view.setting
+				u-icon(name="setting", size="20", @click="onSettingClick")
+				u-badge(max="99", value="2", :offset="[34,4]", :absolute="true", bgColor="#fa3534")
+				u-icon.chat(name="kefu-ermai", size="20")
 		view.user-info(v-else)
 			u-avatar(:src="userInfo.noUserImage", size="50")
 			view.account.ml2
@@ -24,6 +31,7 @@ view.andry-mine
 			u-cell.order-grid-other(title="订单", value="全部订单", :isLink="true", :clickable="true", @click="toOrder(0)")
 			u-grid(:col="5", :border="false")
 				u-grid-item(v-for="(item, index) in orderGridList", :index="index", :key="index", @click="toOrder(item.index)")
+					u-badge(max="99", :value="item.count", :offset="[0,7]", :absolute="true", bgColor="#fa3534")
 					image.grid-image(:src="item.image")
 					text.grid-text {{ item.name }}
 		view.other-grid
@@ -94,6 +102,14 @@ export default class Mine extends Vue {
 	};
 
 	onLoad() {
+		// 初始化动态修改状态栏的颜色
+		// #ifdef !APP-PLUS
+		uni.setNavigationBarColor({
+			frontColor: "#ffffff",
+			borderBottomColor: "#fcc53a",
+			backgroundColor: "#fcc53a"
+		});
+		// #endif
 		// #ifdef H5
 		this.isAccountInfo = true;
 		// #endif
@@ -123,6 +139,14 @@ export default class Mine extends Vue {
 	// 监听页面滚动(一键置顶，tabs吸顶)
 	onPageScroll(e) {
 		this.top = e.scrollTop;
+		// 动态修改状态栏的颜色
+		// #ifdef !APP-PLUS
+		uni.setNavigationBarColor({
+			frontColor: e.scrollTop >= 44 ? "#000000" : "#ffffff",
+			borderBottomColor: e.scrollTop >= 44 ? "#ffffff" : "#fcc53a",
+			backgroundColor: e.scrollTop >= 44 ? "#ffffff" : "#fcc53a"
+		});
+		// #endif
 	}
 
 	// 注册&&登录
@@ -157,7 +181,7 @@ export default class Mine extends Vue {
 	// 查看全部订单
 	toOrder(index) {
 		const current = index ? index : 0;
-		if (index<5) {
+		if (index < 5) {
 			uni.navigateTo({
 				url: `/pages/packageA/order/list?current=${index}`
 			});
@@ -350,13 +374,24 @@ page {
 <style lang="scss" scoped>
 .andry-mine {
 	.header {
-		background-image: $andry-bg-image;
-		background-size: cover;
-		padding: 80rpx 20rpx 120rpx 20rpx;
+		// background-image: $andry-bg-image;
+		// background-size: cover;
+		background: linear-gradient(to top, #ededed, #ffdd8f, #fcc53a);
+		padding: 80rpx 26rpx 120rpx 26rpx;
 		display: flex;
 
 		.user-info {
 			display: flex;
+			flex: 1;
+			justify-content: space-between;
+			.content {
+				display: flex;
+			}
+			.avatar {
+				width: 100rpx;
+				height: 100rpx;
+				border-radius: 50rpx;
+			}
 		}
 
 		.account {
@@ -451,18 +486,14 @@ page {
 			padding-bottom: 0rpx;
 		}
 	}
-	
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-	.search-sticky {
-		animation: fadeIn 0.3s;
-	}
+}
+
+.setting {
+	display: flex;
+	align-items: flex-start;
+}
+.chat {
+	margin-left: 16rpx;
 }
 
 /deep/ .u-divider {

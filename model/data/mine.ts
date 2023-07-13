@@ -3,18 +3,21 @@ export const ORDER_GRID_DATA = [
 		id: 0,
 		name: "待付款",
 		image: "http://cdn.wjaxx.xyz/mine/pay.png",
+		count: 0,
 		index: 1
 	},
 	{
 		id: 1,
 		name: "待发货",
 		image: "http://cdn.wjaxx.xyz/mine/deliver-goods.png",
+		count: 1,
 		index: 2
 	},
 	{
 		id: 2,
 		name: "待收货",
 		image: "http://cdn.wjaxx.xyz/mine/the-goods.png",
+		count: 2,
 		index: 3
 	},
 	{
