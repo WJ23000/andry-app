@@ -10,7 +10,8 @@ view.andry-mine
 			view.setting(slot="right")
 				u-icon(name="setting", size="20", @click="onSettingClick")
 				u-badge(max="99", value="2", :offset="[6,4]", :absolute="true", bgColor="#fa3534")
-				u-icon.chat(name="kefu-ermai", size="20")
+				view.chat
+					u-icon(name="kefu-ermai", size="20")
 	view.header
 		view.user-info(v-if="isAccountInfo")
 			view.content
@@ -21,7 +22,8 @@ view.andry-mine
 			view.setting
 				u-icon(name="setting", size="20", @click="onSettingClick")
 				u-badge(max="99", value="2", :offset="[34,4]", :absolute="true", bgColor="#fa3534")
-				u-icon.chat(name="kefu-ermai", size="20")
+				view.chat
+					u-icon.chat(name="kefu-ermai", size="20")
 		view.user-info(v-else)
 			u-avatar(:src="userInfo.noUserImage", size="50")
 			view.account.ml2
