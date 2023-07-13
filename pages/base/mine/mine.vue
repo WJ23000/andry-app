@@ -24,7 +24,7 @@ view.andry-mine
 				view.chat
 					u-badge(max="99", value="2", :offset="[-6,-8]", :absolute="true", bgColor="#fa3534")
 					u-icon(name="kefu-ermai", size="20")
-		view.user-info(v-else)
+		view.user-login(v-else)
 			u-avatar(:src="userInfo.noUserImage", size="50")
 			view.account.ml2
 				view.login(@click="onLogin") 注册/登录
@@ -380,7 +380,7 @@ page {
 		// background-image: $andry-bg-image;
 		// background-size: cover;
 		background: linear-gradient(to top, #ededed, #ffdd8f, #fcc53a);
-		padding: 60rpx 26rpx 100rpx 26rpx;
+		padding: 50rpx 26rpx 100rpx 26rpx;
 		display: flex;
 
 		.user-info {
@@ -395,6 +395,9 @@ page {
 				height: 100rpx;
 				border-radius: 50rpx;
 			}
+		}
+		.user-login {
+			display: flex;
 		}
 
 		.account {
@@ -494,6 +497,7 @@ page {
 .setting {
 	display: flex;
 	align-items: flex-start;
+	margin-top: 6rpx;
 }
 .chat {
 	position: relative;
