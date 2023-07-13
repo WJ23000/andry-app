@@ -9,8 +9,8 @@ view.andry-mine
 				u-avatar(v-else, :src="userInfo.noUserImage", size="24")
 			view.setting(slot="right")
 				u-icon(name="setting", size="20", @click="onSettingClick")
-				u-badge(max="99", value="2", :offset="[6,4]", :absolute="true", bgColor="#fa3534")
 				view.chat
+					u-badge(max="99", value="2", :offset="[-6,-8]", :absolute="true", bgColor="#fa3534")
 					u-icon(name="kefu-ermai", size="20")
 	view.header
 		view.user-info(v-if="isAccountInfo")
@@ -21,9 +21,9 @@ view.andry-mine
 					view.phone {{ userInfo.phone }}
 			view.setting
 				u-icon(name="setting", size="20", @click="onSettingClick")
-				u-badge(max="99", value="2", :offset="[34,4]", :absolute="true", bgColor="#fa3534")
 				view.chat
-					u-icon.chat(name="kefu-ermai", size="20")
+					u-badge(max="99", value="2", :offset="[-6,-8]", :absolute="true", bgColor="#fa3534")
+					u-icon(name="kefu-ermai", size="20")
 		view.user-info(v-else)
 			u-avatar(:src="userInfo.noUserImage", size="50")
 			view.account.ml2
@@ -31,11 +31,12 @@ view.andry-mine
 	view.wrap
 		view.order-grid
 			u-cell.order-grid-other(title="订单", value="全部订单", :isLink="true", :clickable="true", @click="toOrder(0)")
-			u-grid(:col="5", :border="false")
-				u-grid-item(v-for="(item, index) in orderGridList", :index="index", :key="index", @click="toOrder(item.index)")
-					u-badge(max="99", :value="item.count", :offset="[0,7]", :absolute="true", bgColor="#fa3534")
-					image.grid-image(:src="item.image")
-					text.grid-text {{ item.name }}
+			view.grid-content
+				u-grid(:col="5", :border="false")
+					u-grid-item(v-for="(item, index) in orderGridList", :index="index", :key="index", @click="toOrder(item.index)")
+						u-badge(max="99", :value="item.count", :offset="[0,8]", :absolute="true", bgColor="#fa3534")
+						image.grid-image(:src="item.image")
+						text.grid-text {{ item.name }}
 		view.other-grid
 			u-scroll-list(indicatorColor="#fff0f0", indicatorActiveColor="#f56c6c")
 				view.scroll-list__goods-item(
@@ -379,7 +380,7 @@ page {
 		// background-image: $andry-bg-image;
 		// background-size: cover;
 		background: linear-gradient(to top, #ededed, #ffdd8f, #fcc53a);
-		padding: 80rpx 26rpx 120rpx 26rpx;
+		padding: 60rpx 26rpx 100rpx 26rpx;
 		display: flex;
 
 		.user-info {
@@ -439,7 +440,7 @@ page {
 			padding-bottom: 28rpx;
 		}
 
-		.u-grid {
+		.grid-content {
 			padding: 28rpx 28rpx 0rpx 28rpx;
 		}
 
@@ -495,7 +496,9 @@ page {
 	align-items: flex-start;
 }
 .chat {
+	position: relative;
 	margin-left: 16rpx;
+	margin-right: 8rpx;
 }
 
 /deep/ .u-divider {
