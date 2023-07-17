@@ -1,5 +1,6 @@
 <template lang="pug">
 view.andry-search(:class="{'popup-show': popupShow}")
+	status-bar
 	view.header
 		<!-- #ifdef H5 || APP-PLUS -->
 		u-icon.arrow-left(name="arrow-left", @click="onGoBack")
@@ -47,6 +48,9 @@ export default class Search extends Vue {
 		// #ifdef H5
 		this.offsetTop = "-44";
 		// #endif
+		// #ifdef APP-PLUS
+		this.offsetTop = plus.navigator.getStatusbarHeight().toString();
+		// #endif
 		uni.getStorage({
 			key: "historyList",
 			success: (res) => {
@@ -78,7 +82,7 @@ export default class Search extends Vue {
 				uni.setStorage({
 					key: "historyList",
 					data: this.historyList,
-					success: () => { }
+					success: () => {}
 				});
 			}
 		}
@@ -96,7 +100,7 @@ export default class Search extends Vue {
 		this.historyList = [];
 		uni.removeStorage({
 			key: "historyList",
-			success: () => { }
+			success: () => {}
 		});
 	}
 
@@ -119,7 +123,9 @@ export default class Search extends Vue {
 		padding: 12rpx 24rpx;
 		background: #ffffff;
 		z-index: 10090;
-
+		/* #ifdef APP-PLUS */
+		margin-top: var(--status-bar-height);
+		/* #endif */
 		.arrow-left {
 			margin-right: 20rpx;
 		}

@@ -104,7 +104,8 @@
         /* SDK配置 */
         "usingComponents" : true,
         "splashscreen" : {
-            "alwaysShowBeforeRender" : true
+            "alwaysShowBeforeRender" : true,
+            "waiting" : false
         }
     },
     "quickapp" : {},

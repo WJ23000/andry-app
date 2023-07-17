@@ -114,7 +114,7 @@ export default class Home extends Vue {
 		this.offsetTop = "0";
 		// #endif
 		// #ifdef APP-PLUS
-		this.offsetTop = "66";
+		this.offsetTop = (44 + plus.navigator.getStatusbarHeight()).toString();
 		// #endif
 		this.getList();
 	}
