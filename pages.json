@@ -5,6 +5,7 @@
 				"navigationBarTitleText": "首页",
 				"backgroundColor": "#ededed",
 				"titleNView": false, // 禁用原生导航栏
+				// "navigationStyle": "custom" // 自定义小程序导航栏
 				"enablePullDownRefresh": true // 使用下拉刷新
 			}
 		},

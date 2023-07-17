@@ -1,13 +1,15 @@
 <template lang="pug">
 view.andry-home
-	view.search-sticky(v-if="top > 44")
-		u-search(
-			placeholder="护肤品", 
-			v-model="keyword", 
-			:show-action="false",
-			:disabled="true",
-			@click="onSearch")
-		u-icon.scan(name="scan", color="#909193", size="28", @click="onScanCode")
+	view.header-top(v-if="top > 44")
+		status-bar
+		view.search-sticky
+			u-search(
+				placeholder="护肤品", 
+				v-model="keyword", 
+				:show-action="false",
+				:disabled="true",
+				@click="onSearch")
+			u-icon.scan(name="scan", color="#909193", size="28", @click="onScanCode")
 	view.header
 		view.search
 			u-search(
@@ -110,6 +112,9 @@ export default class Home extends Vue {
 		// #endif
 		// #ifdef H5
 		this.offsetTop = "0";
+		// #endif
+		// #ifdef APP-PLUS
+		this.offsetTop = "66";
 		// #endif
 		this.getList();
 	}
@@ -321,6 +326,9 @@ page {
 	.header {
 		background: linear-gradient(to top, #ededed, #ff6666, #fa3534);
 		padding: 0rpx 20rpx;
+		/* #ifdef APP-PLUS */
+		padding: var(--status-bar-height) 20rpx 0rpx 20rpx;
+		/* #endif */
 		.search {
 			padding: 12rpx 0rpx;
 			display: flex;
@@ -338,6 +346,9 @@ page {
 	.search-sticky {
 		position: fixed;
 		top: 0;
+		/* #ifdef APP-PLUS */
+		top: var(--status-bar-height);
+		/* #endif */
 		width: 100%;
 		background: #ffffff;
 		padding: 12rpx 24rpx;

@@ -50,6 +50,9 @@ export default class GlobalSearch extends Vue {
   justify-content: space-between;
   background: #ffffff;
   padding: 0rpx 24rpx;
+	/* #ifdef APP-PLUS */
+	margin-top: var(--status-bar-height);
+	/* #endif */
 
   .u-search-box {
     padding: 12rpx 0rpx;

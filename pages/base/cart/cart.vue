@@ -1,5 +1,6 @@
 <template lang="pug">
 view.andry-cart
+	status-bar
 	u-navbar.cart-header(
 		title=" "
 		:autoBack="false")
@@ -415,11 +416,19 @@ page {
 	.cart-header {
 		height: 44px;
 		line-height: 44px;
+		/* #ifdef APP-PLUS */
+		/deep/ .u-navbar--fixed {
+			top: var(--status-bar-height);
+		}
+		/* #endif */
 	}
 
 	.page-content {
 		/* #ifdef MP */
 		margin-top: 44px;
+		/* #endif */
+		/* #ifdef APP-PLUS */
+		margin-top: var(--status-bar-height);
 		/* #endif */
 		.cart-main {
 			display: flex;

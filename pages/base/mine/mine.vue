@@ -1,33 +1,36 @@
 <template lang="pug">
 view.andry-mine
-	view.search-sticky(v-if="top > 44")
-		u-navbar.mine-header(
-			title="我的",
-			:autoBack="false")
-			view(slot="left")
-				u-avatar(v-if="isAccountInfo", :src="userInfo.userImage", size="24")
-				u-avatar(v-else, :src="userInfo.noUserImage", size="24")
-			view.setting(slot="right")
-				u-icon(name="setting", size="20", @click="onSettingClick")
-				view.chat
-					u-badge(max="99", value="2", :offset="[-6,-8]", :absolute="true", bgColor="#fa3534")
-					u-icon(name="kefu-ermai", size="20")
-	view.header
-		view.user-info(v-if="isAccountInfo")
-			view.content
-				image.avatar(:src="userInfo.userImage")
+	view.header-top(v-if="top > 44")
+		status-bar
+		view.search-sticky
+			u-navbar.mine-header(
+				title="我的",
+				:autoBack="false")
+				view(slot="left")
+					u-avatar(v-if="isAccountInfo", :src="userInfo.userImage", size="24")
+					u-avatar(v-else, :src="userInfo.noUserImage", size="24")
+				view.setting(slot="right")
+					u-icon(name="setting", size="20", @click="onSettingClick")
+					view.chat
+						u-badge(max="99", value="2", :offset="[-6,-8]", :absolute="true", bgColor="#fa3534")
+						u-icon(name="kefu-ermai", size="20")
+	view.header-top
+		view.header
+			view.user-info(v-if="isAccountInfo")
+				view.content
+					image.avatar(:src="userInfo.userImage")
+					view.account.ml2
+						view.username {{ userInfo.username }}
+						view.phone {{ userInfo.phone }}
+				view.setting
+					u-icon(name="setting", size="20", @click="onSettingClick")
+					view.chat
+						u-badge(max="99", value="2", :offset="[-6,-8]", :absolute="true", bgColor="#fa3534")
+						u-icon(name="kefu-ermai", size="20")
+			view.user-login(v-else)
+				u-avatar(:src="userInfo.noUserImage", size="50")
 				view.account.ml2
-					view.username {{ userInfo.username }}
-					view.phone {{ userInfo.phone }}
-			view.setting
-				u-icon(name="setting", size="20", @click="onSettingClick")
-				view.chat
-					u-badge(max="99", value="2", :offset="[-6,-8]", :absolute="true", bgColor="#fa3534")
-					u-icon(name="kefu-ermai", size="20")
-		view.user-login(v-else)
-			u-avatar(:src="userInfo.noUserImage", size="50")
-			view.account.ml2
-				view.login(@click="onLogin") 注册/登录
+					view.login(@click="onLogin") 注册/登录
 	view.wrap
 		view.order-grid
 			u-cell.order-grid-other(title="订单", value="全部订单", :isLink="true", :clickable="true", @click="toOrder(0)")
@@ -113,7 +116,7 @@ export default class Mine extends Vue {
 			backgroundColor: "#fcc53a"
 		});
 		// #endif
-		// #ifdef H5
+		// #ifdef H5 || APP-PLUS
 		this.isAccountInfo = true;
 		// #endif
 		this.getList();
@@ -376,13 +379,22 @@ page {
 </style>
 <style lang="scss" scoped>
 .andry-mine {
+	.search-sticky {
+		/* #ifdef APP-PLUS */
+		/deep/ .u-navbar--fixed {
+			top: var(--status-bar-height);
+		}
+		/* #endif */
+	}
 	.header {
 		// background-image: $andry-bg-image;
 		// background-size: cover;
 		background: linear-gradient(to top, #ededed, #ffdd8f, #fcc53a);
 		padding: 50rpx 26rpx 100rpx 26rpx;
+		/* #ifdef APP-PLUS */
+		padding: 90rpx 26rpx 100rpx 26rpx;
+		/* #endif */
 		display: flex;
-
 		.user-info {
 			display: flex;
 			flex: 1;

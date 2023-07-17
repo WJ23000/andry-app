@@ -1,29 +1,27 @@
 <template lang="pug">
-view.status_bar
-		view.top_view  
+<!-- #ifdef APP-PLUS -->  
+view.status_bar(:style="{background: bgColor}")
+<!-- #endif --> 
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component({
 	components: {}
 })
-export default class StatusBar extends Vue {}
+export default class StatusBar extends Vue {
+	@Prop({ default: "#ffffff" })
+	bgColor!: any;
+}
 </script>
 
 <style lang="scss" scoped>
 .status_bar {
 	position: fixed;
 	top: 0;
-	z-index: 100;
 	width: 100%;
 	height: var(--status-bar-height); // 状态栏高度
-	background: linear-gradient(
-		to right,
-		#2c8fe1,
-		#3ca5e6,
-		#47b5e9
-	); // 状态栏背景颜色
+	z-index: 999;
 }
 </style>

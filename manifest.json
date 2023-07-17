@@ -8,7 +8,7 @@
     "app-plus" : {
         /* 关闭App状态栏沉浸式使用false */
         "statusbar" : {
-            "immersed" : false
+            "immersed" : true
         },
         /* 5+App特有相关 */
         "modules" : {
@@ -92,15 +92,20 @@
                 }
             },
             "splashscreen" : {
-                "androidStyle" : "common",
+                "androidStyle" : "default",
                 "android" : {
-                    "hdpi" : ""
+                    "hdpi" : "static/welcome.png",
+                    "xhdpi" : "static/welcome.png",
+                    "xxhdpi" : "static/welcome.png"
                 },
                 "useOriginalMsgbox" : true
             }
         },
         /* SDK配置 */
-        "usingComponents" : true
+        "usingComponents" : true,
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : true
+        }
     },
     "quickapp" : {},
     /* 快应用特有相关 */
@@ -128,7 +133,8 @@
         "usingComponents" : true
     },
     "mp-qq" : {
-        "usingComponents" : true
+        "usingComponents" : true,
+        "appid" : "1112235905"
     },
     "h5" : {
         "title" : "YidaGO",

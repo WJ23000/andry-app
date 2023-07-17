@@ -1,5 +1,6 @@
 <template lang="pug">
 view.andry-classify
+	status-bar
 	global-search
 	view.u-menu-wrap
 		scroll-view.u-tab-view.menu-scroll-view(
