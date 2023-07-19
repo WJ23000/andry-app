@@ -20,7 +20,11 @@ export default class Banner extends Vue {
 
 	swiperInfo = {
 		current: 1,
-		total: this.bannerList.length
+		total: 0
+	}
+	
+	created() {
+		this.swiperInfo.total = this.bannerList.length;
 	}
 
 	onSwiperChange(value) {

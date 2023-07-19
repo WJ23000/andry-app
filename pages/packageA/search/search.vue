@@ -3,7 +3,7 @@ view.andry-search(:class="{'popup-show': popupShow}")
 	status-bar
 	view.header
 		<!-- #ifdef H5 || APP-PLUS -->
-		u-icon.arrow-left(name="arrow-left", @click="onGoBack")
+		u-icon.arrow-left(name="arrow-left", @click="onGoBack", size="22")
 		<!-- #endif -->
 		u-search(
 			placeholder="护肤品",

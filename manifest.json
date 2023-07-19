@@ -52,8 +52,7 @@
                 "ad" : {},
                 "oauth" : {
                     "weixin" : {
-                        "appid" : "wxb0f423e9bbd696ce",
-                        "UniversalLinks" : ""
+                        "appid" : "wxb0f423e9bbd696ce"
                     }
                 },
                 "payment" : {},
@@ -94,9 +93,9 @@
             "splashscreen" : {
                 "androidStyle" : "default",
                 "android" : {
-                    "hdpi" : "static/welcome.png",
-                    "xhdpi" : "static/welcome.png",
-                    "xxhdpi" : "static/welcome.png"
+                    "hdpi" : "",
+                    "xhdpi" : "",
+                    "xxhdpi" : ""
                 },
                 "useOriginalMsgbox" : true
             }
@@ -146,5 +145,6 @@
         "devServer" : {
             "port" : 8080
         }
-    }
+    },
+    "_spaceID" : "mp-b9c2cd0c-1ed8-40cd-bd2a-444ae22188dc"
 }
