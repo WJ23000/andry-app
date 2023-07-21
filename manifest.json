@@ -14,7 +14,8 @@
         "modules" : {
             "OAuth" : {},
             "Barcode" : {},
-            "Camera" : {}
+            "Camera" : {},
+            "VideoPlayer" : {}
         },
         /* 模块配置 */
         "distribute" : {
