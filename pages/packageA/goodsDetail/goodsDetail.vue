@@ -203,8 +203,8 @@ export default class GoodsDetail extends Vue {
 
 	// 跳到购物车
 	onCartPage() {
-		uni.navigateTo({
-			url: "pages/base/cart/cart"
+		uni.switchTab({
+			url: "/pages/base/cart/cart"
 		});
 	}
 
