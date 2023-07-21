@@ -1,23 +1,40 @@
 <template lang="pug">
 view.andry-goods-detail
-	view.header(:style="{background: bgColor}", :class="{show: top > 44}")
-		view.left-option(:class="{resetIcon: top < 44}")
-			u-icon.left-icon(name="arrow-left", @click="onGoBack", size="22")
+	status-bar
+	view.header(id="goods",:style="{background: bgColor}", :class="{show: top > 44}")
+		view.left-option
+			<!-- #ifdef H5 || APP-PLUS -->
+			view.left-image(:class="{resetImage: top < 44}")
+				image(:src="top > 44 ? returnImage : returnImageWhite", @click="onGoBack")
+			<!-- #endif -->
 			view.tabs(v-if="top > 44")
-				view.item(v-for="item in tabList") {{ item }}
-		view.right-option(:class="{resetIcon: top < 44}")
-			u-icon.right-icon(name="star" size="22")
-			u-icon.right-icon(name="share-square", size="22")
+				view.item(
+					v-for="(item,index) in tabList", 
+					:class="{active: current == index}",
+					@click="onTab(item,index)") {{ item.name }}
+		view.right-option
+			view.right-image(:class="{resetImage: top < 44}")
+				image(:src="top > 44 ? starImage : starImageWhite")
+			view.right-image(:class="{resetImage: top < 44}")
+				image(:src="top > 44 ? shareImage : shareImageWhite")
 	Banner(:bannerList="bannerList")
-	view.cell
+	view.money-cell
 		view.money
 			text.unit 预估到手
 			text.unit ￥
 			text.price 2580
 			text.decimal .00
+	view.cell(:style="{marginTop: '-25px'}")
 		view.title
 			text.type 自营
 			text.sub-title SK-II神仙水160ml精华液双支装sk2护肤品skii化妆品礼盒520情人节礼物	
+		view.tag 美白 · 提亮肤色 · 白到自发光
+		view.rank
+			text.type
+				text 排行榜
+			view.sub-title 
+				view 精华热卖榜 · 第5名
+				u-icon(name="arrow-right", size="14", color="#fa3534", :bold="true")
 		view.info
 			view.item 
 				u-icon(name="share-square", size="22")
@@ -48,10 +65,10 @@ view.andry-goods-detail
 				view.service-detail
 					view 破损包退 · 极速退款 · 7天无理由退换
 					u-icon(name="arrow-right", size="14", color="#fa3534", :bold="true")
-	view.cell
-		view.evaluate
-			view.evaluate-title 评价(8万+)
-			view.favorable-rate
+	view.cell(id="evaluate")
+		view.cell-header
+			view.cell-header-title 评价(8万+)
+			view.cell-header-other
 				text 好评率 90%
 				u-icon(name="arrow-right", size="14", :bold="true")
 		view.evaluate-cell(v-for="item in evaluateList")
@@ -64,15 +81,38 @@ view.andry-goods-detail
 				view.comment {{ item.evaluate }}
 			view.right
 				image(v-for="record in item.imgList", :src="record") 
-	view.wrap
-		goods-list(
-			:leftHeight="leftHeight",
-			:rightHeight="rightHeight",
-			:leftList="leftList",
-			:rightList="rightList",
-			:loadTxt="ajax.loadTxt",
-			@onHeight="onHeight",
-			@onClick="onGoodsClick")
+	view.cell(id="recommend")
+		view.cell-header
+			view.cell-header-sub-title 
+				view.cell-header-line
+				view 为你推荐
+			view.cell-header-other
+				text 查看全部
+				u-icon(name="arrow-right", size="14", :bold="true")
+		view.recommend-cell
+			Recommend(:recommendList="recommendList")
+	view.cell(id="detail")
+		view.cell-header
+			view.cell-header-sub-title 
+				view.cell-header-line
+				view 详情		
+		Introduce(:introduceList="introduceList")
+	view.bottom
+		view.bottom-option(@click="onGoBack")
+			view.item
+				image(src="http://cdn.wjaxx.xyz/tabbar/home-black.png")
+				text 首页
+		view.bottom-option
+			view.item
+				image(src="http://cdn.wjaxx.xyz/kefu.png")
+				text 客服
+		view.bottom-option(@click="onCartPage")
+			view.item
+				image(src="http://cdn.wjaxx.xyz/tabbar/cart-black.png")
+				text 购物车
+		view.button 
+			view.left 加入购物车
+			view.right 立即购买
 	back-top(:top="top")
 </template>
 
@@ -80,17 +120,47 @@ view.andry-goods-detail
 import { Component, Vue } from "vue-property-decorator";
 import { GOODS_BANNER_DATA, GOODS_DATA } from "@/model";
 import Banner from "./components/banner.vue";
+import Recommend from "./components/recommend.vue";
+import Introduce from "./components/introduce.vue";
 @Component({
 	components: {
-		Banner
+		Banner,
+		Recommend,
+		Introduce
 	}
 })
 export default class GoodsDetail extends Vue {
 	bannerList = GOODS_BANNER_DATA;
+	recommendList = GOODS_DATA;
 
 	top = 0;
 	bgColor = "";
-	tabList = ["商品", "评价", "详情", "推荐"];
+	tabList = [
+		{
+			id: "goods",
+			name: "商品"
+		},
+		{
+			id: "evaluate",
+			name: "评价"
+		},
+		{
+			id: "recommend",
+			name: "推荐"
+		},
+		{
+			id: "detail",
+			name: "详情"
+		}
+	];
+	current = 0;
+
+	returnImage = "http://cdn.wjaxx.xyz/return.png";
+	returnImageWhite = "http://cdn.wjaxx.xyz/return-white.png";
+	starImage = "http://cdn.wjaxx.xyz/star.png";
+	starImageWhite = "http://cdn.wjaxx.xyz/star-white.png";
+	shareImage = "http://cdn.wjaxx.xyz/share.png";
+	shareImageWhite = "http://cdn.wjaxx.xyz/share-white.png";
 
 	evaluateList = [
 		{
@@ -103,25 +173,19 @@ export default class GoodsDetail extends Vue {
 		}
 	];
 
-	// 商品推荐
-	leftHeight = 0;
-	rightHeight = 0;
-	leftList: any[] = [];
-	rightList: any[] = [];
-	ajax = {
-		// 是否可以加载
-		load: true,
-		// 加载中提示文字
-		loadTxt: "",
-		// 每页的请求条件
-		rows: 10,
-		// 页码
-		page: 1
-	};
+	introduceList = [
+		{
+			type: "video",
+			url: "http://cdn.wjaxx.xyz/goods/detail.mp4"
+		},
+		{
+			type: "image",
+			url: "http://cdn.wjaxx.xyz/goods/detail2.jpg"
+		}
+	];
 
 	onLoad(option) {
 		console.log("url参数", option);
-		this.getList();
 	}
 
 	// 监听页面滚动(一键置顶，tabs吸顶)
@@ -137,138 +201,26 @@ export default class GoodsDetail extends Vue {
 		});
 	}
 
-	// 监听高度变化
-	onHeight(height, tag) {
-		if (tag == "left") {
-			this.leftHeight += height;
-		} else {
-			this.rightHeight += height;
-		}
-	}
-	// 组件点击事件
-	onGoodsClick(index, tag) {
-		console.log(index, tag);
-		// 对应的数据
-		if (tag == "left") {
-			console.log(this.leftList[index]);
-		} else {
-			console.log(this.rightList[index]);
-		}
-		let direction = {
-			left: "左",
-			right: "右"
-		};
-		uni.showToast({
-			title: `${direction[tag]}侧列表第${index + 1}个被点击`,
-			icon: "none"
-		});
+	// 跳到购物车
+	onCartPage() {
 		uni.navigateTo({
-			url:
-				"/pages/packageA/goodsDetail/goodsDetail?id=" + this.leftList[index].id
+			url: "pages/base/cart/cart"
 		});
 	}
-	// 获取数据
-	getList() {
-		/*
-			无真实数据，当前由 setTimeout 模拟异步请求、
-			自行替换 请求方法将数据 传入 addList() 方法中
-			自行解决数据格式，自行修改组件内布局和内容绑定
-		*/
-		if (!this.ajax.load) {
-			return;
-		}
-		this.ajax.load = false;
-		this.ajax.loadTxt = "加载中";
 
-		setTimeout(() => {
-			// 生成随机数方法
-			let random = (min = 0, max) => {
-				return Math.floor(Math.random() * max) + min;
-			};
-
-			let res: any = [];
-			GOODS_DATA.forEach((item) => {
-				const price = random(9, 9999) + Math.random();
-				item.money = price.toFixed(2);
-			});
-			this.addList(GOODS_DATA);
-		}, 300);
-	}
-	addList(res) {
-		// 获取到的数据，请注意数据结构
-		if (!res || res.length < 1) {
-			this.ajax.loadTxt = "没有更多了";
-			return;
-		}
-
-		// 左右列表高度的差
-		let differ = this.leftHeight - this.rightHeight;
-		// 计算差值，用于确定优先插入那一边
-		let differVal = 0;
-
-		// 初始化左右列表的数据
-		let i = differ > 0 ? 1 : 0;
-
-		let [left, right]: any = [[], []];
-
-		// 获取插入的方向
-		let getDirection = (index) => {
-			/* 左侧高度大于右侧超过 600px 时，则前3条数据都插入到右边 */
-			if (differ >= 600 && index < 3) {
-				differVal = 1;
-				return "right";
-			}
-
-			/* 右侧高度大于左侧超过 600px 时，则前3条数据都插入到左边 */
-			if (differ <= -600 && index < 3) {
-				differVal = -1;
-				return "left";
-			}
-
-			/* 左侧高度大于右侧超过 350px 时，则前2条数据都插入到右边 */
-			if (differ >= 350 && index < 2) {
-				return "right";
-			}
-			/* 右侧高度大于左侧超过 350px 时，则前2条数据都插入到左边 */
-			if (differ <= -350 && index < 2) {
-				differVal = -1;
-				return "left";
-			}
-
-			/* 当前数据序号为偶数时，则插入到左边 */
-			if ((i + differVal) % 2 == 0) {
-				return "left";
-			} else {
-				/* 当前数据序号为奇数时，则插入到右边 */
-				return "right";
-			}
-		};
-
-		// 将数据源分为左右两个列表，容错差值请自行根据项目中的数据情况调节
-		res.forEach((item, index) => {
-			if (getDirection(index) == "left") {
-				//console.log(`差值：${differ},方向：left，序号${index}`)
-				left.push(item);
-			} else {
-				//console.log(`差值：${differ},方向：right，序号${index}`)
-				right.push(item);
-			}
-			i++;
-		});
-
-		// 将左右列表的数据插入，第一页时则覆盖
-		if (this.ajax.page == 1) {
-			this.leftList = left;
-			this.rightList = right;
-			uni.stopPullDownRefresh();
-		} else {
-			this.leftList = [...this.leftList, ...left];
-			this.rightList = [...this.rightList, ...right];
-		}
-
-		this.ajax.load = true;
-		this.ajax.loadTxt = "上拉加载更多";
-		this.ajax.page++;
+	// tab切换和锚点定位
+	onTab(item, index) {
+		this.current = index;
+		const id = "#" + item.id;
+		uni
+			.createSelectorQuery()
+			.select(id)
+			.boundingClientRect((rect) => {
+				uni.pageScrollTo({
+					scrollTop: (rect as any).top
+				});
+			})
+			.exec();
 	}
 
 	decimal(value, type) {
@@ -288,10 +240,12 @@ page {
 	.header {
 		position: fixed;
 		top: 0;
+		/* #ifdef APP-PLUS */
+		top: var(--status-bar-height);
+		/* #endif */
 		z-index: 999;
 		width: 100%;
 		height: 44px;
-		line-height: 44px;
 		padding: 0rpx 12rpx 0rpx 20rpx;
 		display: flex;
 		align-items: center;
@@ -301,28 +255,25 @@ page {
 		.right-option {
 			display: flex;
 			align-items: center;
-			.left-icon {
+			.left-image {
 				margin-right: 12rpx;
 				width: 44rpx;
 				height: 44rpx;
-			}
-			.right-icon {
-				margin-right: 12rpx;
-			}
-			/deep/ .u-icon {
 				padding: 8rpx;
-				border-radius: 50%;
+			}
+			.right-image {
+				margin-right: 12rpx;
+				padding: 8rpx;
+			}
+			image {
+				width: 44rpx;
+				height: 44rpx;
 			}
 		}
-		.resetIcon {
-			/deep/ .u-icon {
-				padding: 8rpx;
-				background-color: rgba(0, 0, 0, 0.7);
-				border-radius: 50%;
-			}
-			/deep/ .u-icon__icon {
-				color: #ffffff !important;
-			}
+		.resetImage {
+			display: flex;
+			background: rgba(0, 0, 0, 0.5);
+			border-radius: 50%;
 		}
 	}
 	.show {
@@ -332,8 +283,11 @@ page {
 		display: flex;
 		justify-content: start;
 		.item {
-			margin-left: 20rpx;
+			margin-right: 20rpx;
 		}
+	}
+	.active {
+		color: #fa3534;
 	}
 	// background-color: #f2f2f2;
 	.cell {
@@ -343,9 +297,22 @@ page {
 		border-radius: 16rpx;
 	}
 
+	.tag {
+		margin-top: 20rpx;
+		font-size: 26rpx;
+		color: #999999;
+	}
+
+	.money-cell {
+		background: #000000;
+		padding: 20rpx 28rpx 20rpx 38rpx;
+		margin: 20rpx;
+		border-radius: 16rpx;
+	}
+
 	.money {
-		margin-top: 8rpx;
-		color: #fa3534;
+		padding-bottom: 40rpx;
+		color: #ffffff;
 	}
 
 	.price {
@@ -361,6 +328,12 @@ page {
 	.title {
 		margin-top: 20rpx;
 		font-weight: bold;
+		word-break: break-all;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
 		.type {
 			background: #fa3534;
 			color: #ffffff;
@@ -370,9 +343,37 @@ page {
 			border-radius: 8rpx;
 		}
 		.sub-title {
-			font-size: 32rpx;
+			font-size: 36rpx;
 		}
 	}
+
+	.rank {
+		margin-top: 20rpx;
+		display: flex;
+		align-items: center;
+		.type {
+			background: #fa3534;
+			color: #ffffff;
+			font-size: 26rpx;
+			padding: 4rpx 12rpx;
+			margin-right: 8rpx;
+			border-radius: 8rpx;
+		}
+		.sub-title {
+			margin-left: 20rpx;
+			display: flex;
+			justify-content: space-between;
+			flex: 1;
+			font-size: 26rpx;
+			color: #fa3534;
+		}
+	}
+
+	.rank-image {
+		width: 28rpx;
+		height: 28rpx;
+	}
+
 	.info {
 		display: flex;
 		justify-content: space-between;
@@ -381,7 +382,7 @@ page {
 		.item {
 			display: flex;
 			align-items: center;
-			font-size: 20rpx;
+			font-size: 24rpx;
 			&-title {
 				margin-left: 8rpx;
 				color: #999999;
@@ -434,15 +435,26 @@ page {
 		align-items: baseline;
 	}
 
-	.evaluate {
+	.cell-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 20rpx;
-		.evaluate-title {
+		&-line {
+			background: #fa3534;
+			width: 6rpx;
+			height: 34rpx;
+			margin-right: 8rpx;
+		}
+		&-title {
 			font-weight: bold;
 		}
-		.favorable-rate {
+		&-sub-title {
+			display: flex;
+			align-items: flex-end;
+			font-size: 28rpx;
+		}
+		&-other {
 			display: flex;
 			font-size: 24rpx;
 		}
@@ -461,8 +473,8 @@ page {
 				display: flex;
 			}
 			.comment {
-				margin-top: 12rpx;
-				font-size: 28rpx;
+				margin-top: 14rpx;
+				font-size: 26rpx;
 				word-break: break-all;
 				text-overflow: ellipsis;
 				display: -webkit-box;
@@ -480,40 +492,58 @@ page {
 		}
 	}
 
-	.wrap {
-		padding: 20rpx 10rpx;
-		background: #ededed;
+	.recommend-cell {
+		margin: 0rpx -16rpx;
+	}
 
-		.waterfall-box {
-			padding: 20rpx 0rpx;
-			box-sizing: border-box;
-
-			> view {
-				padding: 0 10rpx;
-			}
-		}
-
-		.h-flex-x {
+	.bottom {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 44px;
+		line-height: 12px;
+		background-color: #ffffff;
+		z-index: 999;
+		display: flex;
+		justify-items: center;
+		justify-content: space-around;
+		.bottom-option {
 			display: flex;
-			flex-direction: row;
-			flex-wrap: nowrap;
-			justify-content: flex-start;
-			align-items: flex-start;
-			align-content: flex-start;
-
-			&.h-flex-2 {
-				> view {
-					width: 50%;
-				}
+			align-items: center;
+		}
+		.item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 4rpx;
+			font-size: 24rpx;
+			image {
+				width: 44rpx;
+				height: 44rpx;
 			}
 		}
-
-		.load-txt {
-			padding: 0 0 20rpx 0;
-			height: 100%;
-			text-align: center;
-			color: #999999;
-			font-size: 20rpx;
+		.button {
+			display: flex;
+			align-items: center;
+			.left {
+				height: 68rpx;
+				line-height: 68rpx;
+				padding: 0rpx 24rpx;
+				background-color: #fa3534;
+				color: #ffffff;
+				font-size: 28rpx;
+				border-radius: 50rpx;
+			}
+			.right {
+				margin-left: 24rpx;
+				height: 68rpx;
+				line-height: 68rpx;
+				padding: 0rpx 24rpx;
+				background-color: #000000;
+				color: #ffffff;
+				font-size: 28rpx;
+				border-radius: 50rpx;
+			}
 		}
 	}
 

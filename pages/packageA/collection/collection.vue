@@ -2,7 +2,8 @@
 view.andry-collection-list
 	view.card(
 		v-for="(item,index) in collectionList", 
-		:key="index")
+		:key="index",
+		@click="onGoodsClick")
 		image(:src="item.url")
 		view.content
 			view.title {{ item.title }}
@@ -45,6 +46,13 @@ export default class CollectionList extends Vue {
 			title: "触底加载……",
 			icon: "none",
 			duration: 1000
+		});
+	}
+	
+	// 组件点击事件
+	onGoodsClick() {
+		uni.navigateTo({
+			url: "/pages/packageA/goodsDetail/goodsDetail?id=1"
 		});
 	}
 
