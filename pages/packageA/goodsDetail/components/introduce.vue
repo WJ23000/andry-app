@@ -25,6 +25,7 @@ export default class Introduce extends Vue {
 	&-video {
 		display: flex;
 		width: 100%;
+		z-index: 0;
 	}
 	&-image {
 		width: 100%;

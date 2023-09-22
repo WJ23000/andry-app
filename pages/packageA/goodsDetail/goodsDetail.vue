@@ -1,7 +1,7 @@
 <template lang="pug">
 view.andry-goods-detail
 	status-bar
-	view.header(id="goods",:style="{background: bgColor}", :class="{show: top > 44}")
+	view.header(:style="{background: bgColor}", :class="{show: top > 44}")
 		view.left-option
 			<!-- #ifdef H5 || APP-PLUS -->
 			view.left-image(:class="{resetImage: top < 44}")
@@ -17,7 +17,7 @@ view.andry-goods-detail
 				image(:src="top > 44 ? starImage : starImageWhite")
 			view.right-image(:class="{resetImage: top < 44}")
 				image(:src="top > 44 ? shareImage : shareImageWhite")
-	Banner(:bannerList="bannerList")
+	Banner(id="goods", :bannerList="bannerList")
 	view.money-cell
 		view.money
 			text.unit 预估到手
@@ -65,7 +65,9 @@ view.andry-goods-detail
 				view.service-detail
 					view 破损包退 · 极速退款 · 7天无理由退换
 					u-icon(name="arrow-right", size="14", color="#fa3534", :bold="true")
-	view.cell(id="evaluate")
+	<!-- 暗锚点 -->
+	view.dark_anchor(id="evaluate")
+	view.cell
 		view.cell-header
 			view.cell-header-title 评价(8万+)
 			view.cell-header-other
@@ -81,7 +83,9 @@ view.andry-goods-detail
 				view.comment {{ item.evaluate }}
 			view.right
 				image(v-for="record in item.imgList", :src="record") 
-	view.cell(id="recommend")
+	<!-- 暗锚点 -->
+	view.dark_anchor(id="recommend")
+	view.cell
 		view.cell-header
 			view.cell-header-sub-title 
 				view.cell-header-line
@@ -91,7 +95,9 @@ view.andry-goods-detail
 				u-icon(name="arrow-right", size="14", :bold="true")
 		view.recommend-cell
 			Recommend(:recommendList="recommendList")
-	view.cell(id="detail")
+	<!-- 暗锚点 -->
+	view.dark_anchor(id="detail")
+	view.cell
 		view.cell-header
 			view.cell-header-sub-title 
 				view.cell-header-line
@@ -211,14 +217,18 @@ export default class GoodsDetail extends Vue {
 	// tab切换和锚点定位
 	onTab(item, index) {
 		this.current = index;
-		const id = "#" + item.id;
-		uni
-			.createSelectorQuery()
-			.select(id)
-			.boundingClientRect((rect) => {
-				uni.pageScrollTo({
-					scrollTop: (rect as any).top
-				});
+		const query = uni.createSelectorQuery();
+		query
+			.select("#" + item.id)
+			.boundingClientRect((data: any) => {
+				console.log(data, "data");
+				let pageScrollTop = Math.round(data.top);
+				setTimeout(() => {
+					uni.pageScrollTo({
+						scrollTop: pageScrollTop, //滚动的距离
+						duration: 300 //过渡时间
+					});
+				}, 50);
 			})
 			.exec();
 	}
@@ -275,6 +285,10 @@ page {
 			background: rgba(0, 0, 0, 0.5);
 			border-radius: 50%;
 		}
+	}
+	.dark_anchor {
+		height: 44px;
+		margin-top: -44px;
 	}
 	.show {
 		animation: 1s fadeIn ease-out;
@@ -403,6 +417,7 @@ page {
 			flex: 1;
 			justify-content: space-between;
 			align-items: baseline;
+			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -453,6 +468,7 @@ page {
 			display: flex;
 			align-items: flex-end;
 			font-size: 28rpx;
+			font-weight: bold;
 		}
 		&-other {
 			display: flex;

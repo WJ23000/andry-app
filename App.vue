@@ -4,6 +4,7 @@ export default Vue.extend({
 	mpType: 'app',
 	onLaunch() {
 		console.log('App Launch')
+		plus.navigator.closeSplashscreen();
 	},
 	onShow() {
 		console.log('App Show')

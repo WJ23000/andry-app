@@ -3,7 +3,8 @@ view.back-top
 	u-back-top(
 		:scroll-top="top", 
 		right="12", 
-		z-index="1000")
+		z-index="1000",
+		@click="onBackTop")
 </template>
 
 <script lang="ts">
@@ -14,6 +15,10 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 export default class BackTop extends Vue {
 	@Prop()
 	top!: any;
+	
+	onBackTop() {
+		this.$emit("backTop")
+	}
 }
 </script>
 
